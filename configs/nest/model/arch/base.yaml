@@ -1,0 +1,94 @@
+# basic
+num_layers: null
+hidden_size: null
+ffn_hidden_size: null
+num_attention_heads: null
+kv_channels: null
+num_query_groups: null
+group_query_attention: False
+norm_epsilon: 1.0e-05
+
+# embedding
+max_position_embeddings: 4096
+position_embedding_type: rope
+make_vocab_size_divisible_by: 128
+rotary_percent: 0.5
+rotary_base: 10000
+add_position_embedding: False
+use_rotary_position_embeddings: null
+rotary_interleaved: False
+untie_embeddings_and_output_weights: True
+rotary_seq_len_interpolation_factor: null
+window_size: null
+
+# activation
+activation_func: swiglu
+openai_gelu: False
+squared_relu: False
+swiglu: True
+
+# dropout
+hidden_dropout: 0.0
+attention_dropout: 0.0
+
+# bias
+add_bias_linear: False
+bias_activation_fusion: False
+add_qkv_bias: False
+
+# residual conn
+apply_residual_connection_post_layernorm: False
+fp32_residual_connection: False
+
+# layer norm 
+layernorm_zero_centered_gamma: True
+normalization: "LayerNorm"  # alt value supported by TE: "RMSNorm"  
+apply_layernorm_1p: False
+
+# mcore 
+use_legacy_models: False
+spec: null
+transformer_impl: local
+
+# fusion
+bias_swiglu_fusion: true
+masked_softmax_fusion: True
+no_persist_layer_norm: False
+memory_efficient_layer_norm: False
+bias_dropout_fusion: True
+apply_rope_fusion: True
+bias_gelu_fusion: true
+
+# gated linear
+gated_linear_unit: False
+
+# moe 
+num_moe_experts: null
+moe_router_load_balancing_type: "aux_loss"
+moe_router_topk: 2
+moe_grouped_gemm: false
+moe_aux_loss_coeff: 0 # 1e-2 would be a good start value for load balance loss.
+moe_z_loss_coeff: null # 1e-3 would be a good start value for z-loss
+moe_input_jitter_eps: null
+num_experts: null
+moe_router_pre_softmax: False
+moe_token_dispatcher_type: allgather
+moe_per_layer_logging: False
+moe_expert_capacity_factor: null
+moe_pad_expert_input_to_capacity: False
+moe_token_drop_policy: probs
+moe_layer_recompute: False
+moe_extended_tp: False
+
+# vision
+vision_pretraining: false
+vision_pretraining_type: classify
+vision_backbone_type: vit
+swin_backbone_type: tiny
+num_classes: 1000
+img_h: 224
+img_w: 224
+num_channels: 3
+patch_dim: 16
+classes_fraction: 1.0
+data_per_class_fraction: 1.0

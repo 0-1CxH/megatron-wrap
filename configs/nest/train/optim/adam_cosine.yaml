@@ -1,0 +1,43 @@
+# lr schedule
+lr: null
+min_lr: 0.0
+
+head_lr_mult: 1.0
+decoupled_lr: null
+decoupled_min_lr: null
+
+# warmup 
+lr_warmup_iters: null
+lr_warmup_init: 0.0
+lr_warmup_fraction: null
+lr_warmup_samples: null
+
+# decay
+lr_decay_style: cosine
+lr_decay_iters: null
+lr_decay_samples: null
+
+lr_wsd_decay_style: exponential
+lr_wsd_decay_iters: null
+lr_wsd_decay_samples: null
+
+# optimizer
+optimizer: adam
+weight_decay: 0.1
+start_weight_decay: null
+end_weight_decay: null
+weight_decay_incr_style: constant
+clip_grad: 1.0
+adam_beta1: 0.9
+adam_beta2: 0.95
+adam_eps: 1.e-08
+sgd_momentum: 0.9
+override_opt_param_scheduler: False
+use_checkpoint_opt_param_scheduler: False
+accumulate_allreduce_grads_in_fp32: False
+
+# activation recomputation
+recompute_granularity: null
+recompute_method: null
+recompute_num_layers: null
+distribute_saved_activations: null
