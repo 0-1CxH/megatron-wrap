@@ -1,0 +1,15 @@
+pipeline_dtype: null
+grad_scale_func: null
+enable_autocast: False
+autocast_dtype: null
+variable_seq_lengths: False
+num_microbatches_with_partial_activation_checkpoints: null
+overlap_p2p_comm: true
+batch_p2p_comm: True
+batch_p2p_sync: True
+use_ring_exchange_p2p: False
+deallocate_pipeline_outputs: False
+no_sync_func: null
+grad_sync_func: null
+param_sync_func: null
+pipeline_model_parallel_split_rank: null

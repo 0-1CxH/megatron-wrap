@@ -1,0 +1,112 @@
+# mixed-precision
+apply_query_key_layer_scaling: False
+attention_softmax_in_fp32: False
+
+# miscellaneous
+clone_scatter_output_in_embedding: True
+finalize_model_grads_func: null
+
+# cpu offloading
+cpu_offloading: False
+cpu_offloading_num_layers: 0
+_cpu_offloading_context: null
+cpu_offloading_weights: False
+cpu_offloading_activations: True
+
+# garbage collection
+manual_gc: False
+manual_gc_interval: 0
+manual_gc_eval: True
+
+# retro 
+retro_project_dir: null
+retro_add_retriever: false
+retro_cyclic_train_iters: null
+retro_encoder_layers: 2
+retro_encoder_hidden_dropout: 0.1
+retro_encoder_attention_dropout: 0.1
+retro_num_neighbors: 2
+retro_num_retrieved_chunks: 2
+retro_attention_gate: 1
+retro_verify_neighbor_count: true
+
+# dino 
+dino_local_img_size: 96
+dino_local_crops_number: 10
+dino_head_hidden_size: 2048
+dino_bottleneck_size: 256
+dino_freeze_last_layer: 1
+dino_norm_last_layer: false
+dino_warmup_teacher_temp: 0.04
+dino_teacher_temp: 0.07
+dino_warmup_teacher_temp_epochs: 30
+
+
+# hybrid
+hybrid_attention_ratio: 0.0
+hybrid_mlp_ratio: 0.0
+hybrid_override_pattern: null
+
+# timing
+barrier_with_L1_time: True
+timers: null
+
+# straggler
+logging_level: null
+log_straggler: false
+disable_straggler_on_startup: false
+straggler_ctrlr_port: 65535
+straggler_minmax_count: 1
+
+# ...
+app_tag_run_name: null
+app_tag_run_version: 0.0.0
+
+adlr_autoresume: False
+adlr_autoresume_interval: 1000
+
+biencoder_projection_dim: 0
+biencoder_shared_query_context_model: false
+
+block_data_path: null
+
+encoder_num_layers: null
+decoder_num_layers: null
+
+onnx_safe: null
+
+bert_load: null
+bert_binary_head: True
+bert_embedder_type: megatron
+output_bert_embeddings: false
+
+tiktoken_pattern: null
+tiktoken_num_special_tokens: 1000
+tiktoken_special_tokens: null
+
+retriever_report_topk_accuracies: []
+retriever_score_scaling: false
+
+deterministic_mode: false
+defer_embedding_wgrad_compute: false
+wgrad_deferral_limit: 0
+
+mask_type: random
+mask_factor: 1.0
+iter_per_epoch: 1250
+qk_layernorm: false
+inference_batch_times_seqlen_threshold: 512
+max_tokens_to_oom: 12000
+s3_cache_path: null
+ict_head_size: null
+ict_load: null
+query_in_block_prob: 0.1
+use_one_sent_docs: false
+evidence_data_path: null
+embedding_path: null
+indexer_batch_size: 128
+indexer_log_interval: 1000
+
+
+
+

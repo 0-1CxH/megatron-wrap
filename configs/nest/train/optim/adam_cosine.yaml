@@ -35,6 +35,7 @@ sgd_momentum: 0.9
 override_opt_param_scheduler: False
 use_checkpoint_opt_param_scheduler: False
 accumulate_allreduce_grads_in_fp32: False
+gradient_accumulation_fusion: True
 
 # activation recomputation
 recompute_granularity: null
