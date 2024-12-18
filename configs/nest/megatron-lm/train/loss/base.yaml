@@ -1,4 +1,3 @@
-parallel_output: false # this is not the original arg
 fp16_lm_cross_entropy: False
 cross_entropy_loss_fusion: False
 calculate_per_token_loss: false
