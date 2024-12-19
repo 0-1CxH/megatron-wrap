@@ -9,8 +9,6 @@ tp_comm_overlap_rs_dgrad: False
 tp_comm_split_ag: True
 tp_comm_split_rs: True
 
-tp_comm_atomic_ag: True
-tp_comm_atomic_rs: True
 
 tp_comm_bulk_wgrad: True
 tp_comm_bulk_dgrad: True

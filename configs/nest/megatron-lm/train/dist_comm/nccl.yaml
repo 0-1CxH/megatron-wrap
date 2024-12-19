@@ -1,13 +1,14 @@
+local_rank: null
+world_size: null
+
 distributed_backend: nccl
-distributed_timeout_minutes: 10
+distributed_timeout_minutes: 60
 overlap_grad_reduce: False
 delay_grad_reduce: True
 overlap_param_gather: False
 delay_param_gather: False
 scatter_gather_tensors_in_pipeline: True
-local_rank: null
 lazy_mpu_init: null
 empty_unused_memory_level: 0
 standalone_embedding_stage: False
-use_distributed_optimizer: False
 nccl_communicator_config_path: null

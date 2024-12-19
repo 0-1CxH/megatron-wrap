@@ -7,7 +7,7 @@ save_interval: null
 eval_iters: null
 eval_interval: null
 
-use_flash_attn: False
+use_flash_attn: true
 seed: 1234
 
 # load
@@ -15,7 +15,7 @@ load: null
 no_load_optim: null
 no_load_rng: null
 use_checkpoint_args: False
-exit_on_missing_checkpoint: False
+exit_on_missing_checkpoint: true
 # save
 save: null
 no_save_optim: null

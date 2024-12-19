@@ -9,20 +9,18 @@ group_query_attention: False
 norm_epsilon: 1.0e-05
 
 # embedding
-max_position_embeddings: 4096
-position_embedding_type: rope
+max_position_embeddings: null
+position_embedding_type: learned_absolute
 make_vocab_size_divisible_by: 128
-rotary_percent: 0.5
+rotary_percent: 1.0
 rotary_base: 10000
 add_position_embedding: False
-use_rotary_position_embeddings: null
+use_rotary_position_embeddings: true
 rotary_interleaved: False
 untie_embeddings_and_output_weights: True
 rotary_seq_len_interpolation_factor: null
-window_size: null
 
 # activation
-activation_func: swiglu
 openai_gelu: False
 squared_relu: False
 swiglu: True
@@ -42,19 +40,18 @@ fp32_residual_connection: False
 
 # layer norm 
 layernorm_zero_centered_gamma: True
-normalization: "LayerNorm"  # alt value supported by TE: "RMSNorm"  
+normalization: "RMSNorm"  # alt value LayerNorm, "RMSNorm" needs TE
 apply_layernorm_1p: False
 
 # mcore 
 use_legacy_models: False
 spec: null
-transformer_impl: local
+transformer_impl: transformer_engine
 
 # fusion
 bias_swiglu_fusion: true
 masked_softmax_fusion: True
 no_persist_layer_norm: False
-memory_efficient_layer_norm: False
 bias_dropout_fusion: True
 apply_rope_fusion: True
 bias_gelu_fusion: true

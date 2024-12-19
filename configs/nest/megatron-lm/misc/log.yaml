@@ -1,4 +1,4 @@
-log_interval: 100
+log_interval: 1
 
 log_params_norm: True
 log_num_zeros_in_grad: True

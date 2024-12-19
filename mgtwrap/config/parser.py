@@ -1,3 +1,8 @@
-from .utils import yaml_file_loader
+from confignest import ConfigNest
 
-# can use confignest here directly 
+
+c = ConfigNest("/gpfs/public/infra/qhu/projects/megatron-wrap/configs/nest", "/gpfs/public/infra/qhu/projects/megatron-wrap/configs/view/debug.yaml")
+
+
+for key, value in sorted(vars(c.export_flatten_namespace()).items()):
+    print(f"{key}.....{value}")

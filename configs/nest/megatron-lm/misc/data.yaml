@@ -1,6 +1,6 @@
 #  dataset
 data_path: null
-split: '99,1,0'
+split: '100,0,0'
 train_data_path: null
 valid_data_path: null
 test_data_path: null
@@ -32,5 +32,5 @@ reset_position_ids: False
 reset_attention_mask: False
 eod_mask_loss: False
 train_samples: 268554688
-dataloader_type: null
+dataloader_type: cyclic
 create_attention_mask_in_dataloader: true

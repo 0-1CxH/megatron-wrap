@@ -1,17 +1,9 @@
 # mixed-precision
 apply_query_key_layer_scaling: False
-attention_softmax_in_fp32: False
+attention_softmax_in_fp32: true
 
 # miscellaneous
 clone_scatter_output_in_embedding: True
-finalize_model_grads_func: null
-
-# cpu offloading
-cpu_offloading: False
-cpu_offloading_num_layers: 0
-_cpu_offloading_context: null
-cpu_offloading_weights: False
-cpu_offloading_activations: True
 
 # garbage collection
 manual_gc: False
@@ -49,7 +41,6 @@ hybrid_override_pattern: null
 
 # timing
 barrier_with_L1_time: True
-timers: null
 
 # straggler
 logging_level: null
@@ -108,5 +99,6 @@ indexer_batch_size: 128
 indexer_log_interval: 1000
 
 
-
-
+test_mode: false
+mmap_bin_files: true
+yaml_cfg: null
