@@ -1,0 +1,11 @@
+__inherit__: llama-base.yaml
+
+num_layers: 32
+hidden_size: 4096
+ffn_hidden_size: 11008
+num_attention_heads: 32
+group_query_attention: false
+norm_epsilon: 1.0e-05
+
+max_position_embeddings: 4096
+rotary_base: 10000

@@ -1,6 +1,6 @@
 # mixed-precision
 apply_query_key_layer_scaling: False
-attention_softmax_in_fp32: true
+
 
 # miscellaneous
 clone_scatter_output_in_embedding: True

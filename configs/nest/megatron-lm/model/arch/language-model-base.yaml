@@ -55,7 +55,7 @@ no_persist_layer_norm: False
 bias_dropout_fusion: True
 apply_rope_fusion: True
 bias_gelu_fusion: true
-
+attention_softmax_in_fp32: true
 # gated linear
 gated_linear_unit: False
 

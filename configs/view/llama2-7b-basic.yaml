@@ -1,0 +1,25 @@
+megatron-lm:
+  model:
+    arch:
+      __select__: llama2-7b
+    parallel:
+      __select__: base
+      __override__:
+        tensor_model_parallel_size: 2
+        pipeline_model_parallel_size: 2
+  train:
+    common:
+      micro_batch_size: 32
+      global_batch_size: 128
+      seq_length: 512
+      train_iters: 64
+      # laod: 
+    learning-rate:
+      lr: 5.0e-6
+      min_lr: 1.0e-10
+      lr_warmup_fraction: 0.05
+megatron-wrap:
+  output:
+    __select__: value
+
+    

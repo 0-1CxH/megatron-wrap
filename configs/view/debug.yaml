@@ -1,9 +1,9 @@
 megatron-lm:
   model:
     arch:
-      __select__: base
+      __select__: aria-moe
       __override__:
-        num_layers: 8
+        # num_layers: 8
         hidden_size: 2048
         ffn_hidden_size: 10240
         num_attention_heads: 8
@@ -17,6 +17,9 @@ megatron-lm:
       global_batch_size: 16
       seq_length: 1024
       train_iters: 32
+  misc:
+    data:
+      mock_data: true
 megatron-wrap:
   output:
     __select__: value

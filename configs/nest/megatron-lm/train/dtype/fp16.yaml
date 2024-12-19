@@ -1,0 +1,12 @@
+__inherit__: no-fp8.yaml
+
+fp16: True
+bf16: False
+params_dtype: "torch.float16"
+
+# loss scale
+loss_scale: null 
+initial_loss_scale: 4294967296
+min_loss_scale: 1.0
+loss_scale_window: 1000 
+hysteresis: 2
