@@ -1,4 +1,4 @@
-megatron-lm:
+megatron_lm:
   model:
     arch:
       __select__: aria-moe
@@ -20,7 +20,7 @@ megatron-lm:
   misc:
     data:
       mock_data: true
-megatron-wrap:
+megatron_wrap:
   output:
     __select__: value
 
