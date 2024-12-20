@@ -26,7 +26,7 @@ class MegatronModelProviderEntry:
         def _model_(pre_process, post_process):
             use_te = args.transformer_impl == "transformer_engine"
             config = core_transformer_config_from_args(args)
-            logger.info_rank_0(f'building GPT model')
+            logger.info_rank_0(f'[STATUS] building model')
             logger.debug_rank_0(f"use transformer engine: {use_te}, model provider args: {model_provider_args}")
 
             if args.use_legacy_models:

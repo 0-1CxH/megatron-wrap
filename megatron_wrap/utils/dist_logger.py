@@ -34,7 +34,7 @@ def dist_log(level, rank0):
             line = caller.lineno
             message = " | ".join([str(_) for _ in args])
             if not rank0:
-                message = f"(rank {rank}) " + message
+                message = f"(rank{rank}) " + message
             getattr(logger, level)(message, stack_info=f"{file_name}:{function_name}:{line}")
     return log_func_of_level
 
