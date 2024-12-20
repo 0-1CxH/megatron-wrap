@@ -9,27 +9,37 @@ def set_logger_style():
     logger.add(
         sys.stdout,
         colorize=True,
-        format=('<green>{time:YYYY-MM-DD :mm:ss}</green> '
-                '<level>{level:<8}</level> '
-                '<cyan>{extra[stack_info]:<40}</cyan> <level>{message}</level>')
+        format=('<green>{time:YYYY-MM-DD hh:mm:ss}</green> '
+                '<level>{level:<8}</level>'
+                '<blue>{extra[stack_info]:<40}</blue> <level>{message}</level>')
     )
 
 
-def log_rank_0(level):
+def dist_log(level, rank0):
     def log_func_of_level(*args):
-        rank = int(os.environ.get("RANK", -1))
-        if rank <= 0:
+        flag = False
+        if rank0 is True:
+            rank = int(os.environ.get("RANK", -1))
+            if rank <= 0:
+                flag = True
+        else:
+            flag = True
+        if flag is True:
             caller = inspect.stack()[1]
             caller_frame = caller.frame
             function_name = caller_frame.f_code.co_name
             # module_name = caller_frame.f_globals["__name__"].split(".")[-1]
             file_name = os.path.basename(caller_frame.f_globals["__file__"])
             line = caller.lineno
-            getattr(logger, level)(*args, stack_info=f"{file_name}:{function_name}:{line}")
+            message = " | ".join(args)
+            getattr(logger, level)(message, stack_info=f"{file_name}:{function_name}:{line}")
     return log_func_of_level
 
 
 def patch_logger():
-    for level in ["error", "warning", "info", "debug"]:
-        setattr(logger, level + "_rank_0", log_rank_0(level))
+    levels = ["error", "warning", "info", "debug"]
+    for level in levels:
+        setattr(logger, level + "_rank_0", dist_log(level, rank0=True))
+        setattr(logger, level + "_all_ranks", dist_log(level, rank0=False))
+    logger.info_rank_0(f"logger patched, use ({'|'.join(levels)})_(rank_0|all_ranks) instead of the original to avoid unexpected behavior")
 
