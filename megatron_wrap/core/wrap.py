@@ -204,5 +204,20 @@ class MegatronWrap:
         
         logger.info_rank_0(f"[STATUS] optimizer is sucessfully built {format_optimizer_info(self.optimizer)}")
         logger.info_rank_0(f"[STATUS] scheduler is sucessfully built {format_scheduler_info(self.opt_param_scheduler)}")
+        return self.model, self.optimizer, self.opt_param_scheduler
+    
+    def _prepare_training_config(self):
+        # self.config = get_model_config(self.model[0])
+        # self.config.grad_scale_func = self.optimizer.scale_loss
+        # https://github.com/NVIDIA/Megatron-LM/blob/core_r0.8.0/megatron/training/training.py#L991
+        pass
+
+    def train(self):
+        # https://github.com/NVIDIA/Megatron-LM/blob/core_r0.8.0/megatron/training/training.py#L292
+        pass
+    
+    def train_step(self):
+        # https://github.com/NVIDIA/Megatron-LM/blob/core_r0.8.0/megatron/training/training.py#L1085
+        pass
 
 
