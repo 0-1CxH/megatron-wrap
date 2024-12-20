@@ -102,3 +102,8 @@ indexer_log_interval: 1000
 test_mode: false
 mmap_bin_files: true
 yaml_cfg: null
+
+# deprecated
+batch_size: null
+warmup: null
+checkpoint_activations: null

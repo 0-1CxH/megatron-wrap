@@ -7,10 +7,10 @@ decoupled_lr: null
 decoupled_min_lr: null
 
 # warmup 
-lr_warmup_iters: null
+lr_warmup_iters: 0
 lr_warmup_init: 0.0
-lr_warmup_fraction: null
-lr_warmup_samples: null
+lr_warmup_fraction: 0
+lr_warmup_samples: 0
 
 # decay
 lr_decay_style: cosine

@@ -16,6 +16,7 @@ gradient_accumulation_fusion: True
 use_distributed_optimizer: True
 
 # activation recomputation
+recompute_activations: false
 recompute_granularity: null
 recompute_method: null
 recompute_num_layers: null

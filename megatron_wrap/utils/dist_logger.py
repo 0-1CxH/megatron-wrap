@@ -16,10 +16,10 @@ def set_logger_style():
 
 
 def dist_log(level, rank0):
-    def log_func_of_level(*args):
+    def log_func_of_level(*args, **kwargs):
         flag = False
+        rank = int(os.environ.get("RANK", -1))
         if rank0 is True:
-            rank = int(os.environ.get("RANK", -1))
             if rank <= 0:
                 flag = True
         else:
@@ -31,7 +31,9 @@ def dist_log(level, rank0):
             # module_name = caller_frame.f_globals["__name__"].split(".")[-1]
             file_name = os.path.basename(caller_frame.f_globals["__file__"])
             line = caller.lineno
-            message = " | ".join(args)
+            message = " | ".join([str(_) for _ in args])
+            if not rank0:
+                message = f"[RANK {rank}] " + message
             getattr(logger, level)(message, stack_info=f"{file_name}:{function_name}:{line}")
     return log_func_of_level
 
@@ -41,5 +43,5 @@ def patch_logger():
     for level in levels:
         setattr(logger, level + "_rank_0", dist_log(level, rank0=True))
         setattr(logger, level + "_all_ranks", dist_log(level, rank0=False))
-    logger.info_rank_0(f"logger patched, use ({'|'.join(levels)})_(rank_0|all_ranks) instead of the original to avoid unexpected behavior")
+    logger.debug_rank_0(f"logger patched, use ({'|'.join(levels)})_(rank_0|all_ranks) instead of the original to avoid unexpected behavior")
 

@@ -1,0 +1,4 @@
+megatron_lm_project_path: null
+allow_no_cuda: false
+skip_compile_dependencies: true
+skip_set_jit_fusion: false
