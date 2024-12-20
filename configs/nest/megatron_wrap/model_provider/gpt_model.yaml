@@ -1,5 +1,4 @@
 model_type: GPT
-pre_process: True
-post_process: true
 parallel_output: false
 show_weight_details: false
+encoder_decoder_type: encoder_or_decoder

@@ -26,5 +26,7 @@ megatron_wrap:
     remove_logging: true
   model_provider:
     __select__: gpt_model
+    __override__:
+      show_weight_details: true
 
     

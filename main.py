@@ -4,7 +4,7 @@ from megatron_wrap.utils import logger
 
 c = MegatronWrap("configs/llama2-7b-sft.yaml")
 c.initialize()
-c.get_model_provider()()
+c.setup_model_and_optimizer()
 # DISTRIBUTED_ARGS="--nproc_per_node ${GPUS_PER_NODE} \
                 #   --nnodes ${WORLD_SIZE} \
                 #   --node_rank ${RANK} \

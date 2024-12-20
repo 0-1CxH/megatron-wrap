@@ -4,6 +4,7 @@ import sys
 import torch
 import gc
 from typing import Union
+from megatron_wrap.utils.formatter import format_weights_info, format_optimizer_info, format_scheduler_info
 from megatron_wrap.utils import logger
 from .config import MegatronWrapConfig
 from .model import MegatronModelProviderEntry
@@ -18,8 +19,7 @@ class MegatronWrap:
         self.megatron_lm_args = config.get_megatron_lm_args()
         self.megatron_wrap_args = config.get_megatron_wrap_args()
         # handle logger configs 
-        self.patch_print()
-        self.remove_logging()
+        self.handle_display()
 
     def initialize(self):
         logger.info_rank_0("[STATUS] initialization started")
@@ -44,17 +44,20 @@ class MegatronWrap:
             logger.error_all_ranks(f"failed to import megatron-lm from {megatron_lm_project_absolute_path}, due to: {e}")
             return False
     
-    def patch_print(self):
+    def handle_display(self):
         if self.megatron_wrap_args.logger.patch_print is True:
             logger.debug_rank_0(f"[PATCH] python builtin print patched, all print() will go to debug_all_ranks")
             builtins.print = logger.debug_all_ranks
-    
-    def remove_logging(self):
         if self.megatron_wrap_args.logger.remove_logging is True:
             import logging
             for handler in logging.root.handlers[:]:
                 logging.root.removeHandler(handler)
             logger.debug_rank_0(f"[PATCH] all logging handlers are removed, logging funcs no longer logs anything")
+        if self.megatron_wrap_args.logger.ignore_warning is True:
+            import warnings
+            warnings.simplefilter(action="ignore", category=FutureWarning)
+            warnings.simplefilter(action="ignore", category=UserWarning)
+            logger.debug_rank_0(f"[PATCH] FutureWarning, UserWarning are ignored")
     
     def megatron_lm_initialize(self):
         assert self.megatron_lm_is_importable, f"need to import megatron first"
@@ -169,11 +172,37 @@ class MegatronWrap:
             f"{torch.cuda.memory_reserved() / 1024 / 1024 / 1024:.2f} GiB."
         )
     
-    def get_model_provider(self):
+    def setup_model_and_optimizer(self):
         assert self.megatron_lm_is_initialized, f"need to initialize mpu first"
         from megatron.training.global_vars import get_args
-        return MegatronModelProviderEntry.get_provider(
-            model_provider_args=self.megatron_wrap_args.model_provider,
+        from megatron.core.enums import ModelType
+        from megatron.training.training import setup_model_and_optimizer
+
+        model_provider_args = self.megatron_wrap_args.model_provider
+
+        model_provider = MegatronModelProviderEntry.get_provider(
+            model_provider_args=model_provider_args,
             megatron_lm_args=get_args()
         )
-    
+        self.model, self.optimizer, self.opt_param_scheduler = setup_model_and_optimizer(
+            model_provider,
+            ModelType[model_provider_args.encoder_decoder_type].value
+        )
+
+        logger.info_rank_0(f"[STATUS] model is sucessfully built")
+        if model_provider_args.show_weight_details:
+            s = "\n"
+            for vidx, module in enumerate(self.model):
+                if len(self.model)!=1:
+                    head =  '[vitual '+ vidx + ']\n'
+                else:
+                    head = ''
+                s += f"{head}{format_weights_info(module)}"
+            logger.debug_all_ranks(s)
+        else:
+            logger.debug_all_ranks(f"\n{self.model}")
+        
+        logger.info_rank_0(f"[STATUS] optimizer is sucessfully built {format_optimizer_info(self.optimizer)}")
+        logger.info_rank_0(f"[STATUS] scheduler is sucessfully built {format_scheduler_info(self.opt_param_scheduler)}")
+
+

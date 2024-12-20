@@ -1,5 +1,4 @@
 from megatron_wrap.utils import logger
-from megatron_wrap.utils.formatter import format_weights_info
 
 class MegatronModelProviderEntry:
 
@@ -24,7 +23,7 @@ class MegatronModelProviderEntry:
 
         args = megatron_lm_args
 
-        def _model_():
+        def _model_(pre_process, post_process):
             use_te = args.transformer_impl == "transformer_engine"
             config = core_transformer_config_from_args(args)
             logger.info_rank_0(f'building GPT model')
@@ -36,8 +35,8 @@ class MegatronModelProviderEntry:
                     config,
                     num_tokentypes=0,
                     parallel_output=model_provider_args.parallel_output,
-                    pre_process=model_provider_args.pre_process,
-                    post_process=model_provider_args.post_process,
+                    pre_process=pre_process,
+                    post_process=post_process,
                 )
             else: # using mcore models
                 if args.spec is not None:
@@ -53,8 +52,8 @@ class MegatronModelProviderEntry:
                     transformer_layer_spec=transformer_layer_spec,
                     vocab_size=args.padded_vocab_size,
                     max_sequence_length=args.max_position_embeddings,
-                    pre_process=model_provider_args.pre_process,
-                    post_process=model_provider_args.post_process,
+                    pre_process=pre_process,
+                    post_process=post_process,
                     fp16_lm_cross_entropy=args.fp16_lm_cross_entropy,
                     parallel_output=model_provider_args.parallel_output,
                     share_embeddings_and_output_weights=not args.untie_embeddings_and_output_weights,
@@ -62,11 +61,6 @@ class MegatronModelProviderEntry:
                     rotary_percent=args.rotary_percent,
                     rotary_base=args.rotary_base
                 )
-            if model_provider_args.show_weight_details:
-                logger.debug_all_ranks("\n" + format_weights_info(model))
-            else:
-                logger.debug_all_ranks(f"\nmcore model built: \n{model}")
-
             return model
 
         return _model_

@@ -9,6 +9,7 @@ def set_logger_style():
     logger.add(
         sys.stdout,
         colorize=True,
+        level=os.environ.get("CONSOLE_LOG_LEVEL", "DEBUG"),
         format=('<green>{time:YYYY-MM-DD hh:mm:ss}</green> '
                 '<level>{level:<8}</level>'
                 '<blue>{extra[stack_info]:<40}</blue> <level>{message}</level>')
@@ -33,7 +34,7 @@ def dist_log(level, rank0):
             line = caller.lineno
             message = " | ".join([str(_) for _ in args])
             if not rank0:
-                message = f"[RANK {rank}] " + message
+                message = f"(rank {rank}) " + message
             getattr(logger, level)(message, stack_info=f"{file_name}:{function_name}:{line}")
     return log_func_of_level
 

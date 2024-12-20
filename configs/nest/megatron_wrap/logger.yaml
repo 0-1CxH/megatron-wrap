@@ -1,2 +1,3 @@
 patch_print: True
+ignore_warning: True
 remove_logging: True
