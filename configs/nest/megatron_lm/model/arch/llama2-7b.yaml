@@ -9,3 +9,4 @@ norm_epsilon: 1.0e-05
 
 max_position_embeddings: 4096
 rotary_base: 10000
+make_vocab_size_divisible_by: 100

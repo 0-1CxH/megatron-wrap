@@ -12,8 +12,8 @@ seed: 1234
 
 # load
 load: null
-no_load_optim: null
-no_load_rng: null
+no_load_optim: True
+no_load_rng: True
 use_checkpoint_args: False
 exit_on_missing_checkpoint: true
 # save

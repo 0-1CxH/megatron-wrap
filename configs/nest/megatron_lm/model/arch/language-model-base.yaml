@@ -39,7 +39,6 @@ apply_residual_connection_post_layernorm: False
 fp32_residual_connection: False
 
 # layer norm 
-layernorm_zero_centered_gamma: True
 normalization: "RMSNorm"  # alt value LayerNorm, "RMSNorm" needs TE
 apply_layernorm_1p: False
 
