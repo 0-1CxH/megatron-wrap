@@ -1,0 +1,5 @@
+model_type: GPT
+pre_process: True
+post_process: true
+parallel_output: false
+show_weight_details: false

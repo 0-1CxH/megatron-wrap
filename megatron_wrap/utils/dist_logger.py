@@ -43,5 +43,5 @@ def patch_logger():
     for level in levels:
         setattr(logger, level + "_rank_0", dist_log(level, rank0=True))
         setattr(logger, level + "_all_ranks", dist_log(level, rank0=False))
-    logger.debug_rank_0(f"logger patched, use ({'|'.join(levels)})_(rank_0|all_ranks) instead of the original to avoid unexpected behavior")
+    logger.debug_rank_0(f"[PATCH] logger patched, use ({'|'.join(levels)})_(rank_0|all_ranks) instead of the original to avoid unexpected behavior")
 

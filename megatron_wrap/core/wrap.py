@@ -6,7 +6,7 @@ import gc
 from typing import Union
 from megatron_wrap.utils import logger
 from .config import MegatronWrapConfig
-
+from .model import MegatronModelProviderEntry
 
 
 class MegatronWrap:
@@ -20,22 +20,25 @@ class MegatronWrap:
         # handle logger configs 
         self.patch_print()
         self.remove_logging()
+
+    def initialize(self):
+        logger.info_rank_0("[STATUS] initialization started")
         # dynamic import megatron
         self.megatron_lm_is_importable = self.dynamic_import_magatron_lm()
-        self.megatron_lm_is_initialized = self.initialize()
+        self.megatron_lm_is_initialized = self.megatron_lm_initialize()
         # easier get *p size/rank
         self.mpu_state_patched = self.patch_get_parallel_state()
-        logger.info_all_ranks("parallel state of this rank: " + self.format_parallel_states())
+        logger.info_all_ranks("[STATUS] initialization finished, parallel state of this rank: " + self.format_parallel_states())
 
 
     def dynamic_import_magatron_lm(self):
         megatron_lm_project_absolute_path = os.path.abspath(self.megatron_wrap_args.init.megatron_lm_project_path)
         sys.path.append(megatron_lm_project_absolute_path)
-        logger.debug_rank_0(f"added '{megatron_lm_project_absolute_path}' to sys.path")
+        logger.debug_rank_0(f"[WRAP] added '{megatron_lm_project_absolute_path}' to sys.path")
         os.environ["CUDA_DEVICE_MAX_CONNECTIONS"] = "1" # need gradient_accumulation
         try:
             import megatron
-            logger.info_all_ranks(f"megatron-lm imported successfully")
+            logger.debug_all_ranks(f"[STATUS] megatron-lm imported successfully")
             return True
         except Exception as e:
             logger.error_all_ranks(f"failed to import megatron-lm from {megatron_lm_project_absolute_path}, due to: {e}")
@@ -43,7 +46,7 @@ class MegatronWrap:
     
     def patch_print(self):
         if self.megatron_wrap_args.logger.patch_print is True:
-            logger.debug_rank_0(f"python builtin print patched, all print() will go to debug_all_ranks")
+            logger.debug_rank_0(f"[PATCH] python builtin print patched, all print() will go to debug_all_ranks")
             builtins.print = logger.debug_all_ranks
     
     def remove_logging(self):
@@ -51,9 +54,9 @@ class MegatronWrap:
             import logging
             for handler in logging.root.handlers[:]:
                 logging.root.removeHandler(handler)
-            logger.debug_rank_0(f"all logging handlers are removed, logging funcs no longer logs anything")
+            logger.debug_rank_0(f"[PATCH] all logging handlers are removed, logging funcs no longer logs anything")
     
-    def initialize(self):
+    def megatron_lm_initialize(self):
         assert self.megatron_lm_is_importable, f"need to import megatron first"
         # dynamic import
         import megatron
@@ -83,20 +86,20 @@ class MegatronWrap:
         validate_args(args, {})
         set_global_variables(args, build_tokenizer=False)
         
-        assert args == self.megatron_lm_args == get_args()
+        if not args == self.megatron_lm_args == get_args():
+            logger.warning_rank_0(f"there are args changed during validation, please double check")
 
-
-        logger.debug_rank_0(f"initializing torch.distributed")
+        logger.debug_rank_0(f"[STATUS] initializing torch.distributed")
         _initialize_distributed()
         
-        logger.debug_rank_0(f"setting random seeds:", f"{args.seed}") # random seeds for reproducibility
+        logger.debug_rank_0(f"setting random seeds: {args.seed}") # random seeds for reproducibility
         _set_random_seed(args.seed, args.data_parallel_random_init)
         
-        logger.debug_rank_0(f"initializing auto resume")
+        logger.debug_rank_0(f"[STATUS] initializing auto resume")
         _init_autoresume()
 
         if not self.megatron_wrap_args.init.skip_compile_dependencies:
-            logger.debug_rank_0(f"compiling dependencies and loading fused kernels")
+            logger.debug_rank_0(f"[STATUS] compiling dependencies and loading fused kernels")
             _compile_dependencies()
         
         if args.tp_comm_overlap:
@@ -104,8 +107,11 @@ class MegatronWrap:
         
         if not self.megatron_wrap_args.init.skip_set_jit_fusion:
             # this is mainly for training, slow down if set jit fusion for inference model
-            logger.debug_rank_0(f"setting jit fusion options")
+            logger.debug_rank_0(f"[STATUS] setting jit fusion options")
             set_jit_fusion_options()
+        
+        if not args == self.megatron_lm_args == get_args():
+            logger.warning_rank_0(f"there are args changed during init, please double check")
 
         return True
     
@@ -132,7 +138,7 @@ class MegatronWrap:
                 self_property,
                 getattr(mpu, mpu_method)()
             )
-        logger.debug_rank_0(f"the series of get parallel state funcs are patched, use (t|p|d|c|e)p_(rank|size) instead of the original to save effort")
+        logger.debug_rank_0(f"[PATCH] the series of get parallel state funcs are patched, use (t|p|d|c|e)p_(rank|size) instead of the original to save effort")
         return True
     
     def format_parallel_states(self):
@@ -162,17 +168,12 @@ class MegatronWrap:
             f"ending empty cache on cuda device:{torch.cuda.current_device()}:"
             f"{torch.cuda.memory_reserved() / 1024 / 1024 / 1024:.2f} GiB."
         )
-
-
-
-
-
-
-
-        
-
-        
-
-
-        
-
+    
+    def get_model_provider(self):
+        assert self.megatron_lm_is_initialized, f"need to initialize mpu first"
+        from megatron.training.global_vars import get_args
+        return MegatronModelProviderEntry.get_provider(
+            model_provider_args=self.megatron_wrap_args.model_provider,
+            megatron_lm_args=get_args()
+        )
+    

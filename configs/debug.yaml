@@ -21,7 +21,7 @@ megatron_lm:
     data:
       mock_data: true
 megatron_wrap:
-  output:
-    __select__: value
+  model_provider:
+    __select__: gpt_model  #_parallel_output
 
     

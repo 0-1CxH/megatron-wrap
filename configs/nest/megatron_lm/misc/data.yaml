@@ -6,7 +6,6 @@ valid_data_path: null
 test_data_path: null
 data_cache_path: null
 mock_data: False
-vocab_size: null
 vocab_file: null
 merge_file: null
 vocab_extra_ids: 0

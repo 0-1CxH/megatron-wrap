@@ -24,7 +24,7 @@ megatron_wrap:
   logger:
     patch_print: true
     remove_logging: true
-  output:
-    __select__: value
+  model_provider:
+    __select__: gpt_model
 
     

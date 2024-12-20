@@ -11,6 +11,7 @@ norm_epsilon: 1.0e-05
 # embedding
 max_position_embeddings: null
 position_embedding_type: learned_absolute
+vocab_size: null
 make_vocab_size_divisible_by: 128
 rotary_percent: 1.0
 rotary_base: 10000
