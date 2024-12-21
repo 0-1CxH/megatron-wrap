@@ -314,7 +314,7 @@ class MegatronWrap:
         elapsed_time = time.time() - start_time
         mean_time_tensor = torch.tensor(elapsed_time, device="cuda")
         torch.distributed.all_reduce(mean_time_tensor, op=torch.distributed.ReduceOp.AVG)
-        metrics["mean_elapsed_time"] =  mean_time_tensor.item()
+        metrics["elapsed_time"] =  mean_time_tensor.item()
              
         self.iteration += 1
         # reset internal micro batch step
@@ -347,16 +347,19 @@ class MegatronWrap:
     @staticmethod
     def format_metrics(metrics):
         keys_fixed_order = ["iteration", "loss", "grad_norm", "learning_rate", "throughput"]
-        items = [
-            k + f" {metrics.get(k):.4f}" for k in keys_fixed_order
-        ]
+        items = []
+        for k in keys_fixed_order:
+            v = metrics.get(k)
+            items.append(
+                f"{k} {metrics.get(k):.4e}" if isinstance(v, float) else f"{k} {metrics.get(k)}"
+            )
         for k in metrics:
             if k not in keys_fixed_order:
                 v = metrics.get(k)
-                if isinstance(v, float):
-                    items.append(k + f" {v:.4f}")
-                else:
-                    items.append(k + f" {v}")
+                items.append(
+                    f"{k} {metrics.get(k):.4e}" if isinstance(v, float) else f"{k} {metrics.get(k)}"
+                )
+                
         return " | ".join([f"{_:>8s}" for _ in items])
         
     def log_last_metrics(self):

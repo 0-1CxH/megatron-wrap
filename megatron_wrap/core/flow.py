@@ -44,7 +44,7 @@ class MegatronWrapTrainingFlowBase:
     
     def log_each_step_metrics(self, metrics: dict):
         s = f"(micro batch step {self.current_step}) "
-        s += ', '.join([f"{k}: {v:.4f}" for k, v in metrics.items()])
+        s += ', '.join([f"{k}: {v:.4e}" for k, v in metrics.items()])
         logger.debug_rank_0(s)
 
 
