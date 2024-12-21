@@ -32,9 +32,9 @@ class MegatronWrapConfig:
         return "megatron-wrap arguments\n" + self.get_megatron_wrap_args().format_string() + "\n"
     
     def check_args_compatibility(self):
-        if self.cn.nest_instance.megatron_wrap.model_provider.parallel_output is True:
+        if self.cn.nest_instance.megatron_wrap.model_provider.parallel_output is False:
             if self.cn.nest_instance.megatron_lm.model.parallel.sequence_parallel is True:
-                logger.warning_rank_0(f"parallel_output is enabeld only when sequence_parallel is disabled, now setting sequence_parallel to false")
+                logger.warning_rank_0(f"parallel_output is disabeld only when sequence_parallel is disabled, now setting sequence_parallel to false")
                 self.cn.nest_instance.megatron_lm.model.parallel.sequence_parallel = False # set to nest, not the export ns
         if self.cn.nest_instance.megatron_lm.misc.other.yaml_cfg is not None:
             self.cn.nest_instance.megatron_lm.misc.other.yaml_cfg = None
@@ -55,7 +55,7 @@ class MegatronWrapConfig:
                 logger.warning_rank_0(f"the vocab size {self.cn.nest_instance.megatron_lm.model.arch.vocab_size} should be divisable by {divide_by} and hence padded to {current_size}")
             return current_size
         setattr(self.cn.nest_instance.megatron_lm.model.arch, "padded_vocab_size", pad_vocab_size())
-        logger.debug_rank_0(f"padded_vocab_size is set to  {self.cn.nest_instance.megatron_lm.model.arch.padded_vocab_size}")
+        logger.debug_rank_0(f"padded_vocab_size is set to {self.cn.nest_instance.megatron_lm.model.arch.padded_vocab_size}")
         
     
     def add_runtime_args(self):

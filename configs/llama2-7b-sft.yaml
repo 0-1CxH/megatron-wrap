@@ -31,7 +31,6 @@ megatron_wrap:
     __override__:
       show_weight_details: true
   flow:
-    __select__: mock_training
-    
+    __select__: minimal_mock_mse
 
     

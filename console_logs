@@ -1,24 +1,24 @@
-[32m2024-12-21 10:36:21[0m [34m[1mDEBUG   [0m[34mdist_logger.py:patch_logger:48          [0m [34m[1m[PATCH] logger patched, use (error|warning|info|debug)_(rank_0|all_ranks) instead of the original to avoid unexpected behavior[0m
-[32m2024-12-21 10:36:22[0m [34m[1mDEBUG   [0m[34mwrap.py:dynamic_import_magatron_lm:46   [0m [34m[1m(rank7/8) [STATUS] megatron-lm imported successfully[0m
-[32m2024-12-21 10:36:22[0m [34m[1mDEBUG   [0m[34mwrap.py:dynamic_import_magatron_lm:46   [0m [34m[1m(rank6/8) [STATUS] megatron-lm imported successfully[0m
-[32m2024-12-21 10:36:23[0m [34m[1mDEBUG   [0m[34mwrap.py:dynamic_import_magatron_lm:46   [0m [34m[1m(rank5/8) [STATUS] megatron-lm imported successfully[0m
-[32m2024-12-21 10:36:23[0m [34m[1mDEBUG   [0m[34mwrap.py:dynamic_import_magatron_lm:46   [0m [34m[1m(rank3/8) [STATUS] megatron-lm imported successfully[0m
-[32m2024-12-21 10:36:23[0m [34m[1mDEBUG   [0m[34mwrap.py:dynamic_import_magatron_lm:46   [0m [34m[1m(rank4/8) [STATUS] megatron-lm imported successfully[0m
-[32m2024-12-21 10:36:23[0m [34m[1mDEBUG   [0m[34mconfig.py:check_args_compatibility:58   [0m [34m[1mpadded_vocab_size is set to  32000[0m
-[32m2024-12-21 10:36:23[0m [34m[1mDEBUG   [0m[34mwrap.py:handle_display:54               [0m [34m[1m[PATCH] python builtin print patched, all print() will go to debug_all_ranks[0m
-[32m2024-12-21 10:36:23[0m [34m[1mDEBUG   [0m[34mwrap.py:handle_display:60               [0m [34m[1m[PATCH] all logging handlers are removed, logging funcs no longer logs anything[0m
-[32m2024-12-21 10:36:23[0m [34m[1mDEBUG   [0m[34mwrap.py:handle_display:65               [0m [34m[1m[PATCH] FutureWarning, UserWarning are ignored[0m
-[32m2024-12-21 10:36:23[0m [1mINFO    [0m[34mwrap.py:initialize:30                   [0m [1m[STATUS] initialization started[0m
-[32m2024-12-21 10:36:23[0m [34m[1mDEBUG   [0m[34mwrap.py:dynamic_import_magatron_lm:42   [0m [34m[1m[WRAP] added '/gpfs/public/infra/qhu/projects/megatron_core_080' to sys.path[0m
-[32m2024-12-21 10:36:23[0m [34m[1mDEBUG   [0m[34mwrap.py:dynamic_import_magatron_lm:46   [0m [34m[1m(rank0/8) [STATUS] megatron-lm imported successfully[0m
-[32m2024-12-21 10:36:23[0m [34m[1mDEBUG   [0m[34mwrap.py:dynamic_import_magatron_lm:46   [0m [34m[1m(rank2/8) [STATUS] megatron-lm imported successfully[0m
-[32m2024-12-21 10:36:23[0m [34m[1mDEBUG   [0m[34mwrap.py:dynamic_import_magatron_lm:46   [0m [34m[1m(rank1/8) [STATUS] megatron-lm imported successfully[0m
-[32m2024-12-21 10:36:28[0m [34m[1mDEBUG   [0m[34mglobal_vars.py:_set_one_logger:184      [0m [34m[1m(rank7/8) WARNING: one_logger package is required to enable e2e metrics tracking. please go to https://confluence.nvidia.com/display/MLWFO/Package+Repositories for details to install it[0m
-[32m2024-12-21 10:36:29[0m [34m[1mDEBUG   [0m[34marguments.py:validate_args:184          [0m [34m[1m(rank0/8) using world size: 8, data-parallel size: 2, context-parallel size: 1 tensor-model-parallel size: 4, pipeline-model-parallel size: 1 [0m
-[32m2024-12-21 10:36:29[0m [34m[1mDEBUG   [0m[34marguments.py:validate_args:276          [0m [34m[1m(rank0/8) WARNING: Setting args.overlap_p2p_comm to False since non-interleaved schedule does not support overlapping p2p communication[0m
-[32m2024-12-21 10:36:29[0m [34m[1mDEBUG   [0m[34marguments.py:validate_args:307          [0m [34m[1m(rank0/8) accumulate and all-reduce gradients in fp32 for bfloat16 data type.[0m
-[32m2024-12-21 10:36:29[0m [34m[1mDEBUG   [0m[34marguments.py:validate_args:311          [0m [34m[1m(rank0/8) using torch.bfloat16 for parameters ...[0m
-[32m2024-12-21 10:36:29[0m [1mINFO    [0m[34mwrap.py:<lambda>:73                     [0m [1m
+[32m2024-12-22 02:25:12[0m [34m[1mDEBUG   [0m[34mdist_logger.py:patch_logger:48          [0m [34m[1m[PATCH] logger patched, use (error|warning|info|debug)_(rank_0|all_ranks) instead of the original to avoid unexpected behavior[0m
+[32m2024-12-22 02:25:13[0m [34m[1mDEBUG   [0m[34mwrap.py:dynamic_import_magatron_lm:47   [0m [34m[1m(rank5/8) [STATUS] megatron-lm imported successfully[0m
+[32m2024-12-22 02:25:13[0m [34m[1mDEBUG   [0m[34mwrap.py:dynamic_import_magatron_lm:47   [0m [34m[1m(rank1/8) [STATUS] megatron-lm imported successfully[0m
+[32m2024-12-22 02:25:13[0m [33m[1mWARNING [0m[34mconfig.py:check_args_compatibility:37   [0m [33m[1mparallel_output is disabeld only when sequence_parallel is disabled, now setting sequence_parallel to false[0m
+[32m2024-12-22 02:25:13[0m [34m[1mDEBUG   [0m[34mconfig.py:check_args_compatibility:58   [0m [34m[1mpadded_vocab_size is set to 32000[0m
+[32m2024-12-22 02:25:13[0m [34m[1mDEBUG   [0m[34mwrap.py:handle_display:55               [0m [34m[1m[PATCH] python builtin print patched, all print() will go to debug_all_ranks[0m
+[32m2024-12-22 02:25:13[0m [34m[1mDEBUG   [0m[34mwrap.py:handle_display:61               [0m [34m[1m[PATCH] all logging handlers are removed, logging funcs no longer logs anything[0m
+[32m2024-12-22 02:25:13[0m [34m[1mDEBUG   [0m[34mwrap.py:handle_display:66               [0m [34m[1m[PATCH] FutureWarning, UserWarning are ignored[0m
+[32m2024-12-22 02:25:13[0m [1mINFO    [0m[34mwrap.py:initialize:31                   [0m [1m[STATUS] initialization started[0m
+[32m2024-12-22 02:25:13[0m [34m[1mDEBUG   [0m[34mwrap.py:dynamic_import_magatron_lm:43   [0m [34m[1m[WRAP] added '/gpfs/public/infra/qhu/projects/megatron_core_080' to sys.path[0m
+[32m2024-12-22 02:25:13[0m [34m[1mDEBUG   [0m[34mwrap.py:dynamic_import_magatron_lm:47   [0m [34m[1m(rank0/8) [STATUS] megatron-lm imported successfully[0m
+[32m2024-12-22 02:25:13[0m [34m[1mDEBUG   [0m[34mwrap.py:dynamic_import_magatron_lm:47   [0m [34m[1m(rank6/8) [STATUS] megatron-lm imported successfully[0m
+[32m2024-12-22 02:25:13[0m [34m[1mDEBUG   [0m[34mwrap.py:dynamic_import_magatron_lm:47   [0m [34m[1m(rank4/8) [STATUS] megatron-lm imported successfully[0m
+[32m2024-12-22 02:25:13[0m [34m[1mDEBUG   [0m[34mwrap.py:dynamic_import_magatron_lm:47   [0m [34m[1m(rank7/8) [STATUS] megatron-lm imported successfully[0m
+[32m2024-12-22 02:25:13[0m [34m[1mDEBUG   [0m[34mwrap.py:dynamic_import_magatron_lm:47   [0m [34m[1m(rank3/8) [STATUS] megatron-lm imported successfully[0m
+[32m2024-12-22 02:25:13[0m [34m[1mDEBUG   [0m[34mwrap.py:dynamic_import_magatron_lm:47   [0m [34m[1m(rank2/8) [STATUS] megatron-lm imported successfully[0m
+[32m2024-12-22 02:25:19[0m [34m[1mDEBUG   [0m[34marguments.py:validate_args:184          [0m [34m[1m(rank0/8) using world size: 8, data-parallel size: 2, context-parallel size: 1 tensor-model-parallel size: 4, pipeline-model-parallel size: 1 [0m
+[32m2024-12-22 02:25:19[0m [34m[1mDEBUG   [0m[34marguments.py:validate_args:276          [0m [34m[1m(rank0/8) WARNING: Setting args.overlap_p2p_comm to False since non-interleaved schedule does not support overlapping p2p communication[0m
+[32m2024-12-22 02:25:19[0m [34m[1mDEBUG   [0m[34marguments.py:validate_args:307          [0m [34m[1m(rank0/8) accumulate and all-reduce gradients in fp32 for bfloat16 data type.[0m
+[32m2024-12-22 02:25:19[0m [34m[1mDEBUG   [0m[34marguments.py:validate_args:311          [0m [34m[1m(rank0/8) using torch.bfloat16 for parameters ...[0m
+[32m2024-12-22 02:25:19[0m [1mINFO    [0m[34mwrap.py:<lambda>:74                     [0m [1m
 ---------------------------- megatron-lm arguments ----------------------------
 accumulate_allreduce_grads_in_fp32 ......................................... False
 adam_beta1 ................................................................... 0.9
@@ -291,7 +291,7 @@ save_interval ..................................................................
 scatter_gather_tensors_in_pipeline .......................................... True
 seed ........................................................................ 1234
 seq_length ................................................................... 512
-sequence_parallel ........................................................... True
+sequence_parallel .......................................................... False
 sgd_momentum ................................................................. 0.9
 short_seq_prob ............................................................... 0.1
 skip_train ................................................................. False
@@ -363,43 +363,44 @@ world_size .....................................................................
 yaml_cfg .................................................................... None
 --------------------------------------------------------------------------------
 [0m
-[32m2024-12-21 10:36:29[0m [34m[1mDEBUG   [0m[34mwrap.py:megatron_lm_initialize:100      [0m [34m[1m[STATUS] initializing torch.distributed[0m
-[rank3]:[W1221 22:36:30.746055277 init.cpp:767] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
-[32m2024-12-21 10:36:30[0m [34m[1mDEBUG   [0m[34minitialize.py:_initialize_distributed:231[0m [34m[1m(rank0/8) > initializing torch distributed ...[0m
-[rank7]:[W1221 22:36:30.747150825 init.cpp:767] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
-[rank5]:[W1221 22:36:30.913181786 init.cpp:767] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
-[rank1]:[W1221 22:36:30.914234419 init.cpp:767] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
-[rank2]:[W1221 22:36:30.948052388 init.cpp:767] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
-[rank6]:[W1221 22:36:30.950757293 init.cpp:767] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
-[32m2024-12-21 10:36:30[0m [34m[1mDEBUG   [0m[34minitialize.py:_initialize_distributed:268[0m [34m[1m(rank0/8) > initialized tensor model parallel with size 4[0m
-[32m2024-12-21 10:36:30[0m [34m[1mDEBUG   [0m[34minitialize.py:_initialize_distributed:272[0m [34m[1m(rank0/8) > initialized pipeline model parallel with size 1[0m
-[32m2024-12-21 10:36:30[0m [34m[1mDEBUG   [0m[34mwrap.py:megatron_lm_initialize:103      [0m [34m[1msetting random seeds: 1234[0m
-[32m2024-12-21 10:36:30[0m [34m[1mDEBUG   [0m[34mwrap.py:megatron_lm_initialize:106      [0m [34m[1m[STATUS] initializing auto resume[0m
-[32m2024-12-21 10:36:30[0m [34m[1mDEBUG   [0m[34mwrap.py:megatron_lm_initialize:118      [0m [34m[1m[STATUS] setting jit fusion options[0m
-[rank0]:[W1221 22:36:30.964434737 init.cpp:767] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
-[rank4]:[W1221 22:36:30.966603193 init.cpp:767] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
-[32m2024-12-21 10:36:32[0m [1mINFO    [0m[34mwrap.py:initialize:36                   [0m [1m(rank6/8) [STATUS] initialization finished, parallel state of this rank: (TP2/4 PP0/1 DP1/2 CP0/1 EP0/1)[0m
-[32m2024-12-21 10:36:32[0m [1mINFO    [0m[34mwrap.py:initialize:36                   [0m [1m(rank2/8) [STATUS] initialization finished, parallel state of this rank: (TP2/4 PP0/1 DP0/2 CP0/1 EP0/1)[0m
-[32m2024-12-21 10:36:32[0m [1mINFO    [0m[34mwrap.py:initialize:36                   [0m [1m(rank3/8) [STATUS] initialization finished, parallel state of this rank: (TP3/4 PP0/1 DP0/2 CP0/1 EP0/1)[0m
-[32m2024-12-21 10:36:32[0m [1mINFO    [0m[34mwrap.py:initialize:36                   [0m [1m(rank1/8) [STATUS] initialization finished, parallel state of this rank: (TP1/4 PP0/1 DP0/2 CP0/1 EP0/1)[0m
-[32m2024-12-21 10:36:32[0m [1mINFO    [0m[34mwrap.py:initialize:36                   [0m [1m(rank7/8) [STATUS] initialization finished, parallel state of this rank: (TP3/4 PP0/1 DP1/2 CP0/1 EP0/1)[0m
-[32m2024-12-21 10:36:32[0m [1mINFO    [0m[34mwrap.py:initialize:36                   [0m [1m(rank5/8) [STATUS] initialization finished, parallel state of this rank: (TP1/4 PP0/1 DP1/2 CP0/1 EP0/1)[0m
-[32m2024-12-21 10:36:32[0m [34m[1mDEBUG   [0m[34mwrap.py:patch_get_parallel_state:157    [0m [34m[1m[PATCH] the series of get parallel state funcs are patched, use (t|p|d|c|e)p_(rank|size) instead of the original to save effort[0m
-[32m2024-12-21 10:36:32[0m [1mINFO    [0m[34mwrap.py:initialize:36                   [0m [1m(rank0/8) [STATUS] initialization finished, parallel state of this rank: (TP0/4 PP0/1 DP0/2 CP0/1 EP0/1)[0m
-[32m2024-12-21 10:36:32[0m [1mINFO    [0m[34mmodel.py:_model_:29                     [0m [1m[STATUS] building model[0m
-[32m2024-12-21 10:36:32[0m [34m[1mDEBUG   [0m[34mmodel.py:_model_:30                     [0m [34m[1muse transformer engine: True, model provider args: ConfigNestNamespace(model_type='GPT', parallel_output=False, show_weight_details=True, encoder_decoder_type='encoder_or_decoder')[0m
-[32m2024-12-21 10:36:32[0m [34m[1mDEBUG   [0m[34mtraining.py:get_model:429               [0m [34m[1m(rank2/8)  > number of parameters on (tensor, pipeline) model parallel rank (2, 0): 1684803584[0m
-[32m2024-12-21 10:36:32[0m [1mINFO    [0m[34mwrap.py:initialize:36                   [0m [1m(rank4/8) [STATUS] initialization finished, parallel state of this rank: (TP0/4 PP0/1 DP1/2 CP0/1 EP0/1)[0m
-[32m2024-12-21 10:36:33[0m [34m[1mDEBUG   [0m[34mtraining.py:get_model:429               [0m [34m[1m(rank3/8)  > number of parameters on (tensor, pipeline) model parallel rank (3, 0): 1684803584[0m
-[32m2024-12-21 10:36:33[0m [34m[1mDEBUG   [0m[34mtraining.py:get_model:429               [0m [34m[1m(rank1/8)  > number of parameters on (tensor, pipeline) model parallel rank (1, 0): 1684803584[0m
-[32m2024-12-21 10:36:33[0m [34m[1mDEBUG   [0m[34mtraining.py:get_model:429               [0m [34m[1m(rank0/8)  > number of parameters on (tensor, pipeline) model parallel rank (0, 0): 1684803584[0m
-[32m2024-12-21 10:36:33[0m [34m[1mDEBUG   [0m[34mutils.py:print_rank_0:269               [0m [34m[1m(rank0/8) > learning rate decay style: cosine[0m
-[32m2024-12-21 10:36:33[0m [34m[1mDEBUG   [0m[34mutils.py:print_rank_0:269               [0m [34m[1m(rank0/8)  loading checkpoint from ckpt/llama-2-7b-mcore-tp4pp1 at iteration 1[0m
-[32m2024-12-21 10:36:47[0m [34m[1mDEBUG   [0m[34mutils.py:print_rank_0:269               [0m [34m[1m(rank0/8) could not find arguments in the checkpoint ...[0m
-[32m2024-12-21 10:36:49[0m [34m[1mDEBUG   [0m[34mutils.py:print_rank_0:269               [0m [34m[1m(rank0/8)  checkpoint version 3.0[0m
-[32m2024-12-21 10:36:49[0m [34m[1mDEBUG   [0m[34mutils.py:print_rank_0:269               [0m [34m[1m(rank0/8)   successfully loaded checkpoint from ckpt/llama-2-7b-mcore-tp4pp1 [ t 0, p 0 ] at iteration 0[0m
-[32m2024-12-21 10:36:50[0m [1mINFO    [0m[34mwrap.py:setup_model_and_optimizer:210   [0m [1m[STATUS] model is sucessfully built[0m
-[32m2024-12-21 10:36:50[0m [34m[1mDEBUG   [0m[34mwrap.py:setup_model_and_optimizer:219   [0m [34m[1m(rank3/8) 
+[32m2024-12-22 02:25:19[0m [34m[1mDEBUG   [0m[34mwrap.py:megatron_lm_initialize:101      [0m [34m[1m[STATUS] initializing torch.distributed[0m
+[32m2024-12-22 02:25:20[0m [34m[1mDEBUG   [0m[34minitialize.py:_initialize_distributed:231[0m [34m[1m(rank0/8) > initializing torch distributed ...[0m
+[32m2024-12-22 02:25:20[0m [34m[1mDEBUG   [0m[34mglobal_vars.py:_set_one_logger:184      [0m [34m[1m(rank7/8) WARNING: one_logger package is required to enable e2e metrics tracking. please go to https://confluence.nvidia.com/display/MLWFO/Package+Repositories for details to install it[0m
+[32m2024-12-22 02:25:21[0m [34m[1mDEBUG   [0m[34minitialize.py:_initialize_distributed:268[0m [34m[1m(rank0/8) > initialized tensor model parallel with size 4[0m
+[32m2024-12-22 02:25:21[0m [34m[1mDEBUG   [0m[34minitialize.py:_initialize_distributed:272[0m [34m[1m(rank0/8) > initialized pipeline model parallel with size 1[0m
+[rank4]:[W1222 02:25:21.722079862 init.cpp:767] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+[32m2024-12-22 02:25:21[0m [34m[1mDEBUG   [0m[34mwrap.py:megatron_lm_initialize:104      [0m [34m[1msetting random seeds: 1234[0m
+[32m2024-12-22 02:25:21[0m [34m[1mDEBUG   [0m[34mwrap.py:megatron_lm_initialize:107      [0m [34m[1m[STATUS] initializing auto resume[0m
+[32m2024-12-22 02:25:21[0m [34m[1mDEBUG   [0m[34mwrap.py:megatron_lm_initialize:119      [0m [34m[1m[STATUS] setting jit fusion options[0m
+[rank0]:[W1222 02:25:21.727293346 init.cpp:767] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+[rank7]:[W1222 02:25:21.968734949 init.cpp:767] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+[rank3]:[W1222 02:25:21.968758885 init.cpp:767] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+[rank5]:[W1222 02:25:21.978399027 init.cpp:767] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+[rank1]:[W1222 02:25:21.981529901 init.cpp:767] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+[rank6]:[W1222 02:25:21.056357265 init.cpp:767] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+[rank2]:[W1222 02:25:21.059197326 init.cpp:767] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+[32m2024-12-22 02:25:23[0m [1mINFO    [0m[34mwrap.py:initialize:37                   [0m [1m(rank4/8) [STATUS] initialization finished, parallel state of this rank: (TP0/4 PP0/1 DP1/2 CP0/1 EP0/1)[0m
+[32m2024-12-22 02:25:23[0m [1mINFO    [0m[34mwrap.py:initialize:37                   [0m [1m(rank7/8) [STATUS] initialization finished, parallel state of this rank: (TP3/4 PP0/1 DP1/2 CP0/1 EP0/1)[0m
+[32m2024-12-22 02:25:23[0m [34m[1mDEBUG   [0m[34mwrap.py:patch_get_parallel_state:158    [0m [34m[1m[PATCH] the series of get parallel state funcs are patched, use (t|p|d|c|e)p_(rank|size) instead of the original to save effort[0m
+[32m2024-12-22 02:25:23[0m [1mINFO    [0m[34mwrap.py:initialize:37                   [0m [1m(rank0/8) [STATUS] initialization finished, parallel state of this rank: (TP0/4 PP0/1 DP0/2 CP0/1 EP0/1)[0m
+[32m2024-12-22 02:25:23[0m [1mINFO    [0m[34mmodel.py:_model_:29                     [0m [1m[STATUS] building model[0m
+[32m2024-12-22 02:25:23[0m [34m[1mDEBUG   [0m[34mmodel.py:_model_:30                     [0m [34m[1muse transformer engine: True, model provider args: ConfigNestNamespace(model_type='GPT', parallel_output=False, show_weight_details=True, encoder_decoder_type='encoder_or_decoder')[0m
+[32m2024-12-22 02:25:23[0m [1mINFO    [0m[34mwrap.py:initialize:37                   [0m [1m(rank6/8) [STATUS] initialization finished, parallel state of this rank: (TP2/4 PP0/1 DP1/2 CP0/1 EP0/1)[0m
+[32m2024-12-22 02:25:23[0m [1mINFO    [0m[34mwrap.py:initialize:37                   [0m [1m(rank5/8) [STATUS] initialization finished, parallel state of this rank: (TP1/4 PP0/1 DP1/2 CP0/1 EP0/1)[0m
+[32m2024-12-22 02:25:23[0m [1mINFO    [0m[34mwrap.py:initialize:37                   [0m [1m(rank1/8) [STATUS] initialization finished, parallel state of this rank: (TP1/4 PP0/1 DP0/2 CP0/1 EP0/1)[0m
+[32m2024-12-22 02:25:23[0m [1mINFO    [0m[34mwrap.py:initialize:37                   [0m [1m(rank3/8) [STATUS] initialization finished, parallel state of this rank: (TP3/4 PP0/1 DP0/2 CP0/1 EP0/1)[0m
+[32m2024-12-22 02:25:24[0m [34m[1mDEBUG   [0m[34mtraining.py:get_model:429               [0m [34m[1m(rank0/8)  > number of parameters on (tensor, pipeline) model parallel rank (0, 0): 1684803584[0m
+[32m2024-12-22 02:25:24[0m [34m[1mDEBUG   [0m[34mutils.py:print_rank_0:269               [0m [34m[1m(rank0/8) > learning rate decay style: cosine[0m
+[32m2024-12-22 02:25:24[0m [1mINFO    [0m[34mwrap.py:initialize:37                   [0m [1m(rank2/8) [STATUS] initialization finished, parallel state of this rank: (TP2/4 PP0/1 DP0/2 CP0/1 EP0/1)[0m
+[32m2024-12-22 02:25:24[0m [34m[1mDEBUG   [0m[34mtraining.py:get_model:429               [0m [34m[1m(rank1/8)  > number of parameters on (tensor, pipeline) model parallel rank (1, 0): 1684803584[0m
+[32m2024-12-22 02:25:24[0m [34m[1mDEBUG   [0m[34mtraining.py:get_model:429               [0m [34m[1m(rank3/8)  > number of parameters on (tensor, pipeline) model parallel rank (3, 0): 1684803584[0m
+[32m2024-12-22 02:25:24[0m [34m[1mDEBUG   [0m[34mtraining.py:get_model:429               [0m [34m[1m(rank2/8)  > number of parameters on (tensor, pipeline) model parallel rank (2, 0): 1684803584[0m
+[32m2024-12-22 02:25:24[0m [34m[1mDEBUG   [0m[34mutils.py:print_rank_0:269               [0m [34m[1m(rank0/8)  loading checkpoint from ckpt/llama-2-7b-mcore-tp4pp1 at iteration 1[0m
+[32m2024-12-22 02:25:39[0m [34m[1mDEBUG   [0m[34mutils.py:print_rank_0:269               [0m [34m[1m(rank0/8) could not find arguments in the checkpoint ...[0m
+[32m2024-12-22 02:25:41[0m [34m[1mDEBUG   [0m[34mutils.py:print_rank_0:269               [0m [34m[1m(rank0/8)  checkpoint version 3.0[0m
+[32m2024-12-22 02:25:41[0m [34m[1mDEBUG   [0m[34mutils.py:print_rank_0:269               [0m [34m[1m(rank0/8)   successfully loaded checkpoint from ckpt/llama-2-7b-mcore-tp4pp1 [ t 0, p 0 ] at iteration 0[0m
+[32m2024-12-22 02:25:43[0m [1mINFO    [0m[34mwrap.py:setup_model_and_optimizer:211   [0m [1m[STATUS] model is sucessfully built[0m
+[32m2024-12-22 02:25:43[0m [34m[1mDEBUG   [0m[34mwrap.py:setup_model_and_optimizer:220   [0m [34m[1m(rank3/8) 
 module.module.embedding.word_embeddings.weight: shape = torch.Size([8000, 4096]), norm = 99.0000
 module.module.decoder.layers.0.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 18.3750
 module.module.decoder.layers.0.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 2.4531
@@ -596,8 +597,7 @@ module.module.decoder.layers.31.mlp.linear_fc2.weight: shape = torch.Size([4096,
 module.module.decoder.final_layernorm.weight: shape = torch.Size([4096]), norm = 114.5000
 module.module.output_layer.weight: shape = torch.Size([8000, 4096]), norm = 100.0000
 [0m
-[32m2024-12-21 10:36:50[0m [1mINFO    [0m[34mmain.py:<module>:8                      [0m [1m(rank3/8) namespace(tp_size=4, pp_size=1, dp_size=2, cp_size=1, ep_size=1, tp_rank=3, pp_rank=0, dp_rank=0, cp_rank=0, ep_rank=0)[0m
-[32m2024-12-21 10:36:50[0m [34m[1mDEBUG   [0m[34mwrap.py:setup_model_and_optimizer:219   [0m [34m[1m(rank2/8) 
+[32m2024-12-22 02:25:43[0m [34m[1mDEBUG   [0m[34mwrap.py:setup_model_and_optimizer:220   [0m [34m[1m(rank6/8) 
 module.module.embedding.word_embeddings.weight: shape = torch.Size([8000, 4096]), norm = 99.5000
 module.module.decoder.layers.0.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 14.4375
 module.module.decoder.layers.0.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 2.4531
@@ -794,7 +794,405 @@ module.module.decoder.layers.31.mlp.linear_fc2.weight: shape = torch.Size([4096,
 module.module.decoder.final_layernorm.weight: shape = torch.Size([4096]), norm = 114.5000
 module.module.output_layer.weight: shape = torch.Size([8000, 4096]), norm = 99.0000
 [0m
-[32m2024-12-21 10:36:50[0m [34m[1mDEBUG   [0m[34mwrap.py:setup_model_and_optimizer:219   [0m [34m[1m(rank6/8) 
+[32m2024-12-22 02:25:43[0m [34m[1mDEBUG   [0m[34mwrap.py:train:303                       [0m [34m[1m(rank3/8) [WRAP] split batch data with dp, DP0/2 got 64 of 128[0m
+[32m2024-12-22 02:25:43[0m [34m[1mDEBUG   [0m[34mwrap.py:setup_model_and_optimizer:220   [0m [34m[1m(rank5/8) 
+module.module.embedding.word_embeddings.weight: shape = torch.Size([8000, 4096]), norm = 98.0000
+module.module.decoder.layers.0.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 13.2500
+module.module.decoder.layers.0.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 2.4531
+module.module.decoder.layers.0.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 46.2500
+module.module.decoder.layers.0.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 3.5625
+module.module.decoder.layers.0.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 77.0000
+module.module.decoder.layers.0.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 56.5000
+module.module.decoder.layers.1.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 14.7500
+module.module.decoder.layers.1.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 5.9375
+module.module.decoder.layers.1.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 68.0000
+module.module.decoder.layers.1.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 6.5625
+module.module.decoder.layers.1.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 83.5000
+module.module.decoder.layers.1.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 58.5000
+module.module.decoder.layers.2.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 29.6250
+module.module.decoder.layers.2.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 11.3750
+module.module.decoder.layers.2.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 92.0000
+module.module.decoder.layers.2.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 8.6875
+module.module.decoder.layers.2.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 86.0000
+module.module.decoder.layers.2.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 59.0000
+module.module.decoder.layers.3.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 28.6250
+module.module.decoder.layers.3.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 18.3750
+module.module.decoder.layers.3.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 81.5000
+module.module.decoder.layers.3.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 11.0000
+module.module.decoder.layers.3.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 87.0000
+module.module.decoder.layers.3.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 59.2500
+module.module.decoder.layers.4.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 28.1250
+module.module.decoder.layers.4.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 16.8750
+module.module.decoder.layers.4.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 81.5000
+module.module.decoder.layers.4.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 11.9375
+module.module.decoder.layers.4.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 87.5000
+module.module.decoder.layers.4.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 58.5000
+module.module.decoder.layers.5.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 27.3750
+module.module.decoder.layers.5.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 17.2500
+module.module.decoder.layers.5.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 84.5000
+module.module.decoder.layers.5.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 12.6875
+module.module.decoder.layers.5.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 87.5000
+module.module.decoder.layers.5.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 58.5000
+module.module.decoder.layers.6.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 26.2500
+module.module.decoder.layers.6.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 21.3750
+module.module.decoder.layers.6.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 79.5000
+module.module.decoder.layers.6.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 13.5625
+module.module.decoder.layers.6.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.0000
+module.module.decoder.layers.6.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 58.2500
+module.module.decoder.layers.7.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 25.8750
+module.module.decoder.layers.7.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 22.1250
+module.module.decoder.layers.7.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 78.0000
+module.module.decoder.layers.7.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 14.3125
+module.module.decoder.layers.7.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.0000
+module.module.decoder.layers.7.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 58.2500
+module.module.decoder.layers.8.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 29.8750
+module.module.decoder.layers.8.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 21.7500
+module.module.decoder.layers.8.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 75.5000
+module.module.decoder.layers.8.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 14.6250
+module.module.decoder.layers.8.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 88.5000
+module.module.decoder.layers.8.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 59.0000
+module.module.decoder.layers.9.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 29.6250
+module.module.decoder.layers.9.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 22.1250
+module.module.decoder.layers.9.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 78.0000
+module.module.decoder.layers.9.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 14.9375
+module.module.decoder.layers.9.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 88.5000
+module.module.decoder.layers.9.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 59.2500
+module.module.decoder.layers.10.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 29.6250
+module.module.decoder.layers.10.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 22.3750
+module.module.decoder.layers.10.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 80.5000
+module.module.decoder.layers.10.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 15.1875
+module.module.decoder.layers.10.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 88.0000
+module.module.decoder.layers.10.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 59.7500
+module.module.decoder.layers.11.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 30.7500
+module.module.decoder.layers.11.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 24.6250
+module.module.decoder.layers.11.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 75.0000
+module.module.decoder.layers.11.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 15.6875
+module.module.decoder.layers.11.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 88.5000
+module.module.decoder.layers.11.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 60.2500
+module.module.decoder.layers.12.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 30.1250
+module.module.decoder.layers.12.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 24.7500
+module.module.decoder.layers.12.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 78.0000
+module.module.decoder.layers.12.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 16.1250
+module.module.decoder.layers.12.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.0000
+module.module.decoder.layers.12.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 60.7500
+module.module.decoder.layers.13.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 31.2500
+module.module.decoder.layers.13.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 25.1250
+module.module.decoder.layers.13.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 78.0000
+module.module.decoder.layers.13.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 16.6250
+module.module.decoder.layers.13.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.0000
+module.module.decoder.layers.13.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.2500
+module.module.decoder.layers.14.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 30.5000
+module.module.decoder.layers.14.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 25.7500
+module.module.decoder.layers.14.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 75.5000
+module.module.decoder.layers.14.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 17.3750
+module.module.decoder.layers.14.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.0000
+module.module.decoder.layers.14.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.2500
+module.module.decoder.layers.15.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 30.8750
+module.module.decoder.layers.15.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 25.1250
+module.module.decoder.layers.15.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 76.5000
+module.module.decoder.layers.15.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 18.0000
+module.module.decoder.layers.15.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.0000
+module.module.decoder.layers.15.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.5000
+module.module.decoder.layers.16.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 33.0000
+module.module.decoder.layers.16.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 26.0000
+module.module.decoder.layers.16.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 74.5000
+module.module.decoder.layers.16.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 19.1250
+module.module.decoder.layers.16.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.5000
+module.module.decoder.layers.16.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.5000
+module.module.decoder.layers.17.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 31.3750
+module.module.decoder.layers.17.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 26.7500
+module.module.decoder.layers.17.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.5000
+module.module.decoder.layers.17.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 20.3750
+module.module.decoder.layers.17.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 90.0000
+module.module.decoder.layers.17.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.2500
+module.module.decoder.layers.18.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 34.5000
+module.module.decoder.layers.18.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 28.2500
+module.module.decoder.layers.18.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.0000
+module.module.decoder.layers.18.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 21.5000
+module.module.decoder.layers.18.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 90.5000
+module.module.decoder.layers.18.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.2500
+module.module.decoder.layers.19.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 33.2500
+module.module.decoder.layers.19.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 28.1250
+module.module.decoder.layers.19.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 71.5000
+module.module.decoder.layers.19.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 22.2500
+module.module.decoder.layers.19.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 90.5000
+module.module.decoder.layers.19.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.5000
+module.module.decoder.layers.20.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 34.7500
+module.module.decoder.layers.20.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 28.3750
+module.module.decoder.layers.20.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 75.5000
+module.module.decoder.layers.20.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 23.0000
+module.module.decoder.layers.20.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 90.5000
+module.module.decoder.layers.20.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.5000
+module.module.decoder.layers.21.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 36.7500
+module.module.decoder.layers.21.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 30.1250
+module.module.decoder.layers.21.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.5000
+module.module.decoder.layers.21.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 23.8750
+module.module.decoder.layers.21.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 91.0000
+module.module.decoder.layers.21.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.5000
+module.module.decoder.layers.22.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 36.7500
+module.module.decoder.layers.22.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 30.6250
+module.module.decoder.layers.22.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.0000
+module.module.decoder.layers.22.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 24.7500
+module.module.decoder.layers.22.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 91.0000
+module.module.decoder.layers.22.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.5000
+module.module.decoder.layers.23.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 39.0000
+module.module.decoder.layers.23.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 32.7500
+module.module.decoder.layers.23.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.0000
+module.module.decoder.layers.23.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 25.5000
+module.module.decoder.layers.23.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 91.5000
+module.module.decoder.layers.23.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.7500
+module.module.decoder.layers.24.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 37.2500
+module.module.decoder.layers.24.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 32.2500
+module.module.decoder.layers.24.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 71.5000
+module.module.decoder.layers.24.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 26.3750
+module.module.decoder.layers.24.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 91.5000
+module.module.decoder.layers.24.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 62.0000
+module.module.decoder.layers.25.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 40.2500
+module.module.decoder.layers.25.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 35.0000
+module.module.decoder.layers.25.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 78.5000
+module.module.decoder.layers.25.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 27.1250
+module.module.decoder.layers.25.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 92.0000
+module.module.decoder.layers.25.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 62.2500
+module.module.decoder.layers.26.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 43.2500
+module.module.decoder.layers.26.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 34.0000
+module.module.decoder.layers.26.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.5000
+module.module.decoder.layers.26.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 28.0000
+module.module.decoder.layers.26.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 92.5000
+module.module.decoder.layers.26.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 62.5000
+module.module.decoder.layers.27.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 40.0000
+module.module.decoder.layers.27.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 35.0000
+module.module.decoder.layers.27.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.5000
+module.module.decoder.layers.27.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 28.8750
+module.module.decoder.layers.27.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 92.5000
+module.module.decoder.layers.27.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 63.0000
+module.module.decoder.layers.28.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 40.0000
+module.module.decoder.layers.28.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 35.5000
+module.module.decoder.layers.28.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 74.5000
+module.module.decoder.layers.28.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 29.5000
+module.module.decoder.layers.28.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 92.5000
+module.module.decoder.layers.28.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 63.2500
+module.module.decoder.layers.29.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 41.7500
+module.module.decoder.layers.29.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 34.5000
+module.module.decoder.layers.29.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 73.5000
+module.module.decoder.layers.29.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 30.3750
+module.module.decoder.layers.29.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 93.5000
+module.module.decoder.layers.29.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 63.7500
+module.module.decoder.layers.30.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 43.2500
+module.module.decoder.layers.30.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 36.0000
+module.module.decoder.layers.30.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 73.5000
+module.module.decoder.layers.30.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 30.6250
+module.module.decoder.layers.30.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 97.0000
+module.module.decoder.layers.30.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 63.0000
+module.module.decoder.layers.31.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 39.0000
+module.module.decoder.layers.31.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 29.6250
+module.module.decoder.layers.31.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 73.5000
+module.module.decoder.layers.31.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 27.3750
+module.module.decoder.layers.31.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 99.0000
+module.module.decoder.layers.31.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 63.2500
+module.module.decoder.final_layernorm.weight: shape = torch.Size([4096]), norm = 114.5000
+module.module.output_layer.weight: shape = torch.Size([8000, 4096]), norm = 99.0000
+[0m
+[32m2024-12-22 02:25:43[0m [34m[1mDEBUG   [0m[34mwrap.py:setup_model_and_optimizer:220   [0m [34m[1m(rank1/8) 
+module.module.embedding.word_embeddings.weight: shape = torch.Size([8000, 4096]), norm = 98.0000
+module.module.decoder.layers.0.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 13.2500
+module.module.decoder.layers.0.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 2.4531
+module.module.decoder.layers.0.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 46.2500
+module.module.decoder.layers.0.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 3.5625
+module.module.decoder.layers.0.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 77.0000
+module.module.decoder.layers.0.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 56.5000
+module.module.decoder.layers.1.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 14.7500
+module.module.decoder.layers.1.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 5.9375
+module.module.decoder.layers.1.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 68.0000
+module.module.decoder.layers.1.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 6.5625
+module.module.decoder.layers.1.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 83.5000
+module.module.decoder.layers.1.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 58.5000
+module.module.decoder.layers.2.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 29.6250
+module.module.decoder.layers.2.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 11.3750
+module.module.decoder.layers.2.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 92.0000
+module.module.decoder.layers.2.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 8.6875
+module.module.decoder.layers.2.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 86.0000
+module.module.decoder.layers.2.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 59.0000
+module.module.decoder.layers.3.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 28.6250
+module.module.decoder.layers.3.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 18.3750
+module.module.decoder.layers.3.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 81.5000
+module.module.decoder.layers.3.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 11.0000
+module.module.decoder.layers.3.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 87.0000
+module.module.decoder.layers.3.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 59.2500
+module.module.decoder.layers.4.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 28.1250
+module.module.decoder.layers.4.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 16.8750
+module.module.decoder.layers.4.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 81.5000
+module.module.decoder.layers.4.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 11.9375
+module.module.decoder.layers.4.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 87.5000
+module.module.decoder.layers.4.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 58.5000
+module.module.decoder.layers.5.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 27.3750
+module.module.decoder.layers.5.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 17.2500
+module.module.decoder.layers.5.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 84.5000
+module.module.decoder.layers.5.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 12.6875
+module.module.decoder.layers.5.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 87.5000
+module.module.decoder.layers.5.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 58.5000
+module.module.decoder.layers.6.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 26.2500
+module.module.decoder.layers.6.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 21.3750
+module.module.decoder.layers.6.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 79.5000
+module.module.decoder.layers.6.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 13.5625
+module.module.decoder.layers.6.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.0000
+module.module.decoder.layers.6.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 58.2500
+module.module.decoder.layers.7.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 25.8750
+module.module.decoder.layers.7.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 22.1250
+module.module.decoder.layers.7.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 78.0000
+module.module.decoder.layers.7.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 14.3125
+module.module.decoder.layers.7.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.0000
+module.module.decoder.layers.7.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 58.2500
+module.module.decoder.layers.8.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 29.8750
+module.module.decoder.layers.8.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 21.7500
+module.module.decoder.layers.8.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 75.5000
+module.module.decoder.layers.8.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 14.6250
+module.module.decoder.layers.8.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 88.5000
+module.module.decoder.layers.8.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 59.0000
+module.module.decoder.layers.9.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 29.6250
+module.module.decoder.layers.9.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 22.1250
+module.module.decoder.layers.9.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 78.0000
+module.module.decoder.layers.9.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 14.9375
+module.module.decoder.layers.9.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 88.5000
+module.module.decoder.layers.9.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 59.2500
+module.module.decoder.layers.10.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 29.6250
+module.module.decoder.layers.10.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 22.3750
+module.module.decoder.layers.10.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 80.5000
+module.module.decoder.layers.10.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 15.1875
+module.module.decoder.layers.10.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 88.0000
+module.module.decoder.layers.10.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 59.7500
+module.module.decoder.layers.11.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 30.7500
+module.module.decoder.layers.11.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 24.6250
+module.module.decoder.layers.11.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 75.0000
+module.module.decoder.layers.11.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 15.6875
+module.module.decoder.layers.11.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 88.5000
+module.module.decoder.layers.11.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 60.2500
+module.module.decoder.layers.12.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 30.1250
+module.module.decoder.layers.12.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 24.7500
+module.module.decoder.layers.12.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 78.0000
+module.module.decoder.layers.12.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 16.1250
+module.module.decoder.layers.12.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.0000
+module.module.decoder.layers.12.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 60.7500
+module.module.decoder.layers.13.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 31.2500
+module.module.decoder.layers.13.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 25.1250
+module.module.decoder.layers.13.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 78.0000
+module.module.decoder.layers.13.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 16.6250
+module.module.decoder.layers.13.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.0000
+module.module.decoder.layers.13.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.2500
+module.module.decoder.layers.14.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 30.5000
+module.module.decoder.layers.14.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 25.7500
+module.module.decoder.layers.14.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 75.5000
+module.module.decoder.layers.14.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 17.3750
+module.module.decoder.layers.14.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.0000
+module.module.decoder.layers.14.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.2500
+module.module.decoder.layers.15.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 30.8750
+module.module.decoder.layers.15.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 25.1250
+module.module.decoder.layers.15.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 76.5000
+module.module.decoder.layers.15.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 18.0000
+module.module.decoder.layers.15.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.0000
+module.module.decoder.layers.15.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.5000
+module.module.decoder.layers.16.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 33.0000
+module.module.decoder.layers.16.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 26.0000
+module.module.decoder.layers.16.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 74.5000
+module.module.decoder.layers.16.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 19.1250
+module.module.decoder.layers.16.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.5000
+module.module.decoder.layers.16.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.5000
+module.module.decoder.layers.17.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 31.3750
+module.module.decoder.layers.17.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 26.7500
+module.module.decoder.layers.17.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.5000
+module.module.decoder.layers.17.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 20.3750
+module.module.decoder.layers.17.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 90.0000
+module.module.decoder.layers.17.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.2500
+module.module.decoder.layers.18.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 34.5000
+module.module.decoder.layers.18.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 28.2500
+module.module.decoder.layers.18.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.0000
+module.module.decoder.layers.18.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 21.5000
+module.module.decoder.layers.18.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 90.5000
+module.module.decoder.layers.18.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.2500
+module.module.decoder.layers.19.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 33.2500
+module.module.decoder.layers.19.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 28.1250
+module.module.decoder.layers.19.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 71.5000
+module.module.decoder.layers.19.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 22.2500
+module.module.decoder.layers.19.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 90.5000
+module.module.decoder.layers.19.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.5000
+module.module.decoder.layers.20.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 34.7500
+module.module.decoder.layers.20.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 28.3750
+module.module.decoder.layers.20.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 75.5000
+module.module.decoder.layers.20.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 23.0000
+module.module.decoder.layers.20.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 90.5000
+module.module.decoder.layers.20.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.5000
+module.module.decoder.layers.21.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 36.7500
+module.module.decoder.layers.21.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 30.1250
+module.module.decoder.layers.21.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.5000
+module.module.decoder.layers.21.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 23.8750
+module.module.decoder.layers.21.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 91.0000
+module.module.decoder.layers.21.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.5000
+module.module.decoder.layers.22.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 36.7500
+module.module.decoder.layers.22.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 30.6250
+module.module.decoder.layers.22.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.0000
+module.module.decoder.layers.22.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 24.7500
+module.module.decoder.layers.22.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 91.0000
+module.module.decoder.layers.22.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.5000
+module.module.decoder.layers.23.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 39.0000
+module.module.decoder.layers.23.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 32.7500
+module.module.decoder.layers.23.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.0000
+module.module.decoder.layers.23.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 25.5000
+module.module.decoder.layers.23.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 91.5000
+module.module.decoder.layers.23.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.7500
+module.module.decoder.layers.24.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 37.2500
+module.module.decoder.layers.24.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 32.2500
+module.module.decoder.layers.24.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 71.5000
+module.module.decoder.layers.24.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 26.3750
+module.module.decoder.layers.24.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 91.5000
+module.module.decoder.layers.24.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 62.0000
+module.module.decoder.layers.25.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 40.2500
+module.module.decoder.layers.25.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 35.0000
+module.module.decoder.layers.25.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 78.5000
+module.module.decoder.layers.25.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 27.1250
+module.module.decoder.layers.25.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 92.0000
+module.module.decoder.layers.25.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 62.2500
+module.module.decoder.layers.26.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 43.2500
+module.module.decoder.layers.26.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 34.0000
+module.module.decoder.layers.26.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.5000
+module.module.decoder.layers.26.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 28.0000
+module.module.decoder.layers.26.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 92.5000
+module.module.decoder.layers.26.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 62.5000
+module.module.decoder.layers.27.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 40.0000
+module.module.decoder.layers.27.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 35.0000
+module.module.decoder.layers.27.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.5000
+module.module.decoder.layers.27.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 28.8750
+module.module.decoder.layers.27.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 92.5000
+module.module.decoder.layers.27.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 63.0000
+module.module.decoder.layers.28.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 40.0000
+module.module.decoder.layers.28.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 35.5000
+module.module.decoder.layers.28.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 74.5000
+module.module.decoder.layers.28.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 29.5000
+module.module.decoder.layers.28.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 92.5000
+module.module.decoder.layers.28.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 63.2500
+module.module.decoder.layers.29.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 41.7500
+module.module.decoder.layers.29.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 34.5000
+module.module.decoder.layers.29.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 73.5000
+module.module.decoder.layers.29.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 30.3750
+module.module.decoder.layers.29.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 93.5000
+module.module.decoder.layers.29.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 63.7500
+module.module.decoder.layers.30.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 43.2500
+module.module.decoder.layers.30.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 36.0000
+module.module.decoder.layers.30.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 73.5000
+module.module.decoder.layers.30.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 30.6250
+module.module.decoder.layers.30.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 97.0000
+module.module.decoder.layers.30.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 63.0000
+module.module.decoder.layers.31.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 39.0000
+module.module.decoder.layers.31.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 29.6250
+module.module.decoder.layers.31.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 73.5000
+module.module.decoder.layers.31.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 27.3750
+module.module.decoder.layers.31.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 99.0000
+module.module.decoder.layers.31.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 63.2500
+module.module.decoder.final_layernorm.weight: shape = torch.Size([4096]), norm = 114.5000
+module.module.output_layer.weight: shape = torch.Size([8000, 4096]), norm = 99.0000
+[0m
+[32m2024-12-22 02:25:43[0m [34m[1mDEBUG   [0m[34mwrap.py:train:303                       [0m [34m[1m(rank6/8) [WRAP] split batch data with dp, DP1/2 got 64 of 128[0m
+[32m2024-12-22 02:25:43[0m [34m[1mDEBUG   [0m[34mwrap.py:train:303                       [0m [34m[1m(rank5/8) [WRAP] split batch data with dp, DP1/2 got 64 of 128[0m
+[32m2024-12-22 02:25:43[0m [34m[1mDEBUG   [0m[34mwrap.py:train:303                       [0m [34m[1m(rank1/8) [WRAP] split batch data with dp, DP0/2 got 64 of 128[0m
+[32m2024-12-22 02:25:43[0m [34m[1mDEBUG   [0m[34mwrap.py:setup_model_and_optimizer:220   [0m [34m[1m(rank2/8) 
 module.module.embedding.word_embeddings.weight: shape = torch.Size([8000, 4096]), norm = 99.5000
 module.module.decoder.layers.0.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 14.4375
 module.module.decoder.layers.0.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 2.4531
@@ -991,211 +1389,8 @@ module.module.decoder.layers.31.mlp.linear_fc2.weight: shape = torch.Size([4096,
 module.module.decoder.final_layernorm.weight: shape = torch.Size([4096]), norm = 114.5000
 module.module.output_layer.weight: shape = torch.Size([8000, 4096]), norm = 99.0000
 [0m
-[32m2024-12-21 10:36:50[0m [1mINFO    [0m[34mmain.py:<module>:8                      [0m [1m(rank2/8) namespace(tp_size=4, pp_size=1, dp_size=2, cp_size=1, ep_size=1, tp_rank=2, pp_rank=0, dp_rank=0, cp_rank=0, ep_rank=0)[0m
-[32m2024-12-21 10:36:50[0m [1mINFO    [0m[34mmain.py:<module>:8                      [0m [1m(rank6/8) namespace(tp_size=4, pp_size=1, dp_size=2, cp_size=1, ep_size=1, tp_rank=2, pp_rank=0, dp_rank=1, cp_rank=0, ep_rank=0)[0m
-[32m2024-12-21 10:36:50[0m [34m[1mDEBUG   [0m[34mwrap.py:setup_model_and_optimizer:219   [0m [34m[1m(rank5/8) 
-module.module.embedding.word_embeddings.weight: shape = torch.Size([8000, 4096]), norm = 98.0000
-module.module.decoder.layers.0.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 13.2500
-module.module.decoder.layers.0.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 2.4531
-module.module.decoder.layers.0.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 46.2500
-module.module.decoder.layers.0.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 3.5625
-module.module.decoder.layers.0.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 77.0000
-module.module.decoder.layers.0.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 56.5000
-module.module.decoder.layers.1.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 14.7500
-module.module.decoder.layers.1.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 5.9375
-module.module.decoder.layers.1.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 68.0000
-module.module.decoder.layers.1.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 6.5625
-module.module.decoder.layers.1.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 83.5000
-module.module.decoder.layers.1.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 58.5000
-module.module.decoder.layers.2.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 29.6250
-module.module.decoder.layers.2.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 11.3750
-module.module.decoder.layers.2.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 92.0000
-module.module.decoder.layers.2.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 8.6875
-module.module.decoder.layers.2.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 86.0000
-module.module.decoder.layers.2.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 59.0000
-module.module.decoder.layers.3.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 28.6250
-module.module.decoder.layers.3.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 18.3750
-module.module.decoder.layers.3.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 81.5000
-module.module.decoder.layers.3.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 11.0000
-module.module.decoder.layers.3.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 87.0000
-module.module.decoder.layers.3.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 59.2500
-module.module.decoder.layers.4.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 28.1250
-module.module.decoder.layers.4.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 16.8750
-module.module.decoder.layers.4.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 81.5000
-module.module.decoder.layers.4.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 11.9375
-module.module.decoder.layers.4.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 87.5000
-module.module.decoder.layers.4.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 58.5000
-module.module.decoder.layers.5.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 27.3750
-module.module.decoder.layers.5.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 17.2500
-module.module.decoder.layers.5.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 84.5000
-module.module.decoder.layers.5.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 12.6875
-module.module.decoder.layers.5.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 87.5000
-module.module.decoder.layers.5.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 58.5000
-module.module.decoder.layers.6.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 26.2500
-module.module.decoder.layers.6.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 21.3750
-module.module.decoder.layers.6.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 79.5000
-module.module.decoder.layers.6.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 13.5625
-module.module.decoder.layers.6.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.0000
-module.module.decoder.layers.6.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 58.2500
-module.module.decoder.layers.7.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 25.8750
-module.module.decoder.layers.7.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 22.1250
-module.module.decoder.layers.7.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 78.0000
-module.module.decoder.layers.7.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 14.3125
-module.module.decoder.layers.7.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.0000
-module.module.decoder.layers.7.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 58.2500
-module.module.decoder.layers.8.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 29.8750
-module.module.decoder.layers.8.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 21.7500
-module.module.decoder.layers.8.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 75.5000
-module.module.decoder.layers.8.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 14.6250
-module.module.decoder.layers.8.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 88.5000
-module.module.decoder.layers.8.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 59.0000
-module.module.decoder.layers.9.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 29.6250
-module.module.decoder.layers.9.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 22.1250
-module.module.decoder.layers.9.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 78.0000
-module.module.decoder.layers.9.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 14.9375
-module.module.decoder.layers.9.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 88.5000
-module.module.decoder.layers.9.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 59.2500
-module.module.decoder.layers.10.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 29.6250
-module.module.decoder.layers.10.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 22.3750
-module.module.decoder.layers.10.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 80.5000
-module.module.decoder.layers.10.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 15.1875
-module.module.decoder.layers.10.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 88.0000
-module.module.decoder.layers.10.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 59.7500
-module.module.decoder.layers.11.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 30.7500
-module.module.decoder.layers.11.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 24.6250
-module.module.decoder.layers.11.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 75.0000
-module.module.decoder.layers.11.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 15.6875
-module.module.decoder.layers.11.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 88.5000
-module.module.decoder.layers.11.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 60.2500
-module.module.decoder.layers.12.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 30.1250
-module.module.decoder.layers.12.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 24.7500
-module.module.decoder.layers.12.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 78.0000
-module.module.decoder.layers.12.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 16.1250
-module.module.decoder.layers.12.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.0000
-module.module.decoder.layers.12.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 60.7500
-module.module.decoder.layers.13.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 31.2500
-module.module.decoder.layers.13.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 25.1250
-module.module.decoder.layers.13.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 78.0000
-module.module.decoder.layers.13.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 16.6250
-module.module.decoder.layers.13.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.0000
-module.module.decoder.layers.13.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.2500
-module.module.decoder.layers.14.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 30.5000
-module.module.decoder.layers.14.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 25.7500
-module.module.decoder.layers.14.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 75.5000
-module.module.decoder.layers.14.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 17.3750
-module.module.decoder.layers.14.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.0000
-module.module.decoder.layers.14.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.2500
-module.module.decoder.layers.15.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 30.8750
-module.module.decoder.layers.15.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 25.1250
-module.module.decoder.layers.15.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 76.5000
-module.module.decoder.layers.15.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 18.0000
-module.module.decoder.layers.15.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.0000
-module.module.decoder.layers.15.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.5000
-module.module.decoder.layers.16.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 33.0000
-module.module.decoder.layers.16.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 26.0000
-module.module.decoder.layers.16.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 74.5000
-module.module.decoder.layers.16.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 19.1250
-module.module.decoder.layers.16.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.5000
-module.module.decoder.layers.16.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.5000
-module.module.decoder.layers.17.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 31.3750
-module.module.decoder.layers.17.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 26.7500
-module.module.decoder.layers.17.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.5000
-module.module.decoder.layers.17.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 20.3750
-module.module.decoder.layers.17.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 90.0000
-module.module.decoder.layers.17.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.2500
-module.module.decoder.layers.18.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 34.5000
-module.module.decoder.layers.18.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 28.2500
-module.module.decoder.layers.18.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.0000
-module.module.decoder.layers.18.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 21.5000
-module.module.decoder.layers.18.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 90.5000
-module.module.decoder.layers.18.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.2500
-module.module.decoder.layers.19.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 33.2500
-module.module.decoder.layers.19.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 28.1250
-module.module.decoder.layers.19.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 71.5000
-module.module.decoder.layers.19.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 22.2500
-module.module.decoder.layers.19.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 90.5000
-module.module.decoder.layers.19.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.5000
-module.module.decoder.layers.20.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 34.7500
-module.module.decoder.layers.20.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 28.3750
-module.module.decoder.layers.20.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 75.5000
-module.module.decoder.layers.20.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 23.0000
-module.module.decoder.layers.20.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 90.5000
-module.module.decoder.layers.20.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.5000
-module.module.decoder.layers.21.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 36.7500
-module.module.decoder.layers.21.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 30.1250
-module.module.decoder.layers.21.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.5000
-module.module.decoder.layers.21.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 23.8750
-module.module.decoder.layers.21.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 91.0000
-module.module.decoder.layers.21.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.5000
-module.module.decoder.layers.22.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 36.7500
-module.module.decoder.layers.22.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 30.6250
-module.module.decoder.layers.22.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.0000
-module.module.decoder.layers.22.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 24.7500
-module.module.decoder.layers.22.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 91.0000
-module.module.decoder.layers.22.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.5000
-module.module.decoder.layers.23.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 39.0000
-module.module.decoder.layers.23.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 32.7500
-module.module.decoder.layers.23.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.0000
-module.module.decoder.layers.23.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 25.5000
-module.module.decoder.layers.23.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 91.5000
-module.module.decoder.layers.23.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.7500
-module.module.decoder.layers.24.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 37.2500
-module.module.decoder.layers.24.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 32.2500
-module.module.decoder.layers.24.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 71.5000
-module.module.decoder.layers.24.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 26.3750
-module.module.decoder.layers.24.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 91.5000
-module.module.decoder.layers.24.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 62.0000
-module.module.decoder.layers.25.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 40.2500
-module.module.decoder.layers.25.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 35.0000
-module.module.decoder.layers.25.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 78.5000
-module.module.decoder.layers.25.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 27.1250
-module.module.decoder.layers.25.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 92.0000
-module.module.decoder.layers.25.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 62.2500
-module.module.decoder.layers.26.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 43.2500
-module.module.decoder.layers.26.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 34.0000
-module.module.decoder.layers.26.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.5000
-module.module.decoder.layers.26.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 28.0000
-module.module.decoder.layers.26.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 92.5000
-module.module.decoder.layers.26.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 62.5000
-module.module.decoder.layers.27.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 40.0000
-module.module.decoder.layers.27.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 35.0000
-module.module.decoder.layers.27.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.5000
-module.module.decoder.layers.27.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 28.8750
-module.module.decoder.layers.27.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 92.5000
-module.module.decoder.layers.27.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 63.0000
-module.module.decoder.layers.28.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 40.0000
-module.module.decoder.layers.28.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 35.5000
-module.module.decoder.layers.28.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 74.5000
-module.module.decoder.layers.28.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 29.5000
-module.module.decoder.layers.28.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 92.5000
-module.module.decoder.layers.28.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 63.2500
-module.module.decoder.layers.29.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 41.7500
-module.module.decoder.layers.29.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 34.5000
-module.module.decoder.layers.29.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 73.5000
-module.module.decoder.layers.29.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 30.3750
-module.module.decoder.layers.29.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 93.5000
-module.module.decoder.layers.29.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 63.7500
-module.module.decoder.layers.30.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 43.2500
-module.module.decoder.layers.30.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 36.0000
-module.module.decoder.layers.30.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 73.5000
-module.module.decoder.layers.30.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 30.6250
-module.module.decoder.layers.30.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 97.0000
-module.module.decoder.layers.30.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 63.0000
-module.module.decoder.layers.31.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 39.0000
-module.module.decoder.layers.31.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 29.6250
-module.module.decoder.layers.31.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 73.5000
-module.module.decoder.layers.31.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 27.3750
-module.module.decoder.layers.31.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 99.0000
-module.module.decoder.layers.31.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 63.2500
-module.module.decoder.final_layernorm.weight: shape = torch.Size([4096]), norm = 114.5000
-module.module.output_layer.weight: shape = torch.Size([8000, 4096]), norm = 99.0000
-[0m
-[32m2024-12-21 10:36:50[0m [1mINFO    [0m[34mmain.py:<module>:8                      [0m [1m(rank5/8) namespace(tp_size=4, pp_size=1, dp_size=2, cp_size=1, ep_size=1, tp_rank=1, pp_rank=0, dp_rank=1, cp_rank=0, ep_rank=0)[0m
-[32m2024-12-21 10:36:50[0m [34m[1mDEBUG   [0m[34mwrap.py:train:300                       [0m [34m[1m(rank3/8) [WRAP] split dp, DP0/2 got 64 of 128[0m
-[32m2024-12-21 10:36:50[0m [34m[1mDEBUG   [0m[34mwrap.py:train:300                       [0m [34m[1m(rank2/8) [WRAP] split dp, DP0/2 got 64 of 128[0m
-[32m2024-12-21 10:36:50[0m [34m[1mDEBUG   [0m[34mwrap.py:train:300                       [0m [34m[1m(rank6/8) [WRAP] split dp, DP1/2 got 64 of 128[0m
-[32m2024-12-21 10:36:50[0m [34m[1mDEBUG   [0m[34mwrap.py:train:300                       [0m [34m[1m(rank5/8) [WRAP] split dp, DP1/2 got 64 of 128[0m
-[32m2024-12-21 10:36:50[0m [34m[1mDEBUG   [0m[34mwrap.py:setup_model_and_optimizer:219   [0m [34m[1m(rank4/8) 
+[32m2024-12-22 02:25:43[0m [34m[1mDEBUG   [0m[34mwrap.py:train:303                       [0m [34m[1m(rank2/8) [WRAP] split batch data with dp, DP0/2 got 64 of 128[0m
+[32m2024-12-22 02:25:43[0m [34m[1mDEBUG   [0m[34mwrap.py:setup_model_and_optimizer:220   [0m [34m[1m(rank4/8) 
 module.module.embedding.word_embeddings.weight: shape = torch.Size([8000, 4096]), norm = 92.0000
 module.module.decoder.layers.0.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 11.8750
 module.module.decoder.layers.0.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 2.4531
@@ -1392,255 +1587,10 @@ module.module.decoder.layers.31.mlp.linear_fc2.weight: shape = torch.Size([4096,
 module.module.decoder.final_layernorm.weight: shape = torch.Size([4096]), norm = 114.5000
 module.module.output_layer.weight: shape = torch.Size([8000, 4096]), norm = 98.0000
 [0m
-[32m2024-12-21 10:36:50[0m [1mINFO    [0m[34mmain.py:<module>:8                      [0m [1m(rank4/8) namespace(tp_size=4, pp_size=1, dp_size=2, cp_size=1, ep_size=1, tp_rank=0, pp_rank=0, dp_rank=1, cp_rank=0, ep_rank=0)[0m
-[32m2024-12-21 10:36:51[0m [34m[1mDEBUG   [0m[34mwrap.py:setup_model_and_optimizer:219   [0m [34m[1m(rank1/8) 
-module.module.embedding.word_embeddings.weight: shape = torch.Size([8000, 4096]), norm = 98.0000
-module.module.decoder.layers.0.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 13.2500
-module.module.decoder.layers.0.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 2.4531
-module.module.decoder.layers.0.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 46.2500
-module.module.decoder.layers.0.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 3.5625
-module.module.decoder.layers.0.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 77.0000
-module.module.decoder.layers.0.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 56.5000
-module.module.decoder.layers.1.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 14.7500
-module.module.decoder.layers.1.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 5.9375
-module.module.decoder.layers.1.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 68.0000
-module.module.decoder.layers.1.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 6.5625
-module.module.decoder.layers.1.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 83.5000
-module.module.decoder.layers.1.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 58.5000
-module.module.decoder.layers.2.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 29.6250
-module.module.decoder.layers.2.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 11.3750
-module.module.decoder.layers.2.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 92.0000
-module.module.decoder.layers.2.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 8.6875
-module.module.decoder.layers.2.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 86.0000
-module.module.decoder.layers.2.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 59.0000
-module.module.decoder.layers.3.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 28.6250
-module.module.decoder.layers.3.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 18.3750
-module.module.decoder.layers.3.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 81.5000
-module.module.decoder.layers.3.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 11.0000
-module.module.decoder.layers.3.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 87.0000
-module.module.decoder.layers.3.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 59.2500
-module.module.decoder.layers.4.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 28.1250
-module.module.decoder.layers.4.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 16.8750
-module.module.decoder.layers.4.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 81.5000
-module.module.decoder.layers.4.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 11.9375
-module.module.decoder.layers.4.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 87.5000
-module.module.decoder.layers.4.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 58.5000
-module.module.decoder.layers.5.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 27.3750
-module.module.decoder.layers.5.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 17.2500
-module.module.decoder.layers.5.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 84.5000
-module.module.decoder.layers.5.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 12.6875
-module.module.decoder.layers.5.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 87.5000
-module.module.decoder.layers.5.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 58.5000
-module.module.decoder.layers.6.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 26.2500
-module.module.decoder.layers.6.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 21.3750
-module.module.decoder.layers.6.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 79.5000
-module.module.decoder.layers.6.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 13.5625
-module.module.decoder.layers.6.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.0000
-module.module.decoder.layers.6.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 58.2500
-module.module.decoder.layers.7.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 25.8750
-module.module.decoder.layers.7.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 22.1250
-module.module.decoder.layers.7.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 78.0000
-module.module.decoder.layers.7.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 14.3125
-module.module.decoder.layers.7.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.0000
-module.module.decoder.layers.7.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 58.2500
-module.module.decoder.layers.8.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 29.8750
-module.module.decoder.layers.8.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 21.7500
-module.module.decoder.layers.8.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 75.5000
-module.module.decoder.layers.8.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 14.6250
-module.module.decoder.layers.8.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 88.5000
-module.module.decoder.layers.8.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 59.0000
-module.module.decoder.layers.9.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 29.6250
-module.module.decoder.layers.9.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 22.1250
-module.module.decoder.layers.9.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 78.0000
-module.module.decoder.layers.9.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 14.9375
-module.module.decoder.layers.9.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 88.5000
-module.module.decoder.layers.9.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 59.2500
-module.module.decoder.layers.10.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 29.6250
-module.module.decoder.layers.10.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 22.3750
-module.module.decoder.layers.10.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 80.5000
-module.module.decoder.layers.10.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 15.1875
-module.module.decoder.layers.10.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 88.0000
-module.module.decoder.layers.10.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 59.7500
-module.module.decoder.layers.11.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 30.7500
-module.module.decoder.layers.11.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 24.6250
-module.module.decoder.layers.11.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 75.0000
-module.module.decoder.layers.11.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 15.6875
-module.module.decoder.layers.11.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 88.5000
-module.module.decoder.layers.11.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 60.2500
-module.module.decoder.layers.12.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 30.1250
-module.module.decoder.layers.12.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 24.7500
-module.module.decoder.layers.12.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 78.0000
-module.module.decoder.layers.12.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 16.1250
-module.module.decoder.layers.12.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.0000
-module.module.decoder.layers.12.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 60.7500
-module.module.decoder.layers.13.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 31.2500
-module.module.decoder.layers.13.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 25.1250
-module.module.decoder.layers.13.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 78.0000
-module.module.decoder.layers.13.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 16.6250
-module.module.decoder.layers.13.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.0000
-module.module.decoder.layers.13.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.2500
-module.module.decoder.layers.14.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 30.5000
-module.module.decoder.layers.14.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 25.7500
-module.module.decoder.layers.14.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 75.5000
-module.module.decoder.layers.14.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 17.3750
-module.module.decoder.layers.14.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.0000
-module.module.decoder.layers.14.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.2500
-module.module.decoder.layers.15.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 30.8750
-module.module.decoder.layers.15.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 25.1250
-module.module.decoder.layers.15.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 76.5000
-module.module.decoder.layers.15.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 18.0000
-module.module.decoder.layers.15.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.0000
-module.module.decoder.layers.15.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.5000
-module.module.decoder.layers.16.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 33.0000
-module.module.decoder.layers.16.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 26.0000
-module.module.decoder.layers.16.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 74.5000
-module.module.decoder.layers.16.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 19.1250
-module.module.decoder.layers.16.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 89.5000
-module.module.decoder.layers.16.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.5000
-module.module.decoder.layers.17.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 31.3750
-module.module.decoder.layers.17.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 26.7500
-module.module.decoder.layers.17.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.5000
-module.module.decoder.layers.17.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 20.3750
-module.module.decoder.layers.17.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 90.0000
-module.module.decoder.layers.17.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.2500
-module.module.decoder.layers.18.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 34.5000
-module.module.decoder.layers.18.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 28.2500
-module.module.decoder.layers.18.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.0000
-module.module.decoder.layers.18.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 21.5000
-module.module.decoder.layers.18.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 90.5000
-module.module.decoder.layers.18.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.2500
-module.module.decoder.layers.19.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 33.2500
-module.module.decoder.layers.19.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 28.1250
-module.module.decoder.layers.19.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 71.5000
-module.module.decoder.layers.19.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 22.2500
-module.module.decoder.layers.19.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 90.5000
-module.module.decoder.layers.19.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.5000
-module.module.decoder.layers.20.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 34.7500
-module.module.decoder.layers.20.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 28.3750
-module.module.decoder.layers.20.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 75.5000
-module.module.decoder.layers.20.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 23.0000
-module.module.decoder.layers.20.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 90.5000
-module.module.decoder.layers.20.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.5000
-module.module.decoder.layers.21.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 36.7500
-module.module.decoder.layers.21.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 30.1250
-module.module.decoder.layers.21.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.5000
-module.module.decoder.layers.21.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 23.8750
-module.module.decoder.layers.21.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 91.0000
-module.module.decoder.layers.21.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.5000
-module.module.decoder.layers.22.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 36.7500
-module.module.decoder.layers.22.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 30.6250
-module.module.decoder.layers.22.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.0000
-module.module.decoder.layers.22.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 24.7500
-module.module.decoder.layers.22.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 91.0000
-module.module.decoder.layers.22.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.5000
-module.module.decoder.layers.23.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 39.0000
-module.module.decoder.layers.23.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 32.7500
-module.module.decoder.layers.23.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.0000
-module.module.decoder.layers.23.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 25.5000
-module.module.decoder.layers.23.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 91.5000
-module.module.decoder.layers.23.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 61.7500
-module.module.decoder.layers.24.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 37.2500
-module.module.decoder.layers.24.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 32.2500
-module.module.decoder.layers.24.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 71.5000
-module.module.decoder.layers.24.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 26.3750
-module.module.decoder.layers.24.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 91.5000
-module.module.decoder.layers.24.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 62.0000
-module.module.decoder.layers.25.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 40.2500
-module.module.decoder.layers.25.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 35.0000
-module.module.decoder.layers.25.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 78.5000
-module.module.decoder.layers.25.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 27.1250
-module.module.decoder.layers.25.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 92.0000
-module.module.decoder.layers.25.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 62.2500
-module.module.decoder.layers.26.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 43.2500
-module.module.decoder.layers.26.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 34.0000
-module.module.decoder.layers.26.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.5000
-module.module.decoder.layers.26.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 28.0000
-module.module.decoder.layers.26.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 92.5000
-module.module.decoder.layers.26.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 62.5000
-module.module.decoder.layers.27.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 40.0000
-module.module.decoder.layers.27.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 35.0000
-module.module.decoder.layers.27.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 77.5000
-module.module.decoder.layers.27.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 28.8750
-module.module.decoder.layers.27.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 92.5000
-module.module.decoder.layers.27.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 63.0000
-module.module.decoder.layers.28.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 40.0000
-module.module.decoder.layers.28.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 35.5000
-module.module.decoder.layers.28.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 74.5000
-module.module.decoder.layers.28.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 29.5000
-module.module.decoder.layers.28.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 92.5000
-module.module.decoder.layers.28.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 63.2500
-module.module.decoder.layers.29.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 41.7500
-module.module.decoder.layers.29.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 34.5000
-module.module.decoder.layers.29.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 73.5000
-module.module.decoder.layers.29.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 30.3750
-module.module.decoder.layers.29.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 93.5000
-module.module.decoder.layers.29.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 63.7500
-module.module.decoder.layers.30.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 43.2500
-module.module.decoder.layers.30.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 36.0000
-module.module.decoder.layers.30.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 73.5000
-module.module.decoder.layers.30.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 30.6250
-module.module.decoder.layers.30.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 97.0000
-module.module.decoder.layers.30.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 63.0000
-module.module.decoder.layers.31.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 39.0000
-module.module.decoder.layers.31.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 29.6250
-module.module.decoder.layers.31.self_attention.linear_qkv.weight: shape = torch.Size([3072, 4096]), norm = 73.5000
-module.module.decoder.layers.31.mlp.linear_fc1.layer_norm_weight: shape = torch.Size([4096]), norm = 27.3750
-module.module.decoder.layers.31.mlp.linear_fc1.weight: shape = torch.Size([5504, 4096]), norm = 99.0000
-module.module.decoder.layers.31.mlp.linear_fc2.weight: shape = torch.Size([4096, 2752]), norm = 63.2500
-module.module.decoder.final_layernorm.weight: shape = torch.Size([4096]), norm = 114.5000
-module.module.output_layer.weight: shape = torch.Size([8000, 4096]), norm = 99.0000
-[0m
-[32m2024-12-21 10:36:51[0m [1mINFO    [0m[34mmain.py:<module>:8                      [0m [1m(rank1/8) namespace(tp_size=4, pp_size=1, dp_size=2, cp_size=1, ep_size=1, tp_rank=1, pp_rank=0, dp_rank=0, cp_rank=0, ep_rank=0)[0m
-[32m2024-12-21 10:36:51[0m [34m[1mDEBUG   [0m[34mwrap.py:train:300                       [0m [34m[1m(rank4/8) [WRAP] split dp, DP1/2 got 64 of 128[0m
-[rank3]: Traceback (most recent call last):
-[rank3]:   File "/gpfs/public/infra/qhu/projects/megatron-wrap/main.py", line 9, in <module>
-[rank3]:     c.train([[]]*128)
-[rank3]:   File "/gpfs/public/infra/qhu/projects/megatron-wrap/megatron_wrap/core/wrap.py", line 303, in train
-[rank3]:     train_step(self.megatron_wrap_training_flow.forward_func,
-[rank3]:   File "/gpfs/public/infra/qhu/projects/megatron_core_080/megatron/training/training.py", line 590, in train_step
-[rank3]:     losses_reduced = forward_backward_func(
-[rank3]:   File "/gpfs/public/infra/qhu/projects/megatron_core_080/megatron/core/pipeline_parallel/schedules.py", line 439, in forward_backward_no_pipelining
-[rank3]:     output_tensor, num_tokens = forward_step(
-[rank3]:   File "/gpfs/public/infra/qhu/projects/megatron_core_080/megatron/core/pipeline_parallel/schedules.py", line 264, in forward_step
-[rank3]:     output_tensor, loss_func = forward_step_func(data_iterator, model)
-[rank3]: TypeError: MegatronWrapTrainingFlowBase.forward_func() takes 2 positional arguments but 3 were given
-[rank2]: Traceback (most recent call last):
-[rank2]:   File "/gpfs/public/infra/qhu/projects/megatron-wrap/main.py", line 9, in <module>
-[rank2]:     c.train([[]]*128)
-[rank2]:   File "/gpfs/public/infra/qhu/projects/megatron-wrap/megatron_wrap/core/wrap.py", line 303, in train
-[rank2]:     train_step(self.megatron_wrap_training_flow.forward_func,
-[rank2]:   File "/gpfs/public/infra/qhu/projects/megatron_core_080/megatron/training/training.py", line 590, in train_step
-[rank2]:     losses_reduced = forward_backward_func(
-[rank2]:   File "/gpfs/public/infra/qhu/projects/megatron_core_080/megatron/core/pipeline_parallel/schedules.py", line 439, in forward_backward_no_pipelining
-[rank2]:     output_tensor, num_tokens = forward_step(
-[rank2]:   File "/gpfs/public/infra/qhu/projects/megatron_core_080/megatron/core/pipeline_parallel/schedules.py", line 264, in forward_step
-[rank2]:     output_tensor, loss_func = forward_step_func(data_iterator, model)
-[rank2]: TypeError: MegatronWrapTrainingFlowBase.forward_func() takes 2 positional arguments but 3 were given
-[rank6]: Traceback (most recent call last):
-[rank6]:   File "/gpfs/public/infra/qhu/projects/megatron-wrap/main.py", line 9, in <module>
-[rank6]:     c.train([[]]*128)
-[rank6]:   File "/gpfs/public/infra/qhu/projects/megatron-wrap/megatron_wrap/core/wrap.py", line 303, in train
-[rank6]:     train_step(self.megatron_wrap_training_flow.forward_func,
-[rank6]:   File "/gpfs/public/infra/qhu/projects/megatron_core_080/megatron/training/training.py", line 590, in train_step
-[rank6]:     losses_reduced = forward_backward_func(
-[rank6]:   File "/gpfs/public/infra/qhu/projects/megatron_core_080/megatron/core/pipeline_parallel/schedules.py", line 439, in forward_backward_no_pipelining
-[rank6]:     output_tensor, num_tokens = forward_step(
-[rank6]:   File "/gpfs/public/infra/qhu/projects/megatron_core_080/megatron/core/pipeline_parallel/schedules.py", line 264, in forward_step
-[rank6]:     output_tensor, loss_func = forward_step_func(data_iterator, model)
-[rank6]: TypeError: MegatronWrapTrainingFlowBase.forward_func() takes 2 positional arguments but 3 were given
-[rank5]: Traceback (most recent call last):
-[rank5]:   File "/gpfs/public/infra/qhu/projects/megatron-wrap/main.py", line 9, in <module>
-[rank5]:     c.train([[]]*128)
-[rank5]:   File "/gpfs/public/infra/qhu/projects/megatron-wrap/megatron_wrap/core/wrap.py", line 303, in train
-[rank5]:     train_step(self.megatron_wrap_training_flow.forward_func,
-[rank5]:   File "/gpfs/public/infra/qhu/projects/megatron_core_080/megatron/training/training.py", line 590, in train_step
-[rank5]:     losses_reduced = forward_backward_func(
-[rank5]:   File "/gpfs/public/infra/qhu/projects/megatron_core_080/megatron/core/pipeline_parallel/schedules.py", line 439, in forward_backward_no_pipelining
-[rank5]:     output_tensor, num_tokens = forward_step(
-[rank5]:   File "/gpfs/public/infra/qhu/projects/megatron_core_080/megatron/core/pipeline_parallel/schedules.py", line 264, in forward_step
-[rank5]:     output_tensor, loss_func = forward_step_func(data_iterator, model)
-[rank5]: TypeError: MegatronWrapTrainingFlowBase.forward_func() takes 2 positional arguments but 3 were given
-[32m2024-12-21 10:36:51[0m [34m[1mDEBUG   [0m[34mwrap.py:setup_model_and_optimizer:219   [0m [34m[1m(rank0/8) 
+[32m2024-12-22 02:25:43[0m [34m[1mDEBUG   [0m[34mwrap.py:train:303                       [0m [34m[1m(rank4/8) [WRAP] split batch data with dp, DP1/2 got 64 of 128[0m
+[32m2024-12-22 02:25:43[0m [34m[1mDEBUG   [0m[34mtimers.py:log:369                       [0m [34m[1m(rank7/8) (min, max) time across ranks (ms):
+    load-checkpoint ................................: (18004.49, 18004.91)[0m
+[32m2024-12-22 02:25:43[0m [34m[1mDEBUG   [0m[34mwrap.py:setup_model_and_optimizer:220   [0m [34m[1m(rank0/8) 
 module.module.embedding.word_embeddings.weight: shape = torch.Size([8000, 4096]), norm = 92.0000
 module.module.decoder.layers.0.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 11.8750
 module.module.decoder.layers.0.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 2.4531
@@ -1837,51 +1787,11 @@ module.module.decoder.layers.31.mlp.linear_fc2.weight: shape = torch.Size([4096,
 module.module.decoder.final_layernorm.weight: shape = torch.Size([4096]), norm = 114.5000
 module.module.output_layer.weight: shape = torch.Size([8000, 4096]), norm = 98.0000
 [0m
-[32m2024-12-21 10:36:51[0m [34m[1mDEBUG   [0m[34mwrap.py:train:300                       [0m [34m[1m(rank1/8) [WRAP] split dp, DP0/2 got 64 of 128[0m
-[32m2024-12-21 10:36:51[0m [1mINFO    [0m[34mwrap.py:setup_model_and_optimizer:223   [0m [1m[STATUS] optimizer is sucessfully built: DistributedOptimizer(type=adam, lr=2e-05, min_lr=0.0, weight_decay=0.0adam_beta=(0.9,0.95), adam_eps=1e-08, sgd_momentum=0.9[0m
-[32m2024-12-21 10:36:51[0m [1mINFO    [0m[34mwrap.py:setup_model_and_optimizer:224   [0m [1m[STATUS] scheduler is sucessfully built: OptimizerParamScheduler(lr_decay_style=cosine, lr_warmup_steps=409.6, lr_decay_steps=8192)[0m
-[32m2024-12-21 10:36:51[0m [1mINFO    [0m[34mmain.py:<module>:8                      [0m [1m(rank0/8) namespace(tp_size=4, pp_size=1, dp_size=2, cp_size=1, ep_size=1, tp_rank=0, pp_rank=0, dp_rank=0, cp_rank=0, ep_rank=0)[0m
-[32m2024-12-21 10:36:51[0m [34m[1mDEBUG   [0m[34mtimers.py:log:369                       [0m [34m[1m(rank7/8) (min, max) time across ranks (ms):
-    load-checkpoint ................................: (17023.97, 17024.44)[0m
-[32m2024-12-21 10:36:51[0m [1mINFO    [0m[34mwrap.py:_set_megatron_wrap_training_flow:282[0m [1m[STATUS] successfully set megatron wrap training flow <megatron_wrap.core.flow.MegatronWrapMockTrainingFlow object at 0x7fd47471b940>[0m
-[rank4]: Traceback (most recent call last):
-[rank4]:   File "/gpfs/public/infra/qhu/projects/megatron-wrap/main.py", line 9, in <module>
-[rank4]:     c.train([[]]*128)
-[rank4]:   File "/gpfs/public/infra/qhu/projects/megatron-wrap/megatron_wrap/core/wrap.py", line 303, in train
-[rank4]:     train_step(self.megatron_wrap_training_flow.forward_func,
-[rank4]:   File "/gpfs/public/infra/qhu/projects/megatron_core_080/megatron/training/training.py", line 590, in train_step
-[rank4]:     losses_reduced = forward_backward_func(
-[rank4]:   File "/gpfs/public/infra/qhu/projects/megatron_core_080/megatron/core/pipeline_parallel/schedules.py", line 439, in forward_backward_no_pipelining
-[rank4]:     output_tensor, num_tokens = forward_step(
-[rank4]:   File "/gpfs/public/infra/qhu/projects/megatron_core_080/megatron/core/pipeline_parallel/schedules.py", line 264, in forward_step
-[rank4]:     output_tensor, loss_func = forward_step_func(data_iterator, model)
-[rank4]: TypeError: MegatronWrapTrainingFlowBase.forward_func() takes 2 positional arguments but 3 were given
-[32m2024-12-21 10:36:51[0m [34m[1mDEBUG   [0m[34mwrap.py:train:300                       [0m [34m[1m(rank0/8) [WRAP] split dp, DP0/2 got 64 of 128[0m
-[rank1]: Traceback (most recent call last):
-[rank1]:   File "/gpfs/public/infra/qhu/projects/megatron-wrap/main.py", line 9, in <module>
-[rank1]:     c.train([[]]*128)
-[rank1]:   File "/gpfs/public/infra/qhu/projects/megatron-wrap/megatron_wrap/core/wrap.py", line 303, in train
-[rank1]:     train_step(self.megatron_wrap_training_flow.forward_func,
-[rank1]:   File "/gpfs/public/infra/qhu/projects/megatron_core_080/megatron/training/training.py", line 590, in train_step
-[rank1]:     losses_reduced = forward_backward_func(
-[rank1]:   File "/gpfs/public/infra/qhu/projects/megatron_core_080/megatron/core/pipeline_parallel/schedules.py", line 439, in forward_backward_no_pipelining
-[rank1]:     output_tensor, num_tokens = forward_step(
-[rank1]:   File "/gpfs/public/infra/qhu/projects/megatron_core_080/megatron/core/pipeline_parallel/schedules.py", line 264, in forward_step
-[rank1]:     output_tensor, loss_func = forward_step_func(data_iterator, model)
-[rank1]: TypeError: MegatronWrapTrainingFlowBase.forward_func() takes 2 positional arguments but 3 were given
-[rank0]: Traceback (most recent call last):
-[rank0]:   File "/gpfs/public/infra/qhu/projects/megatron-wrap/main.py", line 9, in <module>
-[rank0]:     c.train([[]]*128)
-[rank0]:   File "/gpfs/public/infra/qhu/projects/megatron-wrap/megatron_wrap/core/wrap.py", line 303, in train
-[rank0]:     train_step(self.megatron_wrap_training_flow.forward_func,
-[rank0]:   File "/gpfs/public/infra/qhu/projects/megatron_core_080/megatron/training/training.py", line 590, in train_step
-[rank0]:     losses_reduced = forward_backward_func(
-[rank0]:   File "/gpfs/public/infra/qhu/projects/megatron_core_080/megatron/core/pipeline_parallel/schedules.py", line 439, in forward_backward_no_pipelining
-[rank0]:     output_tensor, num_tokens = forward_step(
-[rank0]:   File "/gpfs/public/infra/qhu/projects/megatron_core_080/megatron/core/pipeline_parallel/schedules.py", line 264, in forward_step
-[rank0]:     output_tensor, loss_func = forward_step_func(data_iterator, model)
-[rank0]: TypeError: MegatronWrapTrainingFlowBase.forward_func() takes 2 positional arguments but 3 were given
-[32m2024-12-21 10:36:51[0m [34m[1mDEBUG   [0m[34mwrap.py:setup_model_and_optimizer:219   [0m [34m[1m(rank7/8) 
+[32m2024-12-22 02:25:43[0m [1mINFO    [0m[34mwrap.py:setup_model_and_optimizer:224   [0m [1m[STATUS] optimizer is sucessfully built: DistributedOptimizer(type=adam, lr=2e-05, min_lr=0.0, weight_decay=0.0adam_beta=(0.9,0.95), adam_eps=1e-08, sgd_momentum=0.9[0m
+[32m2024-12-22 02:25:43[0m [1mINFO    [0m[34mwrap.py:setup_model_and_optimizer:225   [0m [1m[STATUS] scheduler is sucessfully built: OptimizerParamScheduler(lr_decay_style=cosine, lr_warmup_steps=409.6, lr_decay_steps=8192)[0m
+[32m2024-12-22 02:25:43[0m [1mINFO    [0m[34mwrap.py:_set_megatron_wrap_training_flow:284[0m [1m[STATUS] successfully set megatron wrap training flow: MegatronWrapMinimalMockMSEFlow(flow_key=minimal_mock_mse, seq_length=512, micro_batch_size=4)[0m
+[32m2024-12-22 02:25:43[0m [34m[1mDEBUG   [0m[34mwrap.py:train:303                       [0m [34m[1m(rank0/8) [WRAP] split batch data with dp, DP0/2 got 64 of 128[0m
+[32m2024-12-22 02:25:43[0m [34m[1mDEBUG   [0m[34mwrap.py:setup_model_and_optimizer:220   [0m [34m[1m(rank7/8) 
 module.module.embedding.word_embeddings.weight: shape = torch.Size([8000, 4096]), norm = 99.0000
 module.module.decoder.layers.0.self_attention.linear_proj.weight: shape = torch.Size([4096, 1024]), norm = 18.3750
 module.module.decoder.layers.0.self_attention.linear_qkv.layer_norm_weight: shape = torch.Size([4096]), norm = 2.4531
@@ -2078,62 +1988,11 @@ module.module.decoder.layers.31.mlp.linear_fc2.weight: shape = torch.Size([4096,
 module.module.decoder.final_layernorm.weight: shape = torch.Size([4096]), norm = 114.5000
 module.module.output_layer.weight: shape = torch.Size([8000, 4096]), norm = 100.0000
 [0m
-[32m2024-12-21 10:36:51[0m [1mINFO    [0m[34mmain.py:<module>:8                      [0m [1m(rank7/8) namespace(tp_size=4, pp_size=1, dp_size=2, cp_size=1, ep_size=1, tp_rank=3, pp_rank=0, dp_rank=1, cp_rank=0, ep_rank=0)[0m
-[32m2024-12-21 10:36:51[0m [34m[1mDEBUG   [0m[34mwrap.py:train:300                       [0m [34m[1m(rank7/8) [WRAP] split dp, DP1/2 got 64 of 128[0m
-[rank7]: Traceback (most recent call last):
-[rank7]:   File "/gpfs/public/infra/qhu/projects/megatron-wrap/main.py", line 9, in <module>
-[rank7]:     c.train([[]]*128)
-[rank7]:   File "/gpfs/public/infra/qhu/projects/megatron-wrap/megatron_wrap/core/wrap.py", line 303, in train
-[rank7]:     train_step(self.megatron_wrap_training_flow.forward_func,
-[rank7]:   File "/gpfs/public/infra/qhu/projects/megatron_core_080/megatron/training/training.py", line 590, in train_step
-[rank7]:     losses_reduced = forward_backward_func(
-[rank7]:   File "/gpfs/public/infra/qhu/projects/megatron_core_080/megatron/core/pipeline_parallel/schedules.py", line 439, in forward_backward_no_pipelining
-[rank7]:     output_tensor, num_tokens = forward_step(
-[rank7]:   File "/gpfs/public/infra/qhu/projects/megatron_core_080/megatron/core/pipeline_parallel/schedules.py", line 264, in forward_step
-[rank7]:     output_tensor, loss_func = forward_step_func(data_iterator, model)
-[rank7]: TypeError: MegatronWrapTrainingFlowBase.forward_func() takes 2 positional arguments but 3 were given
-[rank7]:[W1221 22:36:51.224666588 ProcessGroupNCCL.cpp:1168] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
-[rank2]:[W1221 22:36:51.382274608 ProcessGroupNCCL.cpp:1168] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
-[rank3]:[W1221 22:36:51.385018945 ProcessGroupNCCL.cpp:1168] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
-[rank0]:[W1221 22:36:51.392933534 ProcessGroupNCCL.cpp:1168] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
-[rank1]:[W1221 22:36:51.393781457 ProcessGroupNCCL.cpp:1168] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
-[rank6]:[W1221 22:36:51.407862764 ProcessGroupNCCL.cpp:1168] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
-[rank4]:[W1221 22:36:51.408361996 ProcessGroupNCCL.cpp:1168] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
-[rank5]:[W1221 22:36:51.412858257 ProcessGroupNCCL.cpp:1168] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
-W1221 22:36:52.950000 139636510705472 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 177430 closing signal SIGTERM
-W1221 22:36:52.955000 139636510705472 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 177431 closing signal SIGTERM
-W1221 22:36:52.958000 139636510705472 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 177432 closing signal SIGTERM
-W1221 22:36:52.964000 139636510705472 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 177433 closing signal SIGTERM
-W1221 22:36:52.995000 139636510705472 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 177434 closing signal SIGTERM
-W1221 22:36:52.998000 139636510705472 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 177435 closing signal SIGTERM
-W1221 22:36:53.037000 139636510705472 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 177436 closing signal SIGTERM
-E1221 22:36:54.102000 139636510705472 torch/distributed/elastic/multiprocessing/api.py:833] failed (exitcode: 1) local_rank: 7 (pid: 177437) of binary: /usr/bin/python
-Traceback (most recent call last):
-  File "/usr/local/bin/torchrun", line 33, in <module>
-    sys.exit(load_entry_point('torch==2.4.0+cu124', 'console_scripts', 'torchrun')())
-  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
-    return f(*args, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 901, in main
-    run(args)
-  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 892, in run
-    elastic_launch(
-  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 133, in __call__
-    return launch_agent(self._config, self._entrypoint, list(args))
-  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
-    raise ChildFailedError(
-torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
-============================================================
-main.py FAILED
-------------------------------------------------------------
-Failures:
-  <NO_OTHER_FAILURES>
-------------------------------------------------------------
-Root Cause (first observed failure):
-[0]:
-  time      : 2024-12-21_22:36:52
-  host      : 171dbf39c5b8
-  rank      : 7 (local_rank: 7)
-  exitcode  : 1 (pid: 177437)
-  error_file: <N/A>
-  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
-============================================================
+[32m2024-12-22 02:25:43[0m [34m[1mDEBUG   [0m[34mwrap.py:train:303                       [0m [34m[1m(rank7/8) [WRAP] split batch data with dp, DP1/2 got 64 of 128[0m
+[32m2024-12-22 02:25:45[0m [34m[1mDEBUG   [0m[34mflow.py:log_each_step_metrics:48        [0m [34m[1m(micro batch step 0) loss: 80.0595, random_length: 452.0000[0m
+[32m2024-12-22 02:25:48[0m [34m[1mDEBUG   [0m[34mflow.py:log_each_step_metrics:48        [0m [34m[1m(micro batch step 1) loss: 109.5258, random_length: 120.0000[0m
+[32m2024-12-22 02:25:50[0m [34m[1mDEBUG   [0m[34mflow.py:log_each_step_metrics:48        [0m [34m[1m(micro batch step 2) loss: 114.4262, random_length: 8.0000[0m
+[32m2024-12-22 02:25:52[0m [34m[1mDEBUG   [0m[34mflow.py:log_each_step_metrics:48        [0m [34m[1m(micro batch step 3) loss: 107.2352, random_length: 93.0000[0m
+[32m2024-12-22 02:25:53[0m [34m[1mDEBUG   [0m[34mflow.py:log_each_step_metrics:48        [0m [34m[1m(micro batch step 4) loss: 136.8486, random_length: 36.0000[0m
+[32m2024-12-22 02:25:55[0m [34m[1mDEBUG   [0m[34mflow.py:log_each_step_metrics:48        [0m [34m[1m(micro batch step 5) loss: 103.2843, random_length: 86.0000[0m
+[32m2024-12-22 02:25:57[0m [34m[1mDEBUG   [0m[34mflow.py:log_each_step_metrics:48        [0m [34m[1m(micro batch step 6) loss: 108.6465, random_length: 101.0000[0m

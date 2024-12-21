@@ -3,6 +3,7 @@ import os
 import sys
 import torch
 import gc
+import time
 from typing import Union
 from types import SimpleNamespace
 from megatron_wrap.utils.formatter import format_weights_info, format_optimizer_info, format_scheduler_info
@@ -236,8 +237,8 @@ class MegatronWrap:
         for model_module in self.model:
             model_module.train()
         
-        self.total_loss_dict = {}
         self.iteration = 0
+        self.last_metrics = None
 
         # setup training config
         config = get_model_config(self.model[0])
@@ -272,11 +273,15 @@ class MegatronWrap:
         self.megatron_lm_prepared_for_training = True
     
     def _set_megatron_wrap_training_flow(self):
+        from megatron.training.global_vars import get_args
+        args = get_args()
+
         flow_config = self.megatron_wrap_args.flow
         assert flow_config.flow_type == "training", f"need to select training flow"
-        self.megatron_wrap_training_flow = MegatronWrapFlowEntry.get_flow(flow_config, self.get_parallel_states())
+        self.megatron_wrap_training_flow = MegatronWrapFlowEntry.get_flow(flow_config, self.get_parallel_states(), args.micro_batch_size, args.seq_length)
+        assert self.megatron_wrap_args.model_provider.model_type == self.megatron_wrap_args.flow.compatiable_model_type
         if self.megatron_wrap_training_flow is not None:
-            logger.info_rank_0(f"[STATUS] successfully set megatron wrap training flow {self.megatron_wrap_training_flow}")
+            logger.info_rank_0(f"[STATUS] successfully set megatron wrap training flow: {self.megatron_wrap_training_flow}")
         else:
             logger.error_rank_0(f"setting megatron wrap training flow failed")
     
@@ -289,26 +294,75 @@ class MegatronWrap:
             self._set_megatron_wrap_training_flow()
         
         from megatron.training.global_vars import get_args
-        from megatron.training.training import train_step
+        from megatron.training.training import train_step, num_floating_point_operations
+
 
         args = get_args()
         assert len(data_batch) == args.global_batch_size, f"need data batch size ({len(data_batch)}) equals to global batch size ({args.global_batch_size})"
         data_batch_split_of_this_dp_rank = data_batch[self.dp_rank::self.dp_size]
         logger.debug_all_ranks(f"[WRAP] split batch data with dp, DP{self.dp_rank}/{self.dp_size} got {len(data_batch_split_of_this_dp_rank)} of {len(data_batch)}")
 
-        loss_dict, skipped_iter, grad_norm, num_zeros_in_grad = \
-            train_step(self.megatron_wrap_training_flow.forward_func,
+        start_time = time.time()
+        metrics, skipped_iter, grad_norm, num_zeros_in_grad = \
+            train_step(self.megatron_wrap_training_flow.forward_step,
                        iter(data_batch_split_of_this_dp_rank),
                        self.model,
                        self.optimizer,
                        self.opt_param_scheduler,
                        self.training_configs)
         torch.cuda.synchronize()
+        elapsed_time = time.time() - start_time
+        mean_time_tensor = torch.tensor(elapsed_time, device="cuda")
+        torch.distributed.all_reduce(mean_time_tensor, op=torch.distributed.ReduceOp.AVG)
+        metrics["mean_elapsed_time"] =  mean_time_tensor.item()
+             
         self.iteration += 1
+        # reset internal micro batch step
+        self.megatron_wrap_training_flow.current_step = -1
 
-        logger.info_all_ranks(f"{self.iteration=}, {loss_dict, skipped_iter, grad_norm, num_zeros_in_grad=}")
-        # prepare training logs
+        # add more to metrics
+        metrics["iteration"] = self.iteration
+        metrics["consumed_samples"] = args.global_batch_size * self.iteration
+        metrics["grad_norm"] = grad_norm
+        metrics["num_zeros_in_grad"] = num_zeros_in_grad
+        metrics["loss_scale"] = self.optimizer.get_loss_scale().item()
+        for param_group in self.optimizer.param_groups:
+            if param_group["is_decoupled_lr"]:
+                metrics["decoupled_learning_rate"] = param_group["lr"]
+            else:
+                metrics["learning_rate"] = param_group["lr"]
+        if args.log_params_norm:
+            from megatron.training.utils import calc_params_l2_norm
+            metrics["params_norm"] = calc_params_l2_norm(self.model)
         
+        metrics["throughput"] = num_floating_point_operations(args, args.global_batch_size) / (
+            mean_time_tensor.item() * 10**12 * args.world_size
+        )
+
+        # memory usage and theoretical memory
+        
+        self.last_metrics = metrics
+        return metrics
+    
+    @staticmethod
+    def format_metrics(metrics):
+        keys_fixed_order = ["iteration", "loss", "grad_norm", "learning_rate", "throughput"]
+        items = [
+            k + f" {metrics.get(k):.4f}" for k in keys_fixed_order
+        ]
+        for k in metrics:
+            if k not in keys_fixed_order:
+                v = metrics.get(k)
+                if isinstance(v, float):
+                    items.append(k + f" {v:.4f}")
+                else:
+                    items.append(k + f" {v}")
+        return " | ".join([f"{_:>8s}" for _ in items])
+        
+    def log_last_metrics(self):
+        if self.last_metrics:
+            logger.info_rank_0(self.format_metrics(self.last_metrics))
+
     
     def save(self):
         assert hasattr(self, "model") and self.model is not None, f"need to init a valid model first"
