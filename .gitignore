@@ -162,4 +162,4 @@ cython_debug/
 #.idea/
 
 ckpt/
-console_logs
+console.log

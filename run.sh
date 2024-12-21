@@ -10,4 +10,4 @@ export OMP_NUM_THREADS=1
 
 torchrun $DISTRIBUTED_ARGS \
   main.py \
-  2>&1 | tee console_logs
+  2>&1 | tee console.log
