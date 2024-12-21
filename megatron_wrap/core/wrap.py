@@ -4,10 +4,12 @@ import sys
 import torch
 import gc
 from typing import Union
+from types import SimpleNamespace
 from megatron_wrap.utils.formatter import format_weights_info, format_optimizer_info, format_scheduler_info
 from megatron_wrap.utils import logger
 from .config import MegatronWrapConfig
 from .model import MegatronModelProviderEntry
+from .flow import MegatronWrapFlowEntry
 
 
 class MegatronWrap:
@@ -20,6 +22,9 @@ class MegatronWrap:
         self.megatron_wrap_args = config.get_megatron_wrap_args()
         # handle logger configs 
         self.handle_display()
+
+        self.megatron_wrap_training_flow = None
+        self.megatron_lm_prepared_for_training = False
 
     def initialize(self):
         logger.info_rank_0("[STATUS] initialization started")
@@ -122,6 +127,7 @@ class MegatronWrap:
         assert self.megatron_lm_is_initialized, f"need to initialize mpu first"
         from megatron.core import mpu
         # "tp-cp-ep-dp-pp"
+        _parallel_states = SimpleNamespace()
         funcs_map = {
             "get_tensor_model_parallel_world_size": "tp_size",
             "get_pipeline_model_parallel_world_size": "pp_size",
@@ -136,13 +142,25 @@ class MegatronWrap:
             "get_expert_model_parallel_rank": "ep_rank"
         }
         for mpu_method, self_property in funcs_map.items():
+            mpu_method_retval = getattr(mpu, mpu_method)()
             setattr(
                 self,
                 self_property,
-                getattr(mpu, mpu_method)()
+                mpu_method_retval
             )
+            setattr(
+                _parallel_states,
+                self_property,
+                mpu_method_retval
+            )
+        self._parallel_states = _parallel_states
         logger.debug_rank_0(f"[PATCH] the series of get parallel state funcs are patched, use (t|p|d|c|e)p_(rank|size) instead of the original to save effort")
         return True
+    
+    def get_parallel_states(self):
+        assert self.mpu_state_patched, "need to run patch_get_parallel_state first"
+        return self._parallel_states
+
     
     def format_parallel_states(self):
         assert self.mpu_state_patched, "need to run patch_get_parallel_state first"
@@ -202,22 +220,124 @@ class MegatronWrap:
         else:
             logger.debug_all_ranks(f"\n{self.model}")
         
-        logger.info_rank_0(f"[STATUS] optimizer is sucessfully built {format_optimizer_info(self.optimizer)}")
-        logger.info_rank_0(f"[STATUS] scheduler is sucessfully built {format_scheduler_info(self.opt_param_scheduler)}")
+        logger.info_rank_0(f"[STATUS] optimizer is sucessfully built: {format_optimizer_info(self.optimizer)}")
+        logger.info_rank_0(f"[STATUS] scheduler is sucessfully built: {format_scheduler_info(self.opt_param_scheduler)}")
         return self.model, self.optimizer, self.opt_param_scheduler
     
-    def _prepare_training_config(self):
-        # self.config = get_model_config(self.model[0])
-        # self.config.grad_scale_func = self.optimizer.scale_loss
-        # https://github.com/NVIDIA/Megatron-LM/blob/core_r0.8.0/megatron/training/training.py#L991
-        pass
+    def _prepare_megatron_lm_for_training(self):
+        assert hasattr(self, "model") and self.model is not None, f"need to init a valid model first"
+        from megatron.core.utils import get_model_config
+        from megatron.training.global_vars import get_args
+        from megatron.core.distributed import DistributedDataParallel as DDP
+        from megatron.core.distributed import finalize_model_grads
 
-    def train(self):
-        # https://github.com/NVIDIA/Megatron-LM/blob/core_r0.8.0/megatron/training/training.py#L292
-        pass
+        args = get_args()
+        # turn on training mode which enables dropout
+        for model_module in self.model:
+            model_module.train()
+        
+        self.total_loss_dict = {}
+        self.iteration = 0
+
+        # setup training config
+        config = get_model_config(self.model[0])
+        config.grad_scale_func = self.optimizer.scale_loss
+        if isinstance(self.model[0], DDP) and args.overlap_grad_reduce:
+            assert config.no_sync_func is None, \
+                ('When overlap_grad_reduce is True, config.no_sync_func must be None; '
+                'a custom no_sync_func is not supported when overlapping grad-reduce')
+            config.no_sync_func = [model_chunk.no_sync for model_chunk in self.model]
+            if len(self.model) == 1:
+                config.no_sync_func = config.no_sync_func[0]
+            if args.delay_grad_reduce:
+                config.grad_sync_func = [model_chunk.start_grad_sync for model_chunk in self.model]
+                if len(self.model) == 1:
+                    config.grad_sync_func = config.grad_sync_func[0]
+        if args.overlap_param_gather and args.delay_param_gather:
+            config.param_sync_func = [lambda x: self.optimizer.finish_param_sync(model_index, x)
+                                    for model_index in range(len(self.model))]
+            if len(self.model) == 1:
+                config.param_sync_func = config.param_sync_func[0]
+        config.finalize_model_grads_func = finalize_model_grads
+        self.training_configs = config
+
+        if args.manual_gc:
+            # Disable the default garbage collector and perform the collection manually.
+            # This is to align the timing of garbage collection across ranks.
+            assert args.manual_gc_interval >= 0, \
+                'Manual garbage collection interval should be laerger than or equal to 0.'
+            gc.disable()
+            gc.collect()
+        
+        self.megatron_lm_prepared_for_training = True
     
-    def train_step(self):
-        # https://github.com/NVIDIA/Megatron-LM/blob/core_r0.8.0/megatron/training/training.py#L1085
-        pass
+    def _set_megatron_wrap_training_flow(self):
+        flow_config = self.megatron_wrap_args.flow
+        assert flow_config.flow_type == "training", f"need to select training flow"
+        self.megatron_wrap_training_flow = MegatronWrapFlowEntry.get_flow(flow_config, self.get_parallel_states())
+        if self.megatron_wrap_training_flow is not None:
+            logger.info_rank_0(f"[STATUS] successfully set megatron wrap training flow {self.megatron_wrap_training_flow}")
+        else:
+            logger.error_rank_0(f"setting megatron wrap training flow failed")
+    
+    
+    def train(self, data_batch: list):
+        if self.megatron_lm_prepared_for_training is not True:
+            self._prepare_megatron_lm_for_training()
+        # set megatron wrap training flow
+        if self.megatron_wrap_training_flow is None:
+            self._set_megatron_wrap_training_flow()
+        
+        from megatron.training.global_vars import get_args
+        from megatron.training.training import train_step
+
+        args = get_args()
+        assert len(data_batch) == args.global_batch_size, f"need data batch size ({len(data_batch)}) equals to global batch size ({args.global_batch_size})"
+        data_batch_split_of_this_dp_rank = data_batch[self.dp_rank::self.dp_size]
+        logger.debug_all_ranks(f"[WRAP] split batch data with dp, DP{self.dp_rank}/{self.dp_size} got {len(data_batch_split_of_this_dp_rank)} of {len(data_batch)}")
+
+        loss_dict, skipped_iter, grad_norm, num_zeros_in_grad = \
+            train_step(self.megatron_wrap_training_flow.forward_func,
+                       iter(data_batch_split_of_this_dp_rank),
+                       self.model,
+                       self.optimizer,
+                       self.opt_param_scheduler,
+                       self.training_configs)
+        torch.cuda.synchronize()
+        self.iteration += 1
+
+        logger.info_all_ranks(f"{self.iteration=}, {loss_dict, skipped_iter, grad_norm, num_zeros_in_grad=}")
+        # prepare training logs
+        
+    
+    def save(self):
+        assert hasattr(self, "model") and self.model is not None, f"need to init a valid model first"
+        if self.megatron_lm_prepared_for_training is not True:
+            self._prepare_megatron_lm_for_training()
+        from megatron.training.global_vars import get_args
+        from megatron.training.checkpointing import save_checkpoint
+        args = get_args()
+
+        if args.use_distributed_optimizer and args.overlap_param_gather:
+            self.optimizer.disable_pre_hook()
+        save_checkpoint(
+            self.iteration,
+            self.model,
+            self.optimizer,
+            self.opt_param_scheduler,
+            0,
+        )
+        if args.use_distributed_optimizer and args.overlap_param_gather:
+            self.optimizer.enable_pre_hook()
+        
+        torch.distributed.barrier()
+        logger.info_rank_0(f"[STATUS] model of iteration {self.iteration} is sucessfully saved at {os.path.join(args.save, f'iter_{self.iteration:07d}')}")
+
+
+
+
+
+
+        
 
 
