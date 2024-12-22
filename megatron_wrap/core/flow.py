@@ -260,7 +260,8 @@ class MegatronWrapGPTModelSFTFlow(MegatronWrapGPTModelFlow):
         if self.parallel_states.cp_size > 1:
             logger.debug_rank_0(f"after sum on cp group, loss={loss.tolist()}, loss_mask_count={loss_mask_count.tolist()}")
         else:
-            logger.debug_rank_0(f"loss={loss.tolist()}, loss_mask_count={loss_mask_count.tolist()}")
+            if self.flow_config.log_each_step_metrics:
+                logger.debug_rank_0(f"loss={loss.tolist()}, loss_mask_count={loss_mask_count.tolist()}")
 
         loss = loss/loss_mask_count
         loss = loss.mean()
