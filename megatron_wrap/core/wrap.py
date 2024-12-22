@@ -327,7 +327,8 @@ class MegatronWrap:
         args = get_args()
         assert len(data_batch) == args.global_batch_size, f"need data batch size ({len(data_batch)}) equals to global batch size ({args.global_batch_size})"
         data_batch_split_of_this_dp_rank = data_batch[self.dp_rank::self.dp_size]
-        logger.debug_all_ranks(f"[WRAP] split batch data with dp, DP{self.dp_rank}/{self.dp_size} got {len(data_batch_split_of_this_dp_rank)} of {len(data_batch)}")
+        if self.tp_rank == 0 and self.pp_rank == 0 and self.ep_rank == 0 and self.cp_rank == 0:
+            logger.debug_all_ranks(f"[WRAP] split batch data with dp, DP{self.dp_rank}/{self.dp_size} got {len(data_batch_split_of_this_dp_rank)} of {len(data_batch)}")
 
         start_time = time.time()
         metrics, skipped_iter, grad_norm, num_zeros_in_grad = \

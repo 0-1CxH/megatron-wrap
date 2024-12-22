@@ -7,18 +7,18 @@ megatron_lm:
       __override__:
         tensor_model_parallel_size: 4
         pipeline_model_parallel_size: 1
-        context_parallel_size: 2
+        context_parallel_size: 1
   train:
     common:
-      micro_batch_size: 4
-      global_batch_size: 32
-      seq_length: 1024
-      train_iters: 128
+      micro_batch_size: 8
+      global_batch_size: 128
+      seq_length: 4096
+      train_iters: 781
       load: ckpt/llama-2-7b-mcore-tp4pp1
       save: ckpt/llama2-7b-minimal-sft-save
-      save_interval: 64
+      save_interval: 781
     learning-rate:
-      lr: 5.0e-5
+      lr: 1.0e-5
       lr_warmup_fraction: 0.05
 megatron_wrap:
   init:
@@ -27,6 +27,9 @@ megatron_wrap:
   logger:
     patch_print: true
     remove_logging: true
+    enable_wandb: true
+    wandb_project: megatron-wrap
+    wandb_name: llama2-7b-sft
   model_provider:
     __select__: gpt_model
     __override__:

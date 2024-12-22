@@ -3,3 +3,5 @@ flow_type: training
 compatiable_model_type: GPT
 
 log_each_step_metrics: false
+
+collate_type: fixed_length
