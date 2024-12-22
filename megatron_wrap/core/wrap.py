@@ -294,8 +294,8 @@ class MegatronWrap:
             self._set_megatron_wrap_training_flow()
         
         from megatron.training.global_vars import get_args
-        from megatron.training.training import train_step, num_floating_point_operations
-
+        from megatron.training.training import train_step
+        
 
         args = get_args()
         assert len(data_batch) == args.global_batch_size, f"need data batch size ({len(data_batch)}) equals to global batch size ({args.global_batch_size})"
@@ -335,11 +335,37 @@ class MegatronWrap:
             from megatron.training.utils import calc_params_l2_norm
             metrics["params_norm"] = calc_params_l2_norm(self.model)
         
-        metrics["throughput"] = num_floating_point_operations(args, args.global_batch_size) / (
-            mean_time_tensor.item() * 10**12 * args.world_size
-        )
-
-        # memory usage and theoretical memory
+        if args.log_throughput:
+            from megatron.training.training import num_floating_point_operations
+            metrics["tflops"] = num_floating_point_operations(args, args.global_batch_size) / 10**12
+            metrics["throughput"] = metrics["tflops"] / (
+                mean_time_tensor.item() * args.world_size
+            )
+        
+        if self.megatron_wrap_args.logger.add_memory_to_metrics is True:
+            giga_bytes = 1024.0 * 1024.0 * 1024.0
+            metrics["memory_allocated"] = torch.cuda.memory_allocated() / giga_bytes
+            metrics["memory_reserved"] = torch.cuda.memory_reserved() / giga_bytes
+            metrics["max_memory_allocated"] = torch.cuda.max_memory_allocated() / giga_bytes
+            metrics["max_memory_reserved"] = torch.cuda.max_memory_reserved() / giga_bytes
+        
+        if self.megatron_wrap_args.logger.add_theoretical_memoty_to_metrics is True:
+            from megatron.training.theoretical_memory_usage import compute_weight_and_optimizer_memory, compute_activation_memory
+            from megatron.core.num_microbatches_calculator import get_num_microbatches
+            giga_bytes = 1024.0 * 1024.0 * 1024.0
+            weight_and_optimizer_memory = (
+                compute_weight_and_optimizer_memory(args, verbose=False) / giga_bytes
+            )
+            metrics["theoretical_weight_and_optimizer_memory"] = weight_and_optimizer_memory
+            if not args.sequence_parallel or args.recompute_granularity != 'selective':
+                pass
+            else:
+                activation_memory = (
+                    compute_activation_memory(args, num_microbatches=get_num_microbatches(), verbose=False) / giga_bytes
+                )
+                metrics["theoretical_activation_memory"] = activation_memory
+                total_memory = weight_and_optimizer_memory + activation_memory
+                metrics["theoretical_total_memory"] = total_memory
         
         self.last_metrics = metrics
         return metrics

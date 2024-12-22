@@ -43,9 +43,15 @@ class MegatronWrapConfig:
             self.cn.nest_instance.megatron_lm.train.dist_comm.lazy_mpu_init = None
             logger.warning_rank_0(f"lazy_mpu_init is set to null and ignored in initialization")
         
+        if self.cn.nest_instance.megatron_wrap.logger.add_params_norm_to_metrics is False:
+            self.cn.nest_instance.megatron_lm.misc.log.log_params_norm = False
+            logger.warning_rank_0(f"add_params_norm_to_metrics is disabled, now setting log_params_norm to false")
+        if self.cn.nest_instance.megatron_wrap.logger.add_throughput_to_metrics is False:
+            self.cn.nest_instance.megatron_lm.misc.log.log_throughput = False
+            logger.warning_rank_0(f"add_throughput_to_metrics is disabled, now setting log_throughput to false")
+        
         # pad vocab size (if not already set from a checkpoint)
         # divisible by model parallel size and still having GPU friendly size.
-        
         def pad_vocab_size():
             current_size = self.cn.nest_instance.megatron_lm.model.arch.vocab_size
             divide_by = self.cn.nest_instance.megatron_lm.model.arch.make_vocab_size_divisible_by * self.cn.nest_instance.megatron_lm.model.parallel.tensor_model_parallel_size

@@ -1,3 +1,8 @@
 patch_print: True
 ignore_warning: True
 remove_logging: True
+
+add_params_norm_to_metrics: false
+add_throughput_to_metrics: true
+add_memory_to_metrics: true
+add_theoretical_memoty_to_metrics: true
