@@ -372,7 +372,7 @@ class MegatronWrap:
     
     @staticmethod
     def format_metrics(metrics):
-        keys_fixed_order = ["iteration", "loss", "grad_norm", "learning_rate", "throughput"]
+        keys_fixed_order = ["iteration", "loss", "grad_norm", "learning_rate"]
         items = []
         for k in keys_fixed_order:
             v = metrics.get(k)

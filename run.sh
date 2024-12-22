@@ -5,7 +5,7 @@ DISTRIBUTED_ARGS="--nproc-per-node ${GPUS_PER_NODE:-8} \
                   --master-port ${MASTER_PORT:-22334}"
 
 export OMP_NUM_THREADS=1
-export CONSOLE_LOG_LEVEL="INFO" 
+# export CONSOLE_LOG_LEVEL="INFO" 
 
 
 torchrun $DISTRIBUTED_ARGS \

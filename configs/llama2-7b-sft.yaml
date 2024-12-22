@@ -21,7 +21,7 @@ megatron_lm:
       lr_warmup_fraction: 0.05
 megatron_wrap:
   init:
-    megatron_lm_project_path: ../megatron_core_080
+    megatron_lm_project_path: megatron_lm_core_080
     skip_compile_dependencies: true
   logger:
     patch_print: true
