@@ -3,6 +3,30 @@
 ## Introducation
 This project is a wrap for nvidia's Megatron-LM to make it easier to use like training/inference framework of huggingface family (transformers, deepspeed, trl, ...) while fully utilize the parallel optimizations of megatron-lm.
 
+## Feature
+
+### Wrap
+
+`MegatronWrap` provides easy-to-use interface of initializing megatron-lm, settting up model, train with data given at runtime (instead of the builtin dataset/loader), logging metrics and saving model, therefore you can start you project with attention paid on algorithm.
+
+`MegatronWrapTrainingFlow` takes care of the data parallel and context parallel inside the data collating and loss function to avoid details of megatron-lm.
+
+`MegatronModelProviderEntry` is a the class that organizes the model providers of megatron-lm and gives model using megatron-wrap configs.
+
+
+### Config Management
+
+The configs are organized in a tree strcute and split by the frequency of being modified across runs.
+
+The config tree supports `__select__`, `__inherit__` and `__override__` for easier using predefined configs and changing part of them, see docs of `confignest` for details.
+
+
+### Patch
+
+`megatron-wrap` patches logger, warning and print of megatron-lm to hide the low-level details of it, and provides user with handy utils of logging on rank_0/all_ranks.
+
+This wrap patches 
+
 ## Quick Start
 
 ### write training script using wrapped interface
@@ -24,7 +48,6 @@ megatron_wrap.save()
 
 
 ```yaml
-# Example: configs/llama2-7b-minimal-mock.yaml
 megatron_lm:
   model:
     arch:
@@ -32,15 +55,16 @@ megatron_lm:
     parallel:
       __select__: base
       __override__:
-        tensor_model_parallel_size: 4
-        pipeline_model_parallel_size: 1
+        tensor_model_parallel_size: 2
+        pipeline_model_parallel_size: 2
+        context_parallel_size: 2
   train:
     common:
       micro_batch_size: 4
       global_batch_size: 128
       seq_length: 512
       train_iters: 64
-      load: ckpt/llama-2-7b-mcore-tp4pp1
+      load: ckpt/llama-2-7b-mcore-tp2pp2
       save: ckpt/llama2-7b-minimal-mock-save
       save_interval: 1
     learning-rate:
