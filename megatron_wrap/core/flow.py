@@ -32,7 +32,7 @@ class MegatronWrapTrainingFlowBase:
         for k, val in data_dict.items():
             if k in fields_and_seqdims and val is not None:
                 seq_dim = fields_and_seqdims[k]
-                s += f"{k}(dim={seq_dim}, before={val.shape[seq_dim]}, "
+                s += f"{k}(dim{seq_dim}, {val.shape[seq_dim]}->"
                 val = val.view(
                     *val.shape[0:seq_dim],
                     2 * self.parallel_states.cp_size,
@@ -43,7 +43,7 @@ class MegatronWrapTrainingFlowBase:
                                      device="cpu", pin_memory=True)
                 val = val.index_select(seq_dim, index)
                 val = val.view(*val.shape[0:seq_dim], -1, *val.shape[(seq_dim + 2) :])
-                s += f"after={val.shape[seq_dim]}, index={index.tolist()}) "
+                s += f"{val.shape[seq_dim]}, index={index.tolist()}) "
                 data_dict[k] = val
         if self.parallel_states.tp_rank == 0  and self.parallel_states.pp_rank == 0  and \
             self.parallel_states.ep_rank == 0 and self.parallel_states.dp_rank == 0 :
@@ -123,7 +123,7 @@ class MegatronWrapGPTModelFlow(MegatronWrapTrainingFlowBase):
             ]]) 
 
 
-class MegatronWrapMinimalMockMSEFlow(MegatronWrapGPTModelFlow):
+class MegatronWrapMinimalMockFlow(MegatronWrapGPTModelFlow):
     def get_fields_and_seqdims(self):
         d = super().get_fields_and_seqdims()
         d.update({
@@ -169,7 +169,7 @@ class MegatronWrapFlowEntry:
     @classmethod
     def get_flow(cls, flow_config, parallel_states, micro_batch_size, seq_length):
         clz_map = {
-            "minimal_mock_mse": MegatronWrapMinimalMockMSEFlow,
+            "minimal_mock": MegatronWrapMinimalMockFlow,
         }
         
         assert flow_config.flow_key in clz_map, "need to select a valid flow"

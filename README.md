@@ -29,6 +29,12 @@ The configs are organized in a tree strcute and split by the frequency of being 
 
 ## Quick Start
 
+### Example
+
+```bash
+bash scripts/run_llama2_7b_minimal_mock.sh
+```
+
 ### Installation
 
 ```bash
@@ -41,7 +47,7 @@ git submodule update --init --recursive # this will pull git@github.com:NVIDIA/M
 If you already have a megatron-lm environment:
 
 ```
-pip install confignest, loguru
+pip install -r environment/wrap_environment/requirements.txt
 ```
 
 Or, see the `dependencies` section for more details.
@@ -101,7 +107,7 @@ megatron_wrap:
     __override__:
       show_weight_details: true
   flow:
-    __select__: minimal_mock_mse
+    __select__: minimal_mock
 
 ```
 
@@ -126,7 +132,7 @@ torchrun $DISTRIBUTED_ARGS $SCRIPT $CONFIG 2>&1 | tee console.log
 
 ## Dependencies
 
-Attention: read this section if you do not have a valid megatron-lm environment, the following script is executed on nvidia's image `nvcr.io/nvidia/pytorch:24.05-py3` and is just for reference, read other materials if this fails, or you can use `environment/test_environment/Dockerfile` to build a environment that this project is developed and tested in.
+Attention: read this section if you do not have a valid megatron-lm environment, the following script is executed on nvidia's image `nvcr.io/nvidia/pytorch:24.05-py3` and is just for reference, read other materials if this fails, or you can use `environment/test_environment/Dockerfile` to build a environment that this project is developed and tested in (it contains usused libs that this project does not use).
 
 ```bash
 export MAX_JOBS=16

@@ -1,4 +1,4 @@
-flow_key: minimal_mock_mse
+flow_key: minimal_mock
 flow_type: training
 compatiable_model_type: GPT
 
