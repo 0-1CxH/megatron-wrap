@@ -6,8 +6,10 @@ import gc
 import time
 from typing import Union
 from types import SimpleNamespace
+
+import torch.distributed
 from megatron_wrap.utils.formatter import format_weights_info, format_optimizer_info, format_scheduler_info
-from megatron_wrap.utils import logger
+from megatron_wrap.utils import logger, WandbWrap
 from .config import MegatronWrapConfig
 from .model import MegatronModelProviderEntry
 from .flow import MegatronWrapFlowEntry
@@ -26,6 +28,8 @@ class MegatronWrap:
 
         self.megatron_wrap_training_flow = None
         self.megatron_lm_prepared_for_training = False
+
+        self.wandb_initialized = False
     
     def get_common_args(self):
         return self._megatron_wrap_config.cn.nest_instance.megatron_lm.train.common
@@ -70,6 +74,17 @@ class MegatronWrap:
             warnings.simplefilter(action="ignore", category=FutureWarning)
             warnings.simplefilter(action="ignore", category=UserWarning)
             logger.debug_rank_0(f"[PATCH] FutureWarning, UserWarning are ignored")
+        
+    def initialize_wandb(self):
+        if os.getenv('WANDB_API_KEY') is None:
+            logger.warning_rank_0(f"need to set wandb api key by export WANDB_API_KEY if use online mode")
+        self.wandb_logger = WandbWrap(
+            megatron_wrap_logger_args=self.megatron_wrap_args.logger, 
+            run_configs=self.megatron_lm_args
+        )
+        logger.info_rank_0(f"wandb logger set")
+        self.wandb_initialized = True
+
     
     def megatron_lm_initialize(self):
         assert self.megatron_lm_is_importable, f"need to import megatron first"
@@ -403,6 +418,11 @@ class MegatronWrap:
     def log_last_metrics(self):
         if self.last_metrics:
             logger.info_rank_0(self.format_metrics(self.last_metrics))
+            if torch.distributed.get_rank() == 0:
+                if self.wandb_initialized is False:
+                    self.initialize_wandb()
+                self.wandb_logger.log_metrics(self.last_metrics)
+        torch.distributed.barrier()
 
     
     def save(self):

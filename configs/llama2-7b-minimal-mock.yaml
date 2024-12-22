@@ -27,6 +27,8 @@ megatron_wrap:
   logger:
     patch_print: true
     remove_logging: true
+    enable_wandb: true
+    wandb_project: megatron-wrap-llama2-7b-minimal-mock
   model_provider:
     __select__: gpt_model
     __override__:

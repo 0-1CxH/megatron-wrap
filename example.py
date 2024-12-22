@@ -22,11 +22,10 @@ logger.info_rank_0(f"using config {config_file}, train for {train_iters} iters, 
 wrap.initialize()
 wrap.setup_model_and_optimizer()
 
-for current_iteration in range(train_iters+1):
+for current_iteration in range(train_iters):
     metrics = wrap.train(dataset.get_batch(global_batch_size))
     wrap.log_last_metrics()
-    # log metrics to wandb
     if save_interval is not None:
-        if (current_iteration % save_interval == 0 and current_iteration > 0) or (current_iteration==train_iters):
+        if (current_iteration % save_interval == 0 and current_iteration > 0) or (current_iteration==train_iters-1):
             wrap.save()
 

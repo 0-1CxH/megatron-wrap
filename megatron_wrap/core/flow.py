@@ -137,7 +137,7 @@ class MegatronWrapMinimalMockFlow(MegatronWrapGPTModelFlow):
         import random
         mock_length = random.randint(1, self.seq_length // 4) * 4
         model_forward_inputs = {
-            "input_ids": torch.randint(10 ,(self.micro_batch_size, mock_length)), 
+            "input_ids": torch.randint(3 ,(self.micro_batch_size, mock_length)), 
             "position_ids": torch.range(0, mock_length-1, dtype=torch.int64).repeat(self.micro_batch_size).view(self.micro_batch_size, mock_length),
             "attention_mask": torch.ones(self.micro_batch_size, mock_length, dtype=torch.int64)
         }
