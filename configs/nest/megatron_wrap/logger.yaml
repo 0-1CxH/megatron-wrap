@@ -6,3 +6,9 @@ add_params_norm_to_metrics: false
 add_throughput_to_metrics: true
 add_memory_to_metrics: true
 add_theoretical_memoty_to_metrics: true
+
+enable_wandb: false
+wandb_entity: null
+wandb_project: null
+wandb_name: null
+wandb_dir: null

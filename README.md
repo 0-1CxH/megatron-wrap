@@ -52,6 +52,22 @@ pip install -r environment/wrap_environment/requirements.txt
 
 Or, see the `dependencies` section for more details.
 
+### Fast Test
+
+Run the builtin scripts first to check if it is installed sucessfully. 
+
+```bash
+export WANDB_API_KEY="YOUR_WANDB_API_KEY" # optional
+export CONSOLE_LOG_LEVEL="INFO" # optional, default is "DEBUG"
+
+CONFIG_FILE="PATH_TO_CONFIG_FILE"
+# options are:
+# "configs/llama2-7b-minimal-mock.yaml"
+# "configs/llama2-7b-sft.yaml"
+# better test all options
+bash scripts/run_example.sh $CONFIG_FILE
+```
+
 ### Training Script 
 
 Use wrapped interface of `MegatronWrap`.

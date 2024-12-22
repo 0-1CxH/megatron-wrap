@@ -12,7 +12,9 @@ class BatchDataset(Dataset):
         assert self.__len__() >= batch_size
         if self.start_index + batch_size > self.__len__():
             self.start_index = 0
-        return [self[idx] for idx in range(self.start_index, self.start_index+batch_size)]
+        ret = [self[idx] for idx in range(self.start_index, self.start_index+batch_size)]
+        self.start_index += batch_size
+        return ret
 
 
 class EmptyDataset(BatchDataset):
