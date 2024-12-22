@@ -163,6 +163,8 @@ class MegatronWrapMinimalMockFlow(MegatronWrapGPTModelFlow):
             self.log_each_step_metrics(metrics)
         return loss, metrics
 
+class MegatronWrapGPTModelSFTFlow(MegatronWrapGPTModelFlow):
+    pass
 
 
 class MegatronWrapFlowEntry:
@@ -170,6 +172,7 @@ class MegatronWrapFlowEntry:
     def get_flow(cls, flow_config, parallel_states, micro_batch_size, seq_length):
         clz_map = {
             "minimal_mock": MegatronWrapMinimalMockFlow,
+            "gpt_sft": MegatronWrapGPTModelSFTFlow,
         }
         
         assert flow_config.flow_key in clz_map, "need to select a valid flow"

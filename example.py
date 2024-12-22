@@ -2,13 +2,15 @@ import sys
 from megatron_wrap.core import MegatronWrap
 from megatron_wrap.utils import logger
 
-from megatron_wrap.utils.dataset import EmptyDataset
+from megatron_wrap.utils.dataset import EmptyDataset, ExampleSftDataset
 
 config_file = sys.argv[1]
 wrap = MegatronWrap(config_file)
 
 if wrap.get_flow_key() == "minimal_mock":
     dataset = EmptyDataset()
+elif wrap.get_flow_key() == "gpt_sft":
+    dataset = ExampleSftDataset()
 else:
     raise ValueError()
 train_iters = wrap.get_common_args().train_iters

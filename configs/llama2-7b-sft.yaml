@@ -32,6 +32,8 @@ megatron_wrap:
     __override__:
       show_weight_details: true
   flow:
-    __select__: sft
+    __select__: gpt_sft
+    __override__:
+      log_each_step_metrics: true
 
     
