@@ -140,7 +140,13 @@ class MegatronWrap:
             "get_pipeline_model_parallel_rank": "pp_rank",
             "get_data_parallel_rank": "dp_rank",
             "get_context_parallel_rank": "cp_rank",
-            "get_expert_model_parallel_rank": "ep_rank"
+            "get_expert_model_parallel_rank": "ep_rank",
+
+            "get_tensor_model_parallel_group": "tp_group",
+            "get_pipeline_model_parallel_group": "pp_group",
+            "get_data_parallel_group": "dp_group",
+            "get_context_parallel_group": "cp_group",
+            "get_expert_model_parallel_group": "ep_group",
         }
         for mpu_method, self_property in funcs_map.items():
             mpu_method_retval = getattr(mpu, mpu_method)()

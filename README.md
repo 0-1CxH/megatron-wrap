@@ -124,3 +124,18 @@ git submodule update --init --recursive
 
 ```
 
+## Development
+
+
+### inherit MegatronWrapTrainingFlowBase 
+
+implement:
+
+- get_fields_and_seqdims
+- collate_data_micro_batch
+- calculate_loss
+
+use the following interfaces in calculate loss:
+
+- log_each_step_metrics
+- sum_on_cp_group
