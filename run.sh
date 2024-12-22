@@ -9,5 +9,5 @@ export OMP_NUM_THREADS=1
 
 
 torchrun $DISTRIBUTED_ARGS \
-  main.py \
+  main.py configs/llama2-7b-sft.yaml \
   2>&1 | tee console.log

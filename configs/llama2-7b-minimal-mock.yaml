@@ -1,0 +1,36 @@
+megatron_lm:
+  model:
+    arch:
+      __select__: llama2-7b
+    parallel:
+      __select__: base
+      __override__:
+        tensor_model_parallel_size: 4
+        pipeline_model_parallel_size: 1
+  train:
+    common:
+      micro_batch_size: 4
+      global_batch_size: 128
+      seq_length: 512
+      train_iters: 64
+      load: ckpt/llama-2-7b-mcore-tp4pp1
+      save: ckpt/llama2-7b-minimal-mock-save
+      save_interval: 1
+    learning-rate:
+      lr: 2.0e-5
+      lr_warmup_fraction: 0.05
+megatron_wrap:
+  init:
+    megatron_lm_project_path: megatron_lm_core_080
+    skip_compile_dependencies: true
+  logger:
+    patch_print: true
+    remove_logging: true
+  model_provider:
+    __select__: gpt_model
+    __override__:
+      show_weight_details: true
+  flow:
+    __select__: minimal_mock_mse
+
+    

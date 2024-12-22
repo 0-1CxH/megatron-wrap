@@ -1,8 +1,9 @@
+import sys
 from megatron_wrap.core import MegatronWrap
 from megatron_wrap.utils import logger
 
 
-c = MegatronWrap("configs/llama2-7b-sft.yaml")
+c = MegatronWrap(sys.argv[1])
 c.initialize()
 c.setup_model_and_optimizer()
 for _ in range(10):
