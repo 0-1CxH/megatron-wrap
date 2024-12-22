@@ -1,0 +1,4 @@
+data_parallel_random_init: False
+ddp_bucket_size: null
+ddp_average_in_collective: false
+check_weight_hash_across_dp_replicas_interval: null

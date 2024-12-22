@@ -1,0 +1,6 @@
+__inherit__: no-fp8.yaml
+
+fp16: True
+bf16: False
+params_dtype: "torch.float16"
+

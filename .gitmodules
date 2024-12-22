@@ -1,0 +1,4 @@
+[submodule "megatron_lm_core_080"]
+	path = megatron_lm_core_080
+	url = git@github.com:NVIDIA/Megatron-LM.git
+	branch = core_r0.8.0

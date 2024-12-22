@@ -1,0 +1,36 @@
+#  dataset
+data_path: null
+split: '100,0,0'
+train_data_path: null
+valid_data_path: null
+test_data_path: null
+data_cache_path: null
+mock_data: False
+vocab_file: null
+merge_file: null
+vocab_extra_ids: 0
+num_dataset_builder_threads: 1
+titles_data_path: null
+
+encoder_seq_length: null
+decoder_seq_length: null
+retriever_seq_length: 256
+sample_rate: 1.0
+mask_prob: 0.15
+short_seq_prob: 0.1
+num_workers: 8
+
+# tokenize
+tokenizer_type: GPTSentencePieceTokenizer
+tokenizer_model: null
+
+# data loader
+consumed_train_samples: 0
+consumed_valid_samples: 0
+reset_position_ids: False
+reset_attention_mask: False
+eod_mask_loss: False
+train_samples: null
+dataloader_type: cyclic
+create_attention_mask_in_dataloader: true
+data_sharding: True

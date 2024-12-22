@@ -1,0 +1,34 @@
+# basic
+micro_batch_size: null
+global_batch_size: null
+seq_length: null
+train_iters: null
+save_interval: null
+eval_iters: null
+eval_interval: null
+
+use_flash_attn: true
+seed: 1234
+
+# load
+load: null
+no_load_optim: True
+no_load_rng: True
+use_checkpoint_args: False
+exit_on_missing_checkpoint: true
+# save
+save: null
+no_save_optim: True
+no_save_rng: True
+async_save: null
+
+# mode
+finetune: true
+skip_train: false
+# other
+rampup_batch_size: null
+check_for_nan_in_loss_and_grad: True
+exit_interval: null
+exit_signal_handler: False
+exit_duration_in_mins: null
+

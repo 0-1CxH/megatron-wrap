@@ -1,0 +1,10 @@
+ckpt_fully_parallel_save_deprecated: false
+ckpt_fully_parallel_save: true
+pretrained_checkpoint: null
+ckpt_step: null
+use_dist_ckpt: false
+auto_detect_ckpt_format: false
+dist_ckpt_format: torch_dist
+ckpt_fully_parallel_load: false
+ckpt_assume_constant_structure: false
+dist_ckpt_strictness: assume_ok_unexpected

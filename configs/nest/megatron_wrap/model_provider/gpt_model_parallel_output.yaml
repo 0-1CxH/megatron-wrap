@@ -1,0 +1,3 @@
+__inherit__: gpt_model.yaml
+
+parallel_output: true

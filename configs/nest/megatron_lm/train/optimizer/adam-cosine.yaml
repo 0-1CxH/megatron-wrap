@@ -1,0 +1,23 @@
+# optimizer
+optimizer: adam
+weight_decay: 0.0
+start_weight_decay: null
+end_weight_decay: null
+weight_decay_incr_style: constant
+clip_grad: 1.0
+adam_beta1: 0.9
+adam_beta2: 0.95
+adam_eps: 1.e-08
+sgd_momentum: 0.9
+override_opt_param_scheduler: True
+use_checkpoint_opt_param_scheduler: False
+accumulate_allreduce_grads_in_fp32: False
+gradient_accumulation_fusion: True
+use_distributed_optimizer: True
+
+# activation recomputation
+recompute_activations: false
+recompute_granularity: null
+recompute_method: null
+recompute_num_layers: null
+distribute_saved_activations: false

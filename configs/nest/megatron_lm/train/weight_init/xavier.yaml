@@ -1,0 +1,4 @@
+perform_initialization: True
+init_method_xavier_uniform: false
+init_method_std: 0.006
+use_cpu_initialization: null

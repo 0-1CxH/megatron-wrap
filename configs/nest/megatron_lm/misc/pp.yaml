@@ -1,0 +1,8 @@
+pipeline_dtype: null
+variable_seq_lengths: False
+num_microbatches_with_partial_activation_checkpoints: null
+overlap_p2p_comm: true
+use_ring_exchange_p2p: False
+no_sync_func: null
+param_sync_func: null
+pipeline_model_parallel_split_rank: null

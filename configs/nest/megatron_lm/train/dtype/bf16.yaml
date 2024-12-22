@@ -1,0 +1,8 @@
+__inherit__: no-fp8.yaml
+
+fp16: False
+bf16: True
+params_dtype: null
+
+loss_scale: null 
+# bf16 does not need loss scale

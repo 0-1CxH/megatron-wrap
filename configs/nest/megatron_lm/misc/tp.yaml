@@ -1,0 +1,16 @@
+async_tensor_model_parallel_allreduce: True
+
+tp_comm_overlap: False
+tp_comm_overlap_cfg: null
+tp_comm_overlap_ag: true
+tp_comm_overlap_rs: true
+tp_comm_overlap_rs_dgrad: False
+
+tp_comm_split_ag: True
+tp_comm_split_rs: True
+
+
+tp_comm_bulk_wgrad: True
+tp_comm_bulk_dgrad: True
+
+
