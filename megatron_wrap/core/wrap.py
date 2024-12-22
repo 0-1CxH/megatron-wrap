@@ -26,6 +26,12 @@ class MegatronWrap:
 
         self.megatron_wrap_training_flow = None
         self.megatron_lm_prepared_for_training = False
+    
+    def get_common_args(self):
+        return self._megatron_wrap_config.cn.nest_instance.megatron_lm.train.common
+    
+    def get_flow_key(self):
+        return self.megatron_wrap_args.flow.flow_key
 
     def initialize(self):
         logger.info_rank_0("[STATUS] initialization started")
@@ -140,7 +146,13 @@ class MegatronWrap:
             "get_pipeline_model_parallel_rank": "pp_rank",
             "get_data_parallel_rank": "dp_rank",
             "get_context_parallel_rank": "cp_rank",
-            "get_expert_model_parallel_rank": "ep_rank"
+            "get_expert_model_parallel_rank": "ep_rank",
+
+            "get_tensor_model_parallel_group": "tp_group",
+            "get_pipeline_model_parallel_group": "pp_group",
+            "get_data_parallel_group": "dp_group",
+            "get_context_parallel_group": "cp_group",
+            "get_expert_model_parallel_group": "ep_group",
         }
         for mpu_method, self_property in funcs_map.items():
             mpu_method_retval = getattr(mpu, mpu_method)()
@@ -404,7 +416,7 @@ class MegatronWrap:
         if args.use_distributed_optimizer and args.overlap_param_gather:
             self.optimizer.disable_pre_hook()
         save_checkpoint(
-            self.iteration,
+            max(self.iteration-1, 0),
             self.model,
             self.optimizer,
             self.opt_param_scheduler,
@@ -415,12 +427,4 @@ class MegatronWrap:
         
         torch.distributed.barrier()
         logger.info_rank_0(f"[STATUS] model of iteration {self.iteration} is sucessfully saved at {os.path.join(args.save, f'iter_{self.iteration:07d}')}")
-
-
-
-
-
-
-        
-
 

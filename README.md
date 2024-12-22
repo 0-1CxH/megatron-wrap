@@ -1,11 +1,60 @@
 # megatron-wrap
 
 ## Introducation
-This project is a wrap for nvidia's Megatron-LM to make it easier to use like training/inference framework of huggingface family (transformers, deepspeed, trl, ...) while fully utilize the parallel optimizations of megatron-lm.
+
+`megatron-wrap` is a wrap of nvidia's Megatron-LM that provides user convenience like training/inference framework of huggingface family (transformers, deepspeed, trl, ...) while fully utilize the parallelism features and speed optimizations of megatron-lm for scaling to larger model.
+
+## Features
+
+### Wrap
+
+`MegatronWrap` provides easy-to-use interface of initializing megatron-lm, settting up model, train with data given at runtime (instead of the builtin dataset/loader), logging metrics and saving model, therefore you can start you project with attention paid on algorithm.
+
+### Model and Algorithm Mangement
+
+`MegatronWrapTrainingFlow` takes care of the data parallel and context parallel inside the data collating and loss function to avoid details of megatron-lm.
+
+`MegatronModelProviderEntry` is a the class that organizes the model providers of megatron-lm and gives model using megatron-wrap configs.
+
+
+### Config Management
+
+The configs are organized in a tree strcute and split by the frequency of being modified across runs. The config tree supports `select`, `inherit` and `override` syntax for easier use of predefined configs and changing part of them, see docs of `confignest` for details.
+
+
+### Patch
+
+`megatron-wrap` patches logger, warning and print of megatron-lm to hide the low-level details of it, and provides user with handy utils of logging on rank_0/all_ranks.
+
 
 ## Quick Start
 
-### write training script using wrapped interface
+### Example
+
+```bash
+bash scripts/run_llama2_7b_minimal_mock.sh
+```
+
+### Installation
+
+```bash
+git clone https://github.com/0-1CxH/megatron-wrap.git
+cd megatron-wrap
+git submodule update --init --recursive # this will pull git@github.com:NVIDIA/Megatron-LM.git (core_r0.8.0) to project folder
+
+```
+
+If you already have a megatron-lm environment:
+
+```
+pip install -r environment/wrap_environment/requirements.txt
+```
+
+Or, see the `dependencies` section for more details.
+
+### Training Script 
+
+Use wrapped interface of `MegatronWrap`.
 
 ```python
 from megatron_wrap.core import MegatronWrap
@@ -19,12 +68,11 @@ for _ in range(train_iters):
 megatron_wrap.save()
 ```
 
-### write a short config file
+### Config
 
-
+Here is an example (`configs/llama2-7b-minimal-mock.yaml`):
 
 ```yaml
-# Example: configs/llama2-7b-minimal-mock.yaml
 megatron_lm:
   model:
     arch:
@@ -32,15 +80,16 @@ megatron_lm:
     parallel:
       __select__: base
       __override__:
-        tensor_model_parallel_size: 4
-        pipeline_model_parallel_size: 1
+        tensor_model_parallel_size: 2
+        pipeline_model_parallel_size: 2
+        context_parallel_size: 2
   train:
     common:
       micro_batch_size: 4
       global_batch_size: 128
       seq_length: 512
       train_iters: 64
-      load: ckpt/llama-2-7b-mcore-tp4pp1
+      load: ckpt/llama-2-7b-mcore-tp2pp2
       save: ckpt/llama2-7b-minimal-mock-save
       save_interval: 1
     learning-rate:
@@ -58,11 +107,13 @@ megatron_wrap:
     __override__:
       show_weight_details: true
   flow:
-    __select__: minimal_mock_mse
+    __select__: minimal_mock
 
 ```
 
-### run with torchrun
+### Run
+
+Use `torchrun` to start your script, note that `$SCRIPT` and `$CONFIG` should be the training script and config from above steps.
 
 ```bash
 DISTRIBUTED_ARGS="--nproc-per-node ${GPUS_PER_NODE:-8} \
@@ -78,12 +129,10 @@ torchrun $DISTRIBUTED_ARGS $SCRIPT $CONFIG 2>&1 | tee console.log
 
 ```
 
-Example: scripts/run_llama2_7b_minimal_mock.sh 
 
+## Dependencies
 
-
-
-## dependency
+Attention: read this section if you do not have a valid megatron-lm environment, the following script is executed on nvidia's image `nvcr.io/nvidia/pytorch:24.05-py3` and is just for reference, read other materials if this fails, or you can use `environment/test_environment/Dockerfile` to build a environment that this project is developed and tested in (it contains usused libs that this project does not use).
 
 ```bash
 export MAX_JOBS=16
@@ -106,21 +155,19 @@ RUN CUDACXX=/usr/local/cuda/bin/nvcc pip install \
     git+https://github.com/NVIDIA/TransformerEngine.git@v1.9
 ```
 
-```
-repo: git@github.com:NVIDIA/Megatron-LM.git
-branch: core_r0.8.0
-```
 
-```
-pip install confignest==1.0.5
-```
+## Development
 
 
-## installation
+### inherit MegatronWrapTrainingFlowBase 
 
-```bash
-cd megatron-wrap
-git submodule update --init --recursive
+implement:
 
-```
+- get_fields_and_seqdims
+- collate_data_micro_batch
+- calculate_loss
 
+use the following interfaces in calculate loss:
+
+- log_each_step_metrics
+- sum_on_cp_group
