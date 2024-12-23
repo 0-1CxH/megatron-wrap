@@ -1,6 +1,8 @@
-# megatron-wrap
-
 English | [中文](./README-zh.md)
+
+# megatron-wrap
+> Wrapped Megatron: As User-Friendly as HuggingFace, As Powerful as Megatron-LM 
+
 
 ## Introduction
 

@@ -1,6 +1,8 @@
+[English](./README.md) | 中文
+
 # megatron-wrap
 
-[English](./README.md) | 中文
+> Megatron封装：和HuggingFace一样方便，和Megatron-LM一样强大
 
 ## 简介
 
