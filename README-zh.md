@@ -1,38 +1,37 @@
 # megatron-wrap
 
-English | [中文](./README-zh.md)
+[English](./README.md) | 中文
 
-## Introduction
+## 简介
 
 `megatron-wrap` provides a wrapper for NVIDIA's [Megatron-LM](https://github.com/NVIDIA/Megatron-LM/), offering users ease of use similar to the HuggingFace series of training/inference frameworks (such as transformers, deepspeed, trl, etc.) while fully leverages Megatron-LM's parallel features and speed optimizations to scale up to larger models.
 
 `megatron-wrap` 对NVIDIA的Megatron-LM进行了封装，对使用者提供了如同HuggingFace系列训练/推理框架一样的易用性（例如transformers、deepspeed、trl等），同时充分利用了Megatron-LM 的并行特性和速度优化，以便scale-up到更大的模型。
 
 
-## Features
+## 主要特性
 
-### Easy-to-Use Interafaces
+### 易用接口
 
-- `megatron_wrap.core.wrap` provides easy-to-use interface of initializing megatron-lm, settting up model, train with data given at runtime (instead of the builtin dataset/loader), logging metrics and saving model, therefore you can focus your attention on developing the algorithm and avoid knowing the details about megatron-lm.
-- `megatron_wrap.core.flow` abstracts the main elements of an algorithm if to be implemmented in megatron-lm, including data collating and loss calculating, the data parallelism (dp split and reduce) and context parallelism (cp split, validate and reduce) are taken care internally.
+- `megatron_wrap.core.wrap` 提供了一个易于使用的接口，用于初始化megatron-lm、初始化模型、使用运行时提供的数据进行训练（而不是使用内置的数据集/加载器）、记录指标和保存模型，因此您可以专注于开发算法，而无需了解有关 megatron-lm 的细节。
+- `megatron_wrap.core.flow` 抽象了在 megatron-lm 中实现算法的主要元素，包括数据整理和损失计算，数据并行性（dp 拆分和归约）以及上下文并行性（cp 拆分、验证和归约）都由内部处理
 
-### Config Management
+### 配置管理
 
-The configs (`megatron_wrap.core.config`) are organized in a tree strcute and split by the frequency of being modified across runs. The config tree supports `select`, `inherit` and `override` syntax (will be explained in `Quick Start` section) for easier use of predefined configs and changing part of them, see docs of `confignest` for more details.
+配置(`megatron_wrap.core.config`) 以树状结构组织，并根据在不同运行中被修改的频率进行拆分。配置树支持 `select`, `inherit` 和 `override` 语法（将在 `快速入门` 部分进行解释），以便更轻松地使用预定义配置并更改其中的一部分，详细信息请参见 `confignest` 的文档。
 
 
 ### Patches
 
-- `megatron_wrap.utils.dist_logger` patches the `loguru` logger with handy methods of `(error|warning_info_debug)_(rank_0|all_ranks)`
-- `megatron_wrap.core.wrap` patches the python builtin `print()`(all prints goes to logger.debug_all_ranks), `logging`(removed handlers) and `warning` (hide `FutureWarning` and `UserWarning`)
-- `megatron_wrap.core.wrap` patches the way of getting parallel states, instead of calling `mpu.get_(tensor_model|pipeline_model|data|context|expert_model)_parallel_(world_size|rank|group)()`, use `(t|p|d|c|e)p_(size|rank|group)` to save effort
-- `megatron_wrap.utils.wandb_logger` contains a wandb wrap for the conveneince of use in logging metrics dict of both online and offline mode (replaces the megatron-lm wandb)
+- `megatron_wrap.utils.dist_logger` 为 `loguru` 日志记录器添加了便捷的方法 `(error|warning_info_debug)_(rank_0|all_ranks)`
+- `megatron_wrap.core.wrap` 修改了 Python 内置的 `print()`(所有打印输出都转到 logger.debug_all_ranks), `logging`(移除handlers) 和 `warning` (隐藏 `FutureWarning` 和 `UserWarning`)
+- `megatron_wrap.core.wrap` 改进了获取并行状态的方法，无需调用 `mpu.get_(tensor_model|pipeline_model|data|context|expert_model)_parallel_(world_size|rank|group)()`, 而是使用 `(t|p|d|c|e)p_(size|rank|group)` 来节省精力
+- `megatron_wrap.utils.wandb_logger` 包含一个 wandb 包装器，方便在在线和离线模式下记录指标字典（替换 megatron-lm 的 wandb）
 
 
-## Quick Start
+## 快速入门
 
-
-### Step1: Install
+### 步骤1: 安装
 
 ```bash
 # download this project
@@ -41,19 +40,17 @@ cd megatron-wrap
 git submodule update --init --recursive # this will pull git@github.com:NVIDIA/Megatron-LM.git (core_r0.8.0) to project folder
 ```
 
-If you have a megatron-lm environment already, just install reqs of this wrapper:
+如果您已经有一个 megatron-lm 环境，只需安装此包装器的依赖：
 
 ```bash
 pip install -r environment/wrap_environment/requirements.txt
 ```
 
-If you do not have one, see the `dependencies` section for more details.
+如果您没有现成的环境，请参阅“依赖项”部分以获取更多详细信息。
 
-### Step2: Test with Example
+### 步骤2: 测试例子 
 
-Run the builtin example script first to check if it is installed sucessfully. 
-
-The example script is also a good starting point to make modifications on.
+首先运行内置示例脚本以检查是否成功安装，该示例脚本也是进行修改的一个好的出发点。
 
 ```bash
 export WANDB_API_KEY="YOUR_WANDB_API_KEY" # optional
@@ -67,9 +64,9 @@ CONFIG_FILE="PATH_TO_CONFIG_FILE"
 bash scripts/run_example.sh $CONFIG_FILE
 ```
 
-### Step3: Write a Training Script 
+### 步骤3：编写训练脚本
 
-Use wrapped interface of `MegatronWrap` to implement the training script, it is easier to start from the example or the following script skeleton:
+使用 `MegatronWrap` 的包装接口来实现训练脚本，可以从示例或以下脚本框架开始，这样会更容易：
 
 ```python
 from megatron_wrap.core import MegatronWrap
@@ -83,9 +80,9 @@ for _ in range(train_iters):
 megatron_wrap.save()
 ```
 
-### Step4: Write a Config File
+### 步骤4：编写配置文件
 
-Config includes the meagtron-lm and megatron-wrap part, both are in tree structure and meagtron-lm args will be flatten when sending to megatron. There is not many configs to change, the frequently changed parts:
+配置包括 megatron-lm 和 megatron-wrap 部分，两者都是树状结构，并且在发送到 megatron 时，megatron-lm 的参数将被展平。需要更改的配置不多，经常更改的部分包括：
 
 - model architecture: `configs/nest/megatron_lm/model/arch`
 - model parallelism: `configs/nest/megatron_lm/model/parallel`
@@ -95,13 +92,13 @@ Config includes the meagtron-lm and megatron-wrap part, both are in tree structu
 - computation flow (algorithm): `megatron-wrap/configs/nest/megatron_wrap/flow`
 - logger: `configs/nest/megatron_wrap/logger.yaml`
 
-The examples in the `Step2: Test with Example` uses config: 
+`步骤2: 测试例子` 中的例子使用了如下配置文件: 
 ```bash
 megatron-wrap/configs/llama2-7b-minimal-mock.yaml
 megatron-wrap/configs/llama2-7b-sft.yaml
 ```
 
-Here is an detailed explanation of each field in the config :
+以下是配置中每个字段的详细解释：
 
 ```yaml
 # start with configs/nest, there are two subfolders mapping to each section of args
@@ -143,9 +140,9 @@ megatron_wrap:
 
 ```
 
-### Step5: Run with `torchrun`
+### 步骤5：使用 `torchrun` 运行
 
-Use `torchrun` to start your script, note that `$SCRIPT` and `$CONFIG` should be the training script and config from above steps.
+使用 `torchrun` 启动您的脚本，请注意，`$SCRIPT` 和 `$CONFIG` 应该是前面步骤中的训练脚本和配置。
 
 ```bash
 DISTRIBUTED_ARGS="--nproc-per-node ${GPUS_PER_NODE:-8} \
@@ -163,9 +160,9 @@ torchrun $DISTRIBUTED_ARGS $SCRIPT $CONFIG 2>&1 | tee console.log
 ```
 
 
-## Dependencies
+## 依赖项
 
-Attention: read this section if you do not have a valid megatron-lm environment, the following script is executed on nvidia's image `nvcr.io/nvidia/pytorch:24.05-py3` and is just for reference, read other materials (such as the official repo of megatron-lm) if this fails, or you can use `environment/test_environment/Dockerfile` to build a environment that this project is developed and tested in (it contains usused libs that this project does not use).
+注意：如果您没有有效的 megatron-lm 环境，请阅读本节。以下脚本是在 NVIDIA 的镜像 `nvcr.io/nvidia/pytorch:24.05-py3` 上执行的，仅供参考。如果此方法失败，请查阅其他资料（例如 megatron-lm 的官方仓库），或者您可以使用 `environment/test_environment/Dockerfile` 来构建一个此项目开发和测试所用的环境（其中包含了一些本项目未使用的库）。
 
 ```bash
 export MAX_JOBS=16

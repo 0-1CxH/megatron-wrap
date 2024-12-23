@@ -182,7 +182,7 @@ class MegatronWrap:
                 mpu_method_retval
             )
         self._parallel_states = _parallel_states
-        logger.debug_rank_0(f"[PATCH] the series of get parallel state funcs are patched, use (t|p|d|c|e)p_(rank|size) instead of the original to save effort")
+        logger.debug_rank_0(f"[PATCH] the series of get parallel state funcs are patched, use (t|p|d|c|e)p_(rank|size|group) instead of the mpu.get_(tensor_model|pipeline_model|data|context|expert_model)_parallel_(world_size|rank|group)()")
         return True
     
     def get_parallel_states(self):

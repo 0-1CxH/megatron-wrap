@@ -13,12 +13,12 @@ megatron_lm:
       micro_batch_size: 8
       global_batch_size: 128
       seq_length: 1024
-      train_iters: 781
+      train_iters: 512
       load: ckpt/llama-2-7b-mcore-tp4pp1
       save: ckpt/llama2-7b-minimal-sft-save
-      save_interval: 781
+      save_interval: 128
     learning-rate:
-      lr: 1.0e-5
+      lr: 5.0e-5
       lr_warmup_fraction: 0.05
 megatron_wrap:
   init:
