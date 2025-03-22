@@ -4,7 +4,7 @@ import torch.distributed
 class SumFunction(torch.autograd.Function):
     group = None
     @staticmethod
-    def forward(ctx, tensor) -> torch.Any:
+    def forward(ctx, tensor):
        assert SumFunction.group is not None, f"need to set group first"
        torch.distributed.all_reduce(
            tensor,

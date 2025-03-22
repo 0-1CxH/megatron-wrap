@@ -154,32 +154,48 @@ class MegatronWrapMinimalMockFlow(MegatronWrapGPTModelFlow):
 
     def collate_data_micro_batch(self, iterator):
         import random
-        mock_length = random.randint(1, self.seq_length // 4) * 4
         model_forward_inputs = {
-            "input_ids": torch.randint(3 ,(self.micro_batch_size, mock_length)), 
-            "position_ids": torch.range(0, mock_length-1, dtype=torch.int64).repeat(self.micro_batch_size).view(self.micro_batch_size, mock_length),
-            "attention_mask": torch.ones(self.micro_batch_size, mock_length, dtype=torch.int64)
+            "input_ids": torch.randint(1, 11, (self.micro_batch_size, self.seq_length)), 
+            "position_ids": torch.range(0, self.seq_length-1, dtype=torch.int64).repeat(self.micro_batch_size).view(self.micro_batch_size, self.seq_length),
+            "attention_mask": torch.ones(self.micro_batch_size, self.seq_length, dtype=torch.int64)
         }
         loss_inputs = {
-            "target": torch.ones(self.micro_batch_size, mock_length)
+            "target": torch.randint(4, 6, (self.micro_batch_size, self.seq_length))
         }
         return model_forward_inputs, loss_inputs
 
     def calculate_loss(self, loss_inputs, model_forward_output):
-        max_values, _ = torch.max(model_forward_output, dim=-1)
-        loss = torch.pow(max_values - loss_inputs["target"], 2).sum(-1)
-        if self.parallel_states.tp_rank == 0  and self.parallel_states.pp_rank == 0  and \
-            self.parallel_states.ep_rank == 0 and self.parallel_states.dp_rank == 0 :
+        # Calculate cross entropy loss for language model pre-training
+        # model_forward_output shape: [batch_size, seq_len, vocab_size]
+        # loss_inputs["target"] shape: [batch_size, seq_len]
+        loss = torch.nn.functional.cross_entropy(
+            model_forward_output.view(-1, model_forward_output.size(-1)),
+            loss_inputs["target"].view(-1).long(),  # Cast target to long
+            reduction='none'
+        ).view(model_forward_output.size(0), -1)
+        # Sum across sequence length
+        loss = loss.sum(-1)
+        
+        if self.parallel_states.tp_rank == 0 and self.parallel_states.pp_rank == 0 and \
+            self.parallel_states.ep_rank == 0 and self.parallel_states.dp_rank == 0:
             logger.debug_all_ranks(f"before sum on cp group: CP{self.parallel_states.cp_rank}, loss={loss.tolist()}")
+            
+        # Sum across tensor parallel groups
         loss = self.sum_on_cp_group(loss)
         logger.debug_rank_0(f"after sum on cp group, loss={loss.tolist()}")
+        
+        # Average across batch dimension
         loss = loss.mean()
+        
         metrics = {
             "loss": self.average_loss_across_dp_ranks(loss),
-            "random_length": model_forward_output.size(1)
+            # "random_length": model_forward_output.size(1)
         }
+
+        logger.debug_all_ranks(f"loss={loss.tolist()}")
         if self.flow_config.log_each_step_metrics:
             self.log_each_step_metrics(metrics)
+            
         return loss, metrics
 
 class MegatronWrapGPTModelSFTFlow(MegatronWrapGPTModelFlow):

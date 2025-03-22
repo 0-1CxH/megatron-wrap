@@ -41,6 +41,8 @@ The configs (`megatron_wrap.core.config`) are organized in a tree strcute and sp
 git clone https://github.com/0-1CxH/megatron-wrap.git
 cd megatron-wrap
 git submodule update --init --recursive # this will pull git@github.com:NVIDIA/Megatron-LM.git (core_r0.8.0) to project folder
+# or:
+git clone https://github.com/NVIDIA/Megatron-LM.git --branch core_r0.8.0 megatron_lm_core_080/
 ```
 
 If you have a megatron-lm environment already, just install reqs of this wrapper:
